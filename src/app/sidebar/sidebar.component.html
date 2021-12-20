@@ -1,0 +1,25 @@
+<button class="navbar-toggler" [ngClass]="{'active': hideMobileMenu}" data-target="#navbar" data-toggle="collapse"
+  type="button" (click)="toggleSideNav()" aria-expanded="false"><span class="icon-bar"></span><span
+    class="icon-bar"></span><span class="icon-bar"></span></button>
+
+<aside class="  mobile mobile-sidebar" *ngIf="hideMobileMenu" [@enterAnimation]>
+  <div class="col-md-12 col-sm-12 col-12 col-xl-2 col-lg-2" id="navbar">
+
+    <div class=" column-first mobile-toggle">
+
+      <ul id="myGroup">
+        <li routerLinkActive="active" routerLink="/dashboard/home/dashboard"
+          class="list" (click)="toggleSideNav()">
+          <div class="collapse-expand"><span routerLinkActive="active"> 
+            
+            Dashboard
+          </span>
+          </div>
+        </li>
+     
+
+      </ul>
+    </div>
+  </div>
+
+</aside>

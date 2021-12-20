@@ -1,0 +1,346 @@
+
+  .overview {
+      overflow: hidden;
+      height: 100vh;
+      font-family: 'Nunito', sans-serif !important;
+
+      .mat-drawer-container, .example-sidenav {
+          background-color: transparent;
+      }
+  }
+  .example-container {
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+  
+  .example-sidenav {
+    padding-left: 14vw;
+    // transition: all;
+  }
+  
+  .mat-expansion-panel,
+  mat-expansion-panel {
+    margin: 0 !important;
+  
+    .mat-expansion-panel-header {
+      padding: 0 1em 0 0 !important;
+      background: transparent;
+    }
+  
+    li {
+      border:  none !important;
+    }
+  }
+  
+  .mat-expansion-panel {
+    font-size: 2vh !important;
+    color: #686666;
+    padding: 1em 0em 0.75em 0;
+    font-weight: 400;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
+  
+  .lines {
+    margin: .75em -1.5em 0 -1em !important;
+  
+  }
+  
+  .mat-icon-button {
+    z-index: 999;
+    position: fixed;
+    top: 1.5vh;
+    left: 1.5vw;
+    background: border-box;
+    color: #888ea8;
+    animation: beat .25s infinite alternate; 
+    svg {
+      font-size: 2em;
+    }
+  
+  }
+  
+  @media (max-width: 1080px) {
+    .mobile {
+      display: block;
+    }
+  
+    .web {
+      display: none;
+    }
+  }
+  
+  @media (min-width: 1080.1px) {
+    .mobile {
+      display: block;
+    }
+  
+    .padding-left {
+      padding-left: 4vw;
+      transition: all .4s;
+    }
+  }
+  
+  .sidebarmargin {
+    margin-top: 1vh;
+    border-radius: 1em;
+    background: #191e3a !important;
+    width: 4vw;
+    z-index: 666;
+    transition: all .3s;
+  
+    ul {
+      list-style: none;
+      padding: 0;
+      text-align: center;
+  
+  
+      li {
+        font-size: 2vh !important;
+        color: #cabbbb;
+        padding: 1em 0em 1em 0;
+        font-weight: 400;
+        cursor: pointer;
+      }
+  
+      li.active {
+        background-color: #060818;
+  
+        i {
+          color: #ff1493 !important;
+          font-weight: 900 !important;
+  
+        }
+      }
+  
+      li:hover {
+        background-color: #060818;
+        color: white;
+  
+        i {
+          color: #444;
+          transform: rotate(360deg);
+  
+        }
+  
+      }
+    }
+ 
+  }
+  
+
+  .bottom-logo {
+  text-align: center;
+
+    img {
+      height: 6em; 
+    }
+  }
+
+  .not-rotates {
+    transform: rotate(0deg);
+    transition: all .3s;
+  }
+  
+  .rotates {
+    transform: rotate(-180deg);
+    transition: all .3s;
+  }
+  
+  .list.active::before {
+    border-right: 2vh solid hsl(233, 60%, 6%);
+    border-top: 2vh solid transparent;
+    border-bottom: 2vh solid transparent;
+    content: "";
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 20%;
+    transition: opacity 150ms ease-in;
+  }
+  
+  .list.active {
+    position: relative;
+  }
+  
+  .secondary-nav-item.active::before {
+    display: none;
+  }
+  
+  .main-sidebar {
+    left: 0vw;
+    margin-top: 1vh;
+    border-radius: 1em;
+    overflow: auto;
+    overflow-x: hidden;
+    width: 14vw !important;
+    -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+    -moz-transition: -moz-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+    -o-transition: -o-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+    transition: transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
+    position: fixed;
+    background: #191e3a !important;
+    height: 90vh;
+    transition: all .5s;
+  
+  
+    .container-fluid {
+      padding: 0 4em;
+    }
+  
+    .laptop {
+      height: 85vh;
+    }
+  
+  
+    .column-first {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      height: 85%;
+      padding-top: 1em;
+  
+      ul {
+        list-style: none;
+        padding-left: 0 !important;
+  
+        li {
+          font-size: 2.25vh !important;
+          color: rgb(104, 102, 102);
+          padding: 1em 0em .75em 0;
+          font-weight: 400;
+          cursor: pointer;
+        }
+  
+        li.active {
+          background-color: #060818;
+          span {
+            color: #ff1493;
+            font-weight: 700 !important;
+          }
+        }
+  
+        li:hover {
+          span {
+            color: rgb(248, 237, 237);
+          }
+        }
+
+        span {
+          padding-left: 1em;
+          color: rgb(202, 187, 187);
+          font-weight: 600;
+        }
+  
+      
+      }
+    }
+  
+  
+    .expand {
+      background-color: transparent;
+      color: #888ea8 !important;
+      transition: all .5s;
+    }
+  
+    .collapsed {
+      background: rgba(255, 255, 255, 0.8);
+      box-shadow: 20px 6px 16px 13px rgb(0 0 0 / 18%);
+      border-radius: 0px 0 0 25px;
+      color: #000 !important;
+      transition: all .5s;
+      border-bottom-left-radius:15px !important;
+  
+      span {
+        color: #000 !important;
+      }
+    }
+  
+  
+    .collapse {
+      display: block !important;
+      transition: all .5s;
+  
+    }
+  
+    .rotate {
+      color: #888ea8;
+    }
+  
+    *:focus {
+      outline: none;
+    }
+  
+    .collapse-div {
+      display: flex;
+      justify-content: space-between;
+      padding-right: 1em;
+    }
+  
+  
+    .collapse-div {
+  
+      .icons {
+        display: flex;
+        align-items: center;
+      }
+    }
+  
+    #demo,
+    #demoes {
+      padding-left: .3em;
+    }
+  
+  
+    #navbar {
+      padding: 1rem 0 .5rem;
+    }
+  
+  
+    .collapse-expand {
+      display: flex;
+    }
+  
+    .collapse-expand.active {
+      color: #ff1493 !important;
+      i {
+        color: #ff1493;
+      }
+    }
+  
+    i {
+      color: #cabbbb;
+      display: flex;
+      align-items: baseline;
+      font-size: 1.25em;
+    }
+  
+    .secondary-nav-item.active {
+      background-color: #43328e !important;
+      border-radius: 0px 0 0 15px;
+  
+      span {
+        color: #888ea8 !important;
+      }
+    }
+  
+    .secondary-nav-item {
+  
+      span {
+        color: #000 !important;
+        font-size: 1.5vh !important;
+      }
+    }
+  }
+  
+
+.sidebar-theme {
+    background: #191e3a;
+}
+
+

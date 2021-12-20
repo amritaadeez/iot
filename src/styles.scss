@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+
+// @import '~ngx-toastr/toastr';
+html,
+body {
+  height: 100%;
+  background: #060818;
+
+  color: #888ea8 !important;
+  font-size: 0.875rem !important;
+  letter-spacing: 0.0312rem !important;
+  font-family: 'Nunito', sans-serif !important;
+}
+.login-button {
+  width: 100%;
+  background-color: transparent !important;
+  transition:.5s all;
+  color: #ff1493 !important;
+  border: 1px solid #ff1493;
+}
+
+.field-wrapper {
+  width: 100%;
+  // text-align: center !important;
+}
+
+.login-button:hover {
+  background-color: #ff1493 !important;
+  width: 100%;
+  transition: .5s all;
+  color: #bfc9d4 !important;
+  border: 1px solid #ff1493;
+}
+
+.login-button:active {
+  background-color: #ff1493 !important;
+  // width: 95%;
+  transition:.5s all;
+  color: #bfc9d4 !important;
+  border: 1px solid #ff1493;
+}
+
+.mat-drawer-container {
+    color: #888ea8 !important;
+}
+
+
+.form-control.is-invalid, .was-validated .form-control:invalid {
+  border-bottom: 1px solid red !important;
+}
+
+
+input, select {
+  font-size:  2vh !important;
+}
+
+
+.mat-menu-content, .mat-menu-pannel {
+    border: 1px solid #191e3a;
+    background-color: #191e3a !important;
+}
+
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.row {
+  width: 100% !important;
+  margin: auto !important;
+}
+
+
+@media (max-width: 1000px) {
+.form-image-col {
+    display: none !important;
+}
+}

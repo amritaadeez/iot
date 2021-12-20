@@ -1,0 +1,129 @@
+<div class="form-container">
+  <div class="row form-form">
+
+    <div class="col-12 col-xl-6 col-sm-12 col-md-12  col-lg-6">
+      <div class="form-form">
+        <div class="form-form-wrap">
+          <div class="form-container">
+            <div class="form-content">
+              <h1>Register to <a><span class="brand-name">IOT Dashboard</span></a></h1>
+              <p class="signup-link">&nbsp;</p>
+              <form class="text-left ng-untouched ng-pristine ng-invalid" role="form" [formGroup]="signUpForm"
+                (ngSubmit)="register(signUpForm.value)">
+                <div class="form">
+                  <div class="row">
+                    <div class="col-6" style="padding-left: 0;">
+                      <div id="name-field" class="field-wrapper input">
+
+                        <i class="fas fa-user"></i>
+                        <input id="firstName" name="firstName" type="text" placeholder="First Name"
+                          formControlName="firstName" class="form-control" required
+                          [ngClass]="{ 'is-invalid': submitted && loginGetter.firstName.errors }" />
+                        <div *ngIf="submitted && loginGetter.firstName.errors" class="invalid-feedback">
+                          <div *ngIf="loginGetter.firstName.errors.required"> First Name is required </div>
+                          <div *ngIf="loginGetter.firstName.errors.pattern"> Invalid FirstName (only letters) </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6" style="padding-right: 0;">
+                      <div id="name-field" class="field-wrapper input">
+
+                        <i class="fas fa-user"></i>
+                        <input id="lastName" name="lastName" type="text" placeholder="Last Name"
+                          formControlName="lastName" class="form-control" required
+                          [ngClass]="{ 'is-invalid': submitted && loginGetter.lastName.errors }" />
+                        <div *ngIf="submitted && loginGetter.lastName.errors" class="invalid-feedback">
+                          <div *ngIf="loginGetter.lastName.errors.required"> Last Name is required </div>
+                          <div *ngIf="loginGetter.lastName.errors.pattern"> Invalid Last Name (only letters)</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div id="Email Id-field" class="field-wrapper input"><i class="fas fa-at"></i><input id="Email Id"
+                      name="Email Id" type="text" placeholder="Email Id" formControlName="emailId" class="form-control"
+                      required [ngClass]="{ 'is-invalid': submitted && loginGetter.emailId.errors }" />
+                    <div *ngIf="submitted && loginGetter.emailId.errors" class="invalid-feedback">
+                      <div *ngIf="loginGetter.emailId.errors.required"> Email ID is required </div>
+                      <div *ngIf="loginGetter.emailId.errors.pattern"> Invalid Email </div>
+                    </div>
+                  </div>
+                  <div id="Phone-field" style="display: flex;" class="field-wrapper input"><i
+                      class="fas fa-phone-alt"></i>
+                    <select formControlName="countryCode">
+
+                      <option *ngFor="let code of countryCode" value="+{{code.country_code}}">+{{code.country_code}}
+                      </option>
+                      <option value="+91" *ngIf="!countryCode"> loading ..</option>
+                    </select>
+                    <input id="phone" name="phone" type="text" placeholder="Phone Number" formControlName="phone"
+                      maxlength="10" minlength="10" class="form-control" required
+                      [ngClass]="{ 'is-invalid': submitted && loginGetter.phone.errors }" />
+
+                    <div *ngIf="submitted && loginGetter.phone.errors" class="invalid-feedback">
+                      <div *ngIf="loginGetter.phone.errors.required"> Phone Number is required </div>
+                      <div *ngIf="loginGetter.phone.errors.pattern"> Invalid Phone Number </div>
+
+                    </div>
+                  </div>
+                  <div id="password-field" class="field-wrapper input mb-2"><i class="fas fa-lock"></i> <input
+                      placeholder="Password" formControlName="password"
+                      class="form-control ng-untouched ng-pristine ng-invalid" [type]="password" required
+                      [ngClass]="{ 'is-invalid': submitted && loginGetter.password.errors }" />
+
+                    <span (click)="toggleFieldTextType()" title="Show Password"  *ngIf="!fieldTextType"> 
+                      <i class="fa fa-eye" type="button"></i>
+                     </span>
+                     <span (click)="toggleFieldTextType()"  title="Hide Password"    *ngIf="fieldTextType"> 
+                      <i class="fa fa-eye-slash"  type="button"></i>
+                     </span>
+                    <div *ngIf="submitted && loginGetter.password.errors" class="invalid-feedback">
+                      <div *ngIf="loginGetter.password.errors.required"> Please Enter Password </div>
+                      <div *ngIf="loginGetter.password.errors.pattern">Password should contain a minimum 8 characters
+                        including at least one numeric digit and one alphabet. </div>
+                    </div>
+                  </div>
+                  <div id="cpassword-field" class="field-wrapper input mb-2">
+                    <i class="fas fa-lock-open"></i>
+                    <input placeholder="Confirm Password" formControlName="cpassword"
+                      class="form-control ng-untouched ng-pristine ng-invalid" [type]="cpassword" required
+                      [ngClass]="{ 'is-invalid': submitted && loginGetter.cpassword.errors }" />
+                      <span (click)="confirmTextType()" title="Show Password"  *ngIf="!confirmType"> 
+                        <i class="fa fa-eye" ></i>
+                       </span>
+                       <span (click)="confirmTextType()"  title="Hide Password" *ngIf="confirmType"> 
+                        <i class="fa fa-eye-slash"></i>
+                       </span>
+                    <div *ngIf="submitted && loginGetter.cpassword.errors" class="invalid-feedback">
+                      <div *ngIf="loginGetter.cpassword.errors.required"> Please Re-Enter password </div>
+                    </div>
+                  </div>
+                  <div class="d-sm-flex justify-content-between">
+                    <div class="field-wrapper">
+                      <button type="submit" class="btn login-button" *ngIf="spinner" [disabled]="spinner">
+                        Register <i class=" fas fa-spin fa-spinner"></i></button>
+                      <button type="submit" class="btn login-button" *ngIf="!spinner ">Register</button>
+                      <!-- <button type="submit" class="btn login-button">Register</button> -->
+                    </div>
+                  </div>
+                  <div class="field-wrapper">
+                    <p class="register-link">Already have an Account? <a routerLink="/login"
+                        class="register-link-color"> Login </a> </p>
+                  </div>
+                </div>
+              </form>
+              <!-- <p class="terms-conditions"> Copyright © All rights reserved. IOT Dashboard </p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-6 form-image-col">
+      <div class="form-image">
+        <img src="assets/iot_logo-1.png" alt="">
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,155 @@
+nav {
+  border-radius: 1em;
+  margin: 1vh;
+  position: sticky;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  margin: 0;
+  // box-shadow: 0 0px 20px rgba(0, 0, 0, 0.18);
+  padding: 0;
+  height: 8vh;
+  background: #191e3a !important;
+  color: #888ea8;
+
+  .row {
+    width: 100%;
+    margin: auto;
+
+    .main-heading {
+      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+    }
+  }
+
+
+  .container-fluid {
+    padding: 0 !important;
+  }
+
+  .cursor {
+    cursor: pointer;
+    color: #ff1493;
+  }
+
+  .name-heading {
+    cursor: pointer;
+  }
+
+  .name-heading:hover {
+    color: #ff1493;
+
+  }
+
+  .cursor:hover {
+    text-decoration: underline;
+  }
+
+  .cursor.active {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+}
+
+.web,
+.mobile {
+  margin: 0 !important;
+}
+
+.sidemenu-dropdown {
+  margin: 0% !important;
+  color: #888ea8;
+}
+
+
+
+
+@media (min-width: 1080.1px) {
+  .middle {
+    h1 {
+      margin: 0;
+      font-size: 3vh !important;
+    }
+  }
+
+  .web {
+    display: block;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media(max-width: 1080px) {
+  .web {
+    display: none;
+  }
+
+  .head {
+    text-align: center;
+    margin: 0 !important;
+  }
+
+  .mobile {
+    display: block;
+    padding: .25em;
+    color: #ff1493;
+
+    img {
+      height: 4vh;
+      border-radius: 50%;
+      background: #4341aa;
+      padding: .25em;
+      border: 2px solid #ff1493;
+    }
+
+
+  }
+
+  .middle {
+    h1 {
+      margin: 0;
+      font-size: 2vh !important;
+    }
+  }
+
+  .middle {
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+      font-size: 16px !important;
+    }
+  }
+
+  .right {
+
+    padding-right: .25em !important;
+
+    h6,
+    h5 {
+      font-size: .7rem !important;
+      width: 98% !important;
+    }
+  }
+}
+
+
+button:hover {
+  h4 {
+    color: #ff1493 !important;
+  }
+}
+
+
+button.active {
+  h4 {
+    color: #ff1493 !important;
+  }
+}

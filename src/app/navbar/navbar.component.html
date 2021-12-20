@@ -1,0 +1,38 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12 main-heading">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-xl-3 col-2">
+              <div class="left">
+                <h2> </h2>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xl-6 col-8" style="align-items: center;
+            display: flex; justify-content: center;">
+              <div class="middle">
+                <h1> IOT DASHBOARD </h1>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-xl-3 col-2" style=" padding: 0;">
+              <div class="right">
+                <!-- <i class="fas fa-expand" >  f0b2</i> -->
+                <h1 class="web">  <span
+                    class="name-heading" [matMenuTriggerFor]="menu"> <i class="fas fa-user"></i>
+                  </span></h1>
+                  <h1 class="mobile">  <span [matMenuTriggerFor]="menu"> <i class="fas fa-user"></i> 
+                  </span></h1>
+                <mat-menu #menu="matMenu">
+                  <button mat-menu-item routerLink="/dashboard/profile"> <h4 class="sidemenu-dropdown">  <i
+                    class="fas fa-user" style="margin-right: 1em;"></i> Hi, {{userEmail}} </h4></button>
+                  <button mat-menu-item (click)="logout()"> <h4 class="sidemenu-dropdown">  <i
+                    class="fas fa-sign-out-alt"  style="margin-right: 1em;"></i> Logout </h4></button>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  

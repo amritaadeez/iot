@@ -1,0 +1,59 @@
+<div class="overview" >
+    <app-navbar ></app-navbar>
+    <button type="button" class="web " mat-icon-button (click)="draw.toggle()"
+      (click)="toggles()" >
+    <i class=" fas fa-bars"></i>
+    </button>
+    <div class="sidebarmargin web" *ngIf="!showFiller" [ngClass]="{
+      'sidebarmargin': !showFiller
+    }" style="
+    height: 90vw;
+    position: fixed;">
+      <div class=" column-first laptop animate__animated animate__fadeInLeft" style="height: 80vh; padding: 1em 0 0 0;">
+        <ul id="myGroup">
+          <li routerLinkActive="active"  routerLink="/dashboard/home/dashboard" matTooltip="Home"
+            matTooltipClass="example-tooltip-red" class="list">
+            <div routerLinkActive="active" class="collapse-expand"><i class="fas fa-home"></i>
+            </div>
+          </li>
+        
+        </ul>
+
+       
+      </div>
+      <div class="bottom-logo">
+        <img src="assets/iot_logo-1.png" style="height: 4em;" >
+      </div>
+    </div>
+    <mat-drawer-container class="example-container" autosize [ngClass]="{
+        'padding-left': !showFiller}">
+  
+      <mat-drawer #draw class="example-sidenav web" mode="side" opened>
+        <aside class=" main-sidebar laptops" id="sidebar" [hidden]="hideMobileMenu" [ngClass]="{'hidden': hideSideNav }">
+          <div class=" column-first laptop" >
+  
+            <ul id="myGroup">
+              <li routerLinkActive="active" routerLink="/dashboard/home/dashboard" class="list"
+               (click)="accordion.closeAll()">
+                <div routerLinkActive="active" class="collapse-expand"><span routerLinkActive="active"><i class="fas fa-home" style="margin-right: 1em;"></i> Dashboard </span>
+                </div>
+              </li>
+             
+            </ul>
+           
+          </div>
+          <div class="bottom-logo">
+            <img src="assets/iot_logo-1.png">
+          </div>
+       
+  
+        </aside>
+      </mat-drawer>
+  
+      <router-outlet></router-outlet>
+  
+    </mat-drawer-container>
+  
+    <app-sidebar class="sidebar mobile"></app-sidebar>
+  </div>
+  

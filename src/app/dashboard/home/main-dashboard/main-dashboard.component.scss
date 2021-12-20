@@ -1,0 +1,100 @@
+
+.main-content {
+    padding: 2em ;
+    input, select {
+        padding: 6px 27px 6px 15px;
+        border: none;
+        width: 100% !important;
+        background-color: #191e3a;
+        color: #e0e6ed;
+    }
+
+     form > div svg {
+        position: absolute;
+        right: 11px;
+        color: #acb0c3;
+        height: 36px;
+        width: 19px;
+        top: 0px;
+    }
+
+    mat-slide-toggle {
+        padding: 2.5vh 0 0 0;
+    }
+    
+    .data-row {
+        padding: 2.5vh 0 0 0;
+    }
+
+    .component-card_9 {
+        background-color: #191e3a;
+        color: #e0e6ed;
+        margin: 1em 0;
+
+        .card-title {
+            color: #e0e6ed;
+            font-size: 1rem;
+        }
+
+
+
+        .meta-user{
+            display: flex;
+
+            .user-name {
+                align-items: center;
+                display: flex;
+
+            }
+        }
+
+        .meta-info1 {
+            position: inherit !important;
+        }
+
+        .meta-info {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            margin-top: 9px;
+            padding-top: 8px;
+            background-color: #191e3a;
+            color: #e0e6ed;
+        }
+        .meta-info:before {
+            content: '';
+            position: absolute;
+            height: 1px;
+            width: 100%;
+            background: #1b2e4b;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .meta-likes {
+            color: #515365;
+        }
+
+        .avatar {
+            position: relative;
+            display: inline-block;
+            width: 34px;
+            height: 34px;
+            font-size: 1rem;
+            margin-right: 10px;
+            .avatar-title {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 100%;
+                background-color: #515365;
+                color: #e0e6ed;
+                font-size: 14px;
+            }
+        }
+    }
+
+}
