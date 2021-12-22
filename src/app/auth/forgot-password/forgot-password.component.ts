@@ -40,7 +40,7 @@ export class ForgotPasswordComponent implements OnInit {
 
 
   forgotPassword(data: any) {
-    console.log(data)
+    
     this.spinner = true;
     this.submitted = true;
     if (this.forgotForm.invalid) {
@@ -51,9 +51,8 @@ export class ForgotPasswordComponent implements OnInit {
       this.apiService.forgotPassword(data).subscribe(
         (response: any) => {
           this.spinner = false
-          console.log(response)
+          
           this.resetLink = response.reset_link
-          console.log(this.resetLink)
           this._snackBar.open(response.message, "Thanks", {
             duration: 3000
           });
@@ -64,8 +63,7 @@ export class ForgotPasswordComponent implements OnInit {
         
         }, (error: any) => {
           this.spinner = false
-          console.log(error)
-          console.log(this.spinner)
+          
           this._snackBar.open(error.error.message, "Cancel");
 
         }

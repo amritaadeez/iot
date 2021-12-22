@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(data: any) {
-    console.log(data)
+    
     this.spinner = true;
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -73,22 +73,19 @@ export class LoginComponent implements OnInit {
       this.apiService.login(data).subscribe(
         (response: any) => {
           this.spinner = false
-          console.log(response)
+          
           this._snackBar.open(response.message, "Thanks", {
             duration: 3000
           });
           var token = response.token
           var email = response.data.email_address
           var id = response.data.id
-          console.log(email)
           localStorage.setItem("email", email)
           localStorage.setItem("id", id)
           localStorage.setItem("authToken", token)
           this.router.navigate(['/dashboard/home/dashboard'])
         }, (error: any) => {
           this.spinner = false
-          console.log(error)
-          console.log(this.spinner)
           this._snackBar.open(error.error.message, "Cancel");
 
         }
@@ -100,9 +97,7 @@ export class LoginComponent implements OnInit {
 
 
   toggleFieldTextType() {
-    console.log(this.password, this.fieldTextType); 
-    this.fieldTextType = !this.fieldTextType;
-        console.log(this.password); 
+    this.fieldTextType = !this.fieldTextType; 
         if (this.password === 'password') {
           this.password = 'text';
           this.fieldTextType = true;

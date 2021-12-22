@@ -22,9 +22,6 @@ export class NavbarComponent implements OnInit {
     this.userEmail = localStorage.getItem("email");
     this.userId = localStorage.getItem("id");
 
-    console.log(this.userEmail)
-    console.log(this.userId)
-   
   }
 
 

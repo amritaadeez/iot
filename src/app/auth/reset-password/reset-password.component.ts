@@ -23,7 +23,7 @@ export class ResetPasswordComponent implements OnInit {
 
       this.authService.resetUrl.subscribe(
         (data: any) => {
-          console.log(data)
+          
           this.resetLink = data
         }
       );
@@ -51,7 +51,7 @@ export class ResetPasswordComponent implements OnInit {
 
 
   resetPassword(data: any) {
-    console.log(data)
+    
     this.spinner = true;
     this.submitted = true;
     if (this.resetForm.invalid) {
@@ -64,13 +64,13 @@ export class ResetPasswordComponent implements OnInit {
         this.apiService.resetPassword(data, this.resetLink).subscribe(
           (response: any) => {
             this.spinner = false
-            console.log(response)
+            
             this._snackBar.open("Set password Successfully", "Thanks");
             this.router.navigate(["/"])
   
           }, (error: any) => {
             this.spinner = false
-            console.log(error)
+            
             
             this._snackBar.open(error.error.message, "Try Again");
   

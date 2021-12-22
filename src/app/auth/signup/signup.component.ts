@@ -93,7 +93,7 @@ export class SignupComponent implements OnInit {
   }
 
   register(data: any) {
-    console.log(data)
+    
     this.spinner = true;
     this.submitted = true;
     if (this.signUpForm.invalid) {
@@ -106,15 +106,24 @@ export class SignupComponent implements OnInit {
       this.apiService.register(data).subscribe(
         (response: any) => {
           this.spinner = false
-          console.log(response)
+          
           this._snackBar.open("Registered Successfully", "Thanks");
           this.router.navigate(["/"])
 
         }, (error: any) => {
           this.spinner = false
-          console.log(error)
-          console.log(this.spinner)
-          this._snackBar.open(error.error.message, "Try Again");
+      
+        
+          if (error.error.message === "The entered email already exists.") {
+            let sb = this._snackBar.open(error.error.message, "Go To Login");
+          
+            sb.onAction().subscribe(() => {
+             this.login()
+            });
+          } else {
+            this._snackBar.open(error.error.message, "Try Again");
+          }
+           
 
         }
       );
@@ -127,10 +136,12 @@ export class SignupComponent implements OnInit {
 
   }
 
+  login() {
+    this.router.navigate(['/login'])
+  }
+
   toggleFieldTextType() {
-    console.log(this.password, this.fieldTextType); 
     this.fieldTextType = !this.fieldTextType;
-        console.log(this.password); 
         if (this.password === 'password') {
           this.password = 'text';
           this.fieldTextType = true;
@@ -141,9 +152,7 @@ export class SignupComponent implements OnInit {
   }
 
   confirmTextType() {
-    console.log(this.cpassword, this.confirmType); 
     this.confirmType = !this.confirmType;
-        console.log(this.password); 
         if (this.cpassword === 'password') {
           this.cpassword = 'text';
           this.confirmType = true;
