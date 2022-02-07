@@ -18,15 +18,14 @@ export class NavbarComponent implements OnInit {
 
   constructor( private apiService: ApiserviceService, public router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
     this.userEmail = localStorage.getItem("email");
     this.userId = localStorage.getItem("id");
-
   }
 
 
   
-  logout(){
+  logout() {
    this.router.navigate(['/'])
    localStorage.clear()
   }

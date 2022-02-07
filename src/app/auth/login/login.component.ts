@@ -39,9 +39,9 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     public router: Router, public dialog: MatDialog) {
 
-      if(localStorage.getItem("authToken") !== null) {
-        this.router.navigate(['/dashboard/home/dashboard'])
-      }
+    if (localStorage.getItem("authToken") !== null) {
+      this.router.navigate(['/dashboard/home/main'])
+    }
 
     this.loginForm = this.formBuilder.group({
       emailId: ['',
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   login(data: any) {
-    
+
     this.spinner = true;
     this.submitted = true;
     if (this.loginForm.invalid) {
@@ -73,7 +73,7 @@ export class LoginComponent implements OnInit {
       this.apiService.login(data).subscribe(
         (response: any) => {
           this.spinner = false
-          
+
           this._snackBar.open(response.message, "Thanks", {
             duration: 3000
           });
@@ -83,7 +83,7 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("email", email)
           localStorage.setItem("id", id)
           localStorage.setItem("authToken", token)
-          this.router.navigate(['/dashboard/home/dashboard'])
+          this.router.navigate(['/dashboard/home/main'])
         }, (error: any) => {
           this.spinner = false
           this._snackBar.open(error.error.message, "Cancel");
@@ -91,20 +91,18 @@ export class LoginComponent implements OnInit {
         }
       );
     }
-
-
   }
 
 
   toggleFieldTextType() {
-    this.fieldTextType = !this.fieldTextType; 
-        if (this.password === 'password') {
-          this.password = 'text';
-          this.fieldTextType = true;
-        } else {
-          this.password = 'password';
-          this.fieldTextType = false;
-        }
+    this.fieldTextType = !this.fieldTextType;
+    if (this.password === 'password') {
+      this.password = 'text';
+      this.fieldTextType = true;
+    } else {
+      this.password = 'password';
+      this.fieldTextType = false;
+    }
   }
 
 }

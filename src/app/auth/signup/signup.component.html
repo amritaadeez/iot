@@ -71,10 +71,10 @@
                       class="form-control ng-untouched ng-pristine ng-invalid" [type]="password" required
                       [ngClass]="{ 'is-invalid': submitted && loginGetter.password.errors }" />
 
-                    <span (click)="toggleFieldTextType()" title="Show Password"  *ngIf="!fieldTextType"> 
+                    <span (click)="toggleFieldTextType()" title="Show Password" class="eye-icon"  *ngIf="!fieldTextType"> 
                       <i class="fa fa-eye" type="button"></i>
                      </span>
-                     <span (click)="toggleFieldTextType()"  title="Hide Password"    *ngIf="fieldTextType"> 
+                     <span (click)="toggleFieldTextType()"  title="Hide Password" class="eye-icon"   *ngIf="fieldTextType"> 
                       <i class="fa fa-eye-slash"  type="button"></i>
                      </span>
                     <div *ngIf="submitted && loginGetter.password.errors" class="invalid-feedback">
@@ -88,10 +88,10 @@
                     <input placeholder="Confirm Password" formControlName="cpassword"
                       class="form-control ng-untouched ng-pristine ng-invalid" [type]="cpassword" required
                       [ngClass]="{ 'is-invalid': submitted && loginGetter.cpassword.errors }" />
-                      <span (click)="confirmTextType()" title="Show Password"  *ngIf="!confirmType"> 
+                      <span (click)="confirmTextType()" title="Show Password" class="eye-icon"  *ngIf="!confirmType"> 
                         <i class="fa fa-eye" ></i>
                        </span>
-                       <span (click)="confirmTextType()"  title="Hide Password" *ngIf="confirmType"> 
+                       <span (click)="confirmTextType()"  title="Hide Password"  class="eye-icon" *ngIf="confirmType"> 
                         <i class="fa fa-eye-slash"></i>
                        </span>
                     <div *ngIf="submitted && loginGetter.cpassword.errors" class="invalid-feedback">

@@ -23,10 +23,10 @@
                     <i class="fas fa-lock"></i><input placeholder="Password" formControlName="password"
                       class="form-control ng-untouched ng-pristine ng-invalid" [type]="password"  required
                       [ngClass]="{ 'is-invalid': submitted && loginGetter.password.errors }" />
-                      <span (click)="toggleFieldTextType()" title="Show Password"  *ngIf="!fieldTextType"> 
+                      <span (click)="toggleFieldTextType()" title="Show Password" class="eye-icon"  *ngIf="!fieldTextType"> 
                         <i class="fa fa-eye" type="button"></i>
                        </span>
-                       <span (click)="toggleFieldTextType()"  title="Hide Password"    *ngIf="fieldTextType"> 
+                       <span (click)="toggleFieldTextType()"  title="Hide Password" class="eye-icon"  *ngIf="fieldTextType"> 
                         <i class="fa fa-eye-slash"  type="button"></i>
                        </span>
                     <div *ngIf="submitted && loginGetter.password.errors" class="invalid-feedback">

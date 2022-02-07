@@ -42,8 +42,6 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {  MatDialogModule } from '@angular/material/dialog';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,18 +59,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatButtonModule,
     MatMenuModule,
     MatDialogModule
-
   ],
+  
   providers: [
     ApiserviceService,
     AuthService,
-    AuthGuard,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: Interceptor,
-    //   multi: true,
-    // },
+    AuthGuard
   ],
+  
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
