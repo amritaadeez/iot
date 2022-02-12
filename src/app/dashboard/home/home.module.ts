@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { HomeRoutingModule } from './home-routing.module';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     MainDashboardComponent
@@ -12,7 +12,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   imports: [
     CommonModule,
     HomeRoutingModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    NgxChartsModule
   ]
 })
 export class HomeModule { }

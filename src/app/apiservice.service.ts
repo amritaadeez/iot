@@ -90,5 +90,9 @@ export class ApiserviceService {
     return this.http.get(this.baseUrl + '/countrycode');
   }
 
+  public chartList() {
+   
+    return this.http.get(this.baseUrl + '/chart_data');
+  }
 
 }

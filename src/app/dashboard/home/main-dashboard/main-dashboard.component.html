@@ -30,11 +30,15 @@
   </div>
   <div class="row">
     <div class="col-12" style="text-align: end;">
-      <mat-slide-toggle>Show Graph</mat-slide-toggle>
+      <mat-slide-toggle   
+      [color]="color"
+          [checked]="checked"
+          [disabled]="disabled"
+          (change)="showGraph($event)">Show Graph</mat-slide-toggle>
     </div>
   </div>
 
-  <div class="row data-row">
+  <div class="row data-row" *ngIf="!graphShown">
     <div class="col-xl-3 col-lg-3 col-md-3 col-12 ">
       <div class="card component-card_9">
         <div class="card-body ">
@@ -275,5 +279,89 @@
         
       </div>
     </div>
+  </div>
+  <div class="row data-row" *ngIf="graphShown">
+  
+    <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
+      <div class="card component-card_9" style="height: 50vh;">
+        <div class="card-body ">
+          <ngx-charts-bar-vertical   style="    display: flex;
+          align-items: center; color: blanchedalmond !important;
+          justify-content: center;"
+    
+     [scheme]="colorScheme"
+     [results]="saleData"
+     [gradient]="gradient"
+     [barPadding]="2"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [showGridLines]="false"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+     (select)="onSelect($event)"
+     >
+      </ngx-charts-bar-vertical>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
+      <div class="card component-card_9" style="height: 50vh; overflow-x: scroll;">
+        <div class="card-body ">
+     
+          <ngx-charts-line-chart 
+         
+
+          [scheme]="colorScheme"
+
+          [gradient]="gradient"
+          [xAxis]="showXAxis"
+          [yAxis]="showYAxis"
+          [showGridLines]="false"
+          [showXAxisLabel]="showXAxisLabel"
+          [showYAxisLabel]="showYAxisLabel"
+          [xAxisLabel]="xAxisLabel"
+          [yAxisLabel]="yAxisLabel"
+          [results]="showLine">
+      </ngx-charts-line-chart>
+     
+        </div>
+        
+      </div>
+    </div> 
+
+    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
+      <div class="card component-card_9" style="    display: flex;
+      align-items: center;
+      justify-content: center;">
+        <div class="card-body ">
+          <ngx-charts-pie-chart 
+    [results]="saleDataPie"
+    [legend]="true"
+    [legendTitle]="'Product Sale Report'" 
+    
+    [labels]="true" >
+</ngx-charts-pie-chart>
+        </div>
+        
+      </div>
+    </div> -->
+
+    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
+      <div class="card component-card_9" style="    display: flex;
+      align-items: center;
+      justify-content: center;">
+        <div class="card-body ">
+          <ngx-charts-pie-grid 
+          [results]="saleDataLine" >
+        </ngx-charts-pie-grid>
+        </div>
+        
+      </div>
+    </div> -->
+
   </div>
 </div>
