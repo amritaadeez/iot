@@ -18,13 +18,12 @@
               <div class="right">
                 <!-- <i class="fas fa-expand" >  f0b2</i> -->
                 <h1 class="web">  <span
-                    class="name-heading" [matMenuTriggerFor]="menu"> <i class="fas fa-user"></i>
+                    class="name-heading" [matMenuTriggerFor]="menu"> <img class="nav-profile-icon" src="assets/profile/male.png">
                   </span></h1>
-                  <h1 class="mobile">  <span [matMenuTriggerFor]="menu"> <i class="fas fa-user"></i> 
+                  <h1 class="mobile">  <span [matMenuTriggerFor]="menu"> <img class="nav-profile-icon"  src="assets/profile/male.png"> 
                   </span></h1>
                 <mat-menu #menu="matMenu">
-                  <button mat-menu-item routerLink="/dashboard/home/profile"> <h4 class="sidemenu-dropdown">  <i
-                    class="fas fa-user" style="margin-right: 1em;"></i> Hi, {{userEmail}} </h4></button>
+                  <button mat-menu-item class="page-redirect" routerLinkActive="active" routerLink="/dashboard/home/profile"> <h4 class="sidemenu-dropdown"> <img src="assets/profile/male.png"  class="nav-profile-icon-small"> Hi, {{userEmail}} </h4></button>
                   <button mat-menu-item (click)="logout()"> <h4 class="sidemenu-dropdown">  <i
                     class="fas fa-sign-out-alt"  style="margin-right: 1em;"></i> Logout </h4></button>
                 </mat-menu>

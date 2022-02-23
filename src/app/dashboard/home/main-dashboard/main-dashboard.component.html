@@ -38,14 +38,14 @@
     </div>
   </div>
 
-  <div class="row data-row" *ngIf="!graphShown">
-    <div class="col-xl-3 col-lg-3 col-md-3 col-12 ">
+  <div class="row data-row" *ngIf="!graphShown && !loader">
+    <div class="col-xl-3 col-lg-3 col-md-6 col-12 " *ngFor="let iotData of fullIotData">
       <div class="card component-card_9">
         <div class="card-body ">
           <div class="meta-info meta-info1">
             <div class="meta-user">
               <div class="user-name"><a href="/user/1paramdetail/0003INC311ON12200137">
-                  <h5 class="card-title">Meter</h5>
+                  <h5 class="card-title">Heading</h5>
                 </a></div>
             </div>
             <div class="meta-action">
@@ -66,22 +66,41 @@
             </div>
           </div>
           <div class="car">
+          
             <div class="meta-info">
               <div class="meta-user">
                 <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">Pressure</div>
+                <div class="user-name">p1</div>
               </div>
               <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
+                <div class="meta-likes"> {{iotData.iot_data.p2 || "-"}} </div>
               </div>
             </div>
             <div class="meta-info">
               <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">V</span></div>
-                <div class="user-name">Volume</div>
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
+                <div class="user-name">p2</div>
               </div>
               <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
+                <div class="meta-likes"> {{iotData.iot_data.p2 || "-"}} </div>
+              </div>
+            </div>
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
+                <div class="user-name">p3</div>
+              </div>
+              <div class="meta-action">
+                <div class="meta-likes"> {{iotData.iot_data.p3 || "-"}} </div>
+              </div>
+            </div>
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
+                <div class="user-name">p4</div>
+              </div>
+              <div class="meta-action">
+                <div class="meta-likes"> {{iotData.iot_data.p4 || "-"}} </div>
               </div>
             </div>
           </div>
@@ -92,198 +111,19 @@
               <div class="user-name">Last updated</div>
             </div>
             <div class="meta-action">
-              <div class="meta-likes"> 5/8/2021, 06:10 PM </div>
+              <div class="meta-likes"> {{iotData.timing_format }} </div>
             </div>
           </div>
         </div>
         
       </div>
     </div>
-    <div class="col-xl-3 col-lg-3 col-md-3 col-12 ">
-      <div class="card component-card_9">
-        <div class="card-body ">
-          <div class="meta-info meta-info1">
-            <div class="meta-user">
-              <div class="user-name"><a href="/user/1paramdetail/0003INC311ON12200137">
-                  <h5 class="card-title">Meter</h5>
-                </a></div>
-            </div>
-            <div class="meta-action">
-              <div class="meta-likes">
-                <div class="w-icon "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-wifi-off">
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-                    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-                    <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-                    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                  </svg></div>
-
-              </div>
-            </div>
-          </div>
-          <div class="car">
-            <div class="meta-info">
-              <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">Pressure</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
-              </div>
-            </div>
-            <div class="meta-info">
-              <div class="meta-user"> 
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">V</span></div>
-                <div class="user-name">Volume</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
-              </div>
-            </div>
-          </div>
-          
-          
-          <div class="meta-info">
-            <div class="meta-user">
-              <div class="user-name">Last updated</div>
-            </div>
-            <div class="meta-action">
-              <div class="meta-likes"> 5/8/2021, 06:10 PM </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="col-xl-3 col-lg-3 col-md-3 col-12 ">
-      <div class="card component-card_9">
-        <div class="card-body ">
-          <div class="meta-info meta-info1">
-            <div class="meta-user">
-              <div class="user-name"><a href="/user/1paramdetail/0003INC311ON12200137">
-                  <h5 class="card-title">Meter</h5>
-                </a></div>
-            </div>
-            <div class="meta-action">
-              <div class="meta-likes">
-                <div class="w-icon "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-wifi-off">
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-                    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-                    <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-                    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                  </svg></div>
-
-              </div>
-            </div>
-          </div>
-          <div class="car">
-            <div class="meta-info">
-              <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">Pressure</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
-              </div>
-            </div>
-            <div class="meta-info">
-              <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">V</span></div>
-                <div class="user-name">Volume</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
-              </div>
-            </div>
-          </div>
-          
-          
-          <div class="meta-info">
-            <div class="meta-user">
-              <div class="user-name">Last updated</div>
-            </div>
-            <div class="meta-action">
-              <div class="meta-likes"> 5/8/2021, 06:10 PM </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
-    <div class="col-xl-3 col-lg-3 col-md-3 col-12 ">
-      <div class="card component-card_9">
-        <div class="card-body ">
-          <div class="meta-info meta-info1">
-            <div class="meta-user">
-              <div class="user-name"><a href="/user/1paramdetail/0003INC311ON12200137">
-                  <h5 class="card-title">Meter</h5>
-                </a></div>
-            </div>
-            <div class="meta-action">
-              <div class="meta-likes">
-                <div class="w-icon "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-wifi-off">
-                    <line x1="1" y1="1" x2="23" y2="23"></line>
-                    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
-                    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
-                    <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
-                    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
-                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
-                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
-                  </svg></div>
-
-              </div>
-            </div>
-          </div>
-          <div class="car">
-            <div class="meta-info">
-              <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">Pressure</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
-              </div>
-            </div>
-            <div class="meta-info">
-              <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">V</span></div>
-                <div class="user-name">Volume</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> 0 </div>
-              </div>
-            </div>
-          </div>
-          
-          
-          <div class="meta-info">
-            <div class="meta-user">
-              <div class="user-name">Last updated</div>
-            </div>
-            <div class="meta-action">
-              <div class="meta-likes"> 5/8/2021, 06:10 PM </div>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
+   
   </div>
-  <div class="row data-row" *ngIf="graphShown">
+  <div class="row data-row" *ngIf="graphShown && !loader">
   
-    <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
-      <div class="card component-card_9" style="height: 50vh;">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-12 "  *ngIf="label">
+      <div class="card component-card_9" style="height: 55vh; overflow-x: scroll;">
         <div class="card-body ">
           <ngx-charts-bar-vertical   style="    display: flex;
           align-items: center; color: blanchedalmond !important;
@@ -308,8 +148,8 @@
       </div>
     </div>
 
-    <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
-      <div class="card component-card_9" style="height: 50vh; overflow-x: scroll;">
+    <div class="col-xl-6 col-lg-6 col-md-6 col-12 "  *ngIf="label">
+      <div class="card component-card_9" style="height: 55vh; overflow-x: scroll;">
         <div class="card-body ">
      
           <ngx-charts-line-chart 
@@ -333,35 +173,24 @@
       </div>
     </div> 
 
-    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
-      <div class="card component-card_9" style="    display: flex;
-      align-items: center;
-      justify-content: center;">
-        <div class="card-body ">
-          <ngx-charts-pie-chart 
-    [results]="saleDataPie"
-    [legend]="true"
-    [legendTitle]="'Product Sale Report'" 
-    
-    [labels]="true" >
-</ngx-charts-pie-chart>
-        </div>
-        
-      </div>
-    </div> -->
-
-    <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
-      <div class="card component-card_9" style="    display: flex;
-      align-items: center;
-      justify-content: center;">
-        <div class="card-body ">
-          <ngx-charts-pie-grid 
-          [results]="saleDataLine" >
-        </ngx-charts-pie-grid>
-        </div>
-        
-      </div>
-    </div> -->
+  
 
   </div>
+
+  <div class="row data-row " *ngIf="loader ">
+    <div class="col-xl-12 col-lg-12 col-md-12 col-12 " >
+      <div class="card component-card_9" style="    display: flex;
+      align-items: center;
+      justify-content: center;">
+        <div class="card-body ">
+          <div class="loader" >
+            <!-- <img src="../../../assets/profile/loader.gif" height="450"> -->
+            <i class="fas fa-spin fa-spinner" style="font-size: 30px;"></i>
+        </div>
+        </div>
+        
+      </div>
+    </div> 
+  </div>
+
 </div>

@@ -15,6 +15,9 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AnalyticsComponent } from './analytics/analytics.component';
+
+
 
 
 @NgModule({
@@ -25,6 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ResetPasswordComponent,
     LayoutComponent,
     PageNotFoundComponent,
+    AnalyticsComponent,
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from 'src/app/apiservice.service';
-
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -18,9 +18,9 @@ export class MainDashboardComponent implements OnInit {
   gradient = true;
   showLegend = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Country';
+  xAxisLabel = 'Date';
   showYAxisLabel = true;
-  yAxisLabel = 'Sales';
+  yAxisLabel = 'Values';
   timeline = true;
   doughnut = true;
   colorScheme = {
@@ -103,14 +103,37 @@ export class MainDashboardComponent implements OnInit {
   chartDataYAxis: any;
   saleDataObj: any;
   chartDataXAxis: any;
+  fullIotData: any;
+  insideIotData: any;
+  insideIot: Array<any> = []
+  loader: boolean;
   constructor(private apiService: ApiserviceService) { }
 
   ngOnInit(): void {
+    this.listIot()
+  }
+
+
+  listIot() {
+    this.loader = true
+    console.log("dd")
+    this.apiService.iot_datas().subscribe(
+      (response:any) => {
+        console.log(response)
+        this.fullIotData = response.data
+        console.log(this.fullIotData)
+
+      this.loader = false
+       }, (error:any) => {
+         console.log(error.error.text)
+         this.fullIotData = JSON.parse(error.error.text.data)
+        console.log(this.fullIotData)
+       }
+    );
   }
 
   showGraph(data:any) {
-
-
+    this.loader = true
     this.apiService.chartList().subscribe(
       (response:any) => {
         console.log(response)
@@ -123,8 +146,10 @@ export class MainDashboardComponent implements OnInit {
         let array = []
         array.push(response)        
 
+
+        this.loader =  false
        
-        for(let i = 0; i < 50; i++ ) {
+        for(let i = 0; i < response.chartdata.length ; i++ ) {
 
          responseAllData.push({
           "name": this.chartDataXAxis[i],
@@ -141,7 +166,9 @@ export class MainDashboardComponent implements OnInit {
         }
       }
     );
- 
+      
+      
+
     this.graphShown = data.checked
   }
 

@@ -19,11 +19,13 @@
     }
 
     mat-slide-toggle {
-        padding: 2.5vh 0 0 0;
+        padding: 2.5vh  0;
     }
     
     .data-row {
-        padding: 2.5vh 0 0 0;
+        padding: 2.5vh 0 6vh 0;
+        height: 75vh !important;
+        overflow-y: auto;
     }
 
     .component-card_9 {

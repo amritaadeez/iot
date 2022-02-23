@@ -55,6 +55,11 @@ nav {
 
 }
 
+
+.page-redirect.active {
+  color: #ff1493 !important;
+}
+
 .web,
 .mobile {
   margin: 0 !important;
@@ -152,4 +157,17 @@ button.active {
   h4 {
     color: #ff1493 !important;
   }
+}
+
+.nav-profile-icon {
+  height: 6vh !important;
+  width: 6vh !important;
+  border: 1px solid #ff1493;
+  border-radius: 50%
+}
+
+.nav-profile-icon-small {
+  height: 3vh;
+  width: 3vh;
+ 
 }

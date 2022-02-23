@@ -1,0 +1,100 @@
+.main-content {
+    height: 92vh;
+    overflow: auto;
+    overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+   
+}
+    .account-settings .user-profile {
+        margin: 0 0 1rem 0;
+        padding-bottom: 1rem;
+        text-align: center;
+    }
+    .account-settings .user-profile .user-avatar {
+        margin: 0 0 1rem 0;
+    }
+    .account-settings .user-profile .user-avatar img {
+        width: 90px;
+        height: 90px;
+        -webkit-border-radius: 100px;
+        -moz-border-radius: 100px;
+        border-radius: 100px;
+    }
+    .account-settings .user-profile h5.user-name {
+        margin: 0 0 0.5rem 0;
+    }
+    .account-settings .user-profile h6.user-email {
+        margin: 0;
+        font-size: 0.8rem;
+        font-weight: 400;
+    }
+    .account-settings .about {
+        margin: 1rem 0 0 0;
+        font-size: 0.8rem;
+        text-align: center;
+    }
+    .card {
+        background: #272E48;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        border: 0;
+        margin-bottom: 1rem;
+    }
+    .form-control {
+        border: 1px solid #596280;
+        -webkit-border-radius: 2px;
+        -moz-border-radius: 2px;
+        border-radius: 2px;
+        font-size: .825rem;
+        background: #1A233A;
+        color: #bcd0f7;
+    }
+
+
+    .btn-primary , .btn-secondary {
+        margin: 1em 0 0 1em ;
+        padding: .5em 3em;
+       
+    }
+
+    h2 {
+        color: #ff1493 !important;
+    }
+
+    .btn-primary {
+        background-color: #ff1493;
+        border: 2px solid #ff1493;
+        color: #fff !important;
+    }
+
+    
+    .btn-primary:hover , .btn-primary:active, .btn-primary:visited {
+        background-color: transparent !important;
+        border: 2px solid #ff1493;
+        color: #ff1493 !important;
+    }
+
+    
+    .btn-secondary {
+        background-color: transparent;
+        border: 2px solid #ff1493;
+        color: #ff1493 !important;
+    }
+
+    .user-name {
+        color: #ff1493 !important;
+
+    }
+
+    .loader {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }

@@ -23,6 +23,7 @@
     "@angular/router": "~11.2.14",
     "@fortawesome/fontawesome-free": "^5.15.4",
     "@swimlane/ngx-charts": "^19.1.0",
+    "apexcharts": "^3.33.1",
     "chart.js": "^2.9.4",
     "ng2-charts": "^2.4.2",
     "rxjs": "~6.6.0",

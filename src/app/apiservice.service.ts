@@ -28,6 +28,7 @@ export class ApiserviceService {
 
   constructor(private http: HttpClient, private authService: AuthService, public router: Router) {
     this.token = localStorage.getItem("authToken")
+    console.log(this.token)
     this.getAuthHeader();
    }
 
@@ -35,7 +36,18 @@ export class ApiserviceService {
     let header: HttpHeaders;
     header = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
-      // 'Authorization': this.token,
+      'Authorization': 'Bearer' + ' ' + this.token,
+    });
+
+    return header;
+  }
+
+
+  public getResetPassword() {
+    let header: HttpHeaders;
+    header = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+    
     });
 
     return header;
@@ -80,7 +92,7 @@ export class ApiserviceService {
       .set('new_password', data.password)
       .set('confirm_password', data.cpassword)
     return this.http.post( resetLink,   params,  {
-      headers: this.getAuthHeader()
+      headers: this.getResetPassword()
     });
   }
 
@@ -93,6 +105,37 @@ export class ApiserviceService {
   public chartList() {
    
     return this.http.get(this.baseUrl + '/chart_data');
+  }
+
+
+  public getProfile() {
+   
+    return this.http.get(this.baseUrl + '/get_user_profile',  {
+      headers: this.getAuthHeader()
+    });
+  }
+
+
+  public iot_datas() {
+   
+    return this.http.get(this.baseUrl + '/list_iotdata' ,  {
+      headers: this.getAuthHeader()
+    });
+  }
+
+
+  
+  public updateProfile(data: any) {
+    const body = {
+      first_name: data.firstName,
+      last_name: data.lastName,
+      country_code: "+91",
+      phone: data.phone
+    }
+
+    return this.http.put(this.baseUrl + '/update_user_profile', body ,  {
+      headers: this.getAuthHeader()
+    });
   }
 
 }
