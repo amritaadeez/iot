@@ -17,7 +17,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 
-
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -37,6 +37,7 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     ReactiveFormsModule,
     MatButtonModule,
     MatMenuModule,
+    NgxChartsModule,
     MatSidenavModule,
     MatTooltipModule
   ]

@@ -30,33 +30,13 @@ export class LayoutComponent implements OnInit {
   hideSideNav: boolean;
   hideMobileMenu: boolean;
   isCount: string;
-  isMismachedAuth: string;
-  panelOpenState: boolean = false;
-  panelOpenState2: boolean = false;
-  panelOpenState3: boolean = false;
+ 
  @ViewChild(MatAccordion) accordion: MatAccordion;
-  isSettlementOmni: string;
-  isSettlementRupay: string;
-  isSettlementAddMoney: string;
-  isSettlementQR: string;
-  isSettlementRecharge: string;
-  isSettlementMT: string;
-  isSettlementPending: string;
-  isSettlementRefund: string;
-  wholeSettlement: boolean;
+
   isChargeBack: string;
   token: any;
-  isPincode: string;
-  configration: string;
 
   constructor(private authService: AuthService, public dialog: MatDialog,) {
-
-    this.token = localStorage.getItem('loginToken')
-    if(!this.token) {
-      this.dialog.closeAll();
-    }
-  
-   
 
   }
   ngOnInit(): void {

@@ -125,9 +125,9 @@ export class MainDashboardComponent implements OnInit {
 
       this.loader = false
        }, (error:any) => {
-         console.log(error.error.text)
-         this.fullIotData = JSON.parse(error.error.text.data)
-        console.log(this.fullIotData)
+        //  console.log(error.error.text)
+        //  this.fullIotData = JSON.parse(error.error.text.data)
+        // console.log(this.fullIotData)
        }
     );
   }

@@ -39,14 +39,14 @@
   </div>
 
   <div class="row data-row" *ngIf="!graphShown && !loader">
-    <div class="col-xl-3 col-lg-3 col-md-6 col-12 " *ngFor="let iotData of fullIotData">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-12 " *ngFor="let iotData of fullIotData">
       <div class="card component-card_9">
         <div class="card-body ">
           <div class="meta-info meta-info1">
             <div class="meta-user">
-              <div class="user-name"><a href="/user/1paramdetail/0003INC311ON12200137">
-                  <h5 class="card-title">Heading</h5>
-                </a></div>
+              <div class="user-name">
+                  <h5 class="card-title" style="color: #ff1493;" routerLink="/dashboard/home/analytics">{{iotData.DeviceName}}</h5>
+                </div>
             </div>
             <div class="meta-action">
               <div class="meta-likes">
@@ -70,7 +70,16 @@
             <div class="meta-info">
               <div class="meta-user">
                 <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">p1</div>
+                <div class="user-name">P1</div>
+              </div>
+              <div class="meta-action">
+                <div class="meta-likes"> {{iotData.iot_data.p1 || "-"}} </div>
+              </div>
+            </div>
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
+                <div class="user-name">P2</div>
               </div>
               <div class="meta-action">
                 <div class="meta-likes"> {{iotData.iot_data.p2 || "-"}} </div>
@@ -79,16 +88,7 @@
             <div class="meta-info">
               <div class="meta-user">
                 <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">p2</div>
-              </div>
-              <div class="meta-action">
-                <div class="meta-likes"> {{iotData.iot_data.p2 || "-"}} </div>
-              </div>
-            </div>
-            <div class="meta-info">
-              <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">p3</div>
+                <div class="user-name">P3</div>
               </div>
               <div class="meta-action">
                 <div class="meta-likes"> {{iotData.iot_data.p3 || "-"}} </div>
@@ -97,7 +97,7 @@
             <div class="meta-info">
               <div class="meta-user">
                 <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">p4</div>
+                <div class="user-name">P4</div>
               </div>
               <div class="meta-action">
                 <div class="meta-likes"> {{iotData.iot_data.p4 || "-"}} </div>
