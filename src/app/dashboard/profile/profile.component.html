@@ -51,7 +51,7 @@
                   </div>
                 </div>
               </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="col-xl-6 col-lg-6 col-md-12 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="email">Email</label>
                   <input type="email" class="form-control"  id="eMail"
@@ -63,11 +63,26 @@
                 </div>
               </div>
 
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="col-xl-2 col-lg-2 col-md-12 col-sm-2 col-12">
+                <div class="form-group">
+                  <label for="phone">Country code</label>
+                  <select class="form-control" formControlName="countryCoded">
+
+                    <option *ngFor="let code of countryCode" value="+{{code.country_code}}">+{{code.country_code}}
+                    </option>
+                    <option  value="{{profileData.country_code}}">{{profileData.country_code}}
+                    </option>
+                    <option value="+91" *ngIf="!countryCode"> loading ..</option>
+                  </select>
+                 
+                </div>
+              </div>
+
+              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4 col-12">
                 <div class="form-group">
                   <label for="phone">Phone</label>
                   <input type="text" class="form-control" id="phone"
-                    value="{{profileData.country_code}} {{profileData.phone}}" placeholder="Enter phone number"
+                    value="{{profileData.phone}}" placeholder="Enter phone number"
                     maxlength="10" minlength="10" class="form-control"
                     [ngClass]="{ 'is-invalid': submitted && loginGetter.phone.errors }" />
 
@@ -132,12 +147,12 @@
               <div class="user-avatar">
                 <img src="assets/profile/male.png" alt="--">
               </div>
-              <h3 class="user-name"> ******* *****</h3>
-              <h4 class="user-email">*******@****.**</h4>
+              <h3 class="user-name"> XXXXXX XXXXXX </h3>
+              <h4 class="user-email">XXXXXX@XXXX.XX</h4>
             </div>
             <div class="about">
               <h2 class="mb-2 ">About</h2>
-              <p>I'm *******. Profile Created on **/**/****</p>
+              <p>I'm XXXXXX. Profile Created on XX/XX/XXXX</p>
             </div>
           </div>
         </div>
@@ -186,8 +201,18 @@
                   </div>
                 </div>
               </div>
+              <div class="col-xl-2 col-lg-2 col-md-12 col-sm-2 col-12">
+                <div class="form-group">
+                  <label for="phone">Country code</label>
+                  <select class="form-control">
 
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                    <option value="+91" *ngIf="!countryCode"> loading ..</option>
+                  </select>
+                 
+                </div>
+              </div>
+
+              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4 col-12">
                 <div class="form-group">
                   <label for="phone">Phone</label>
                   <input type="text" class="form-control" id="phone"

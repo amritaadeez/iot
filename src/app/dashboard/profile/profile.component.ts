@@ -56,7 +56,9 @@ export class ProfileComponent implements OnInit {
 
       phone: ['',
         [Validators.pattern('^[56789]\\d{9}$'), Validators.maxLength(10), Validators.minLength(10)]
-      ]
+      ], countryCoded: ['' ,
+      [Validators.required ]
+    ]
 
     });
   }
@@ -68,6 +70,18 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProfile()
+    this.countryList()
+  }
+
+  countryList() {
+    this.apiService.counytryList().subscribe(
+      (res:any) => {
+        this.countryCode = res.countrycoderesponse
+
+      }, (err:any) => {
+        
+      }
+    );
   }
 
   getProfile() {
@@ -80,7 +94,8 @@ export class ProfileComponent implements OnInit {
           firstName: this.profileData?.first_name,
           lastName: this.profileData?.last_name,
           emailId: this.profileData?.email_address,
-          phone: this.profileData?.phone
+          phone: this.profileData?.phone,
+          countryCoded: this.profileData?.country_code
         });
 
       },

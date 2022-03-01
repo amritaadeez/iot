@@ -28,6 +28,9 @@ term: any
   colorScheme = {
     domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
   };
+
+  Object = Object;
+  
   //pie
   showLabels = true;
 // showLine : any[]
