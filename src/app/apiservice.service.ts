@@ -27,12 +27,14 @@ export class ApiserviceService {
 
 
   constructor(private http: HttpClient, private authService: AuthService, public router: Router) {
-    this.token = localStorage.getItem("authToken")
-    console.log(this.token)
+   
     this.getAuthHeader();
    }
 
+
   public getAuthHeader() {
+    this.token = localStorage.getItem("authToken")
+    console.log(this.token)
     let header: HttpHeaders;
     header = new HttpHeaders({
       'Content-Type': 'application/x-www-form-urlencoded',
@@ -98,13 +100,21 @@ export class ApiserviceService {
 
 
   public counytryList() {
+
    
-    return this.http.get(this.baseUrl + '/countrycode');
+   
+    return this.http.get(this.baseUrl +  '/countrycode');
   }
 
   public chartList() {
-   
-    return this.http.get(this.baseUrl + '/chart_data');
+    const body = {
+      chart_input : "GHP",
+      device_name:"OMNITEMP001",
+      time_interval:"1"
+    }
+    return this.http.post(this.baseUrl + '/chart_data' , body , {
+      headers: this.getAuthHeader()
+    });
   }
 
 

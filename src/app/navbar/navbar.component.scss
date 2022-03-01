@@ -9,8 +9,8 @@ nav {
   // box-shadow: 0 0px 20px rgba(0, 0, 0, 0.18);
   padding: 0;
   height: 8vh;
-  background: #191e3a !important;
-  color: #888ea8;
+  background: #0e1726 !important;
+  color: #f2f2f2;
 
   .row {
     width: 100%;
@@ -32,7 +32,7 @@ nav {
 
   .cursor {
     cursor: pointer;
-    color: #ff1493;
+    color: #f2f2f2;
   }
 
   .name-heading {
@@ -40,7 +40,7 @@ nav {
   }
 
   .name-heading:hover {
-    color: #ff1493;
+    color: #f2f2f2;
 
   }
 
@@ -57,7 +57,7 @@ nav {
 
 
 .page-redirect.active {
-  color: #ff1493 !important;
+  color: #f2f2f2 !important;
 }
 
 .web,
@@ -67,7 +67,7 @@ nav {
 
 .sidemenu-dropdown {
   margin: 0% !important;
-  color: #888ea8;
+  color: #f2f2f2;
 }
 
 
@@ -103,14 +103,14 @@ nav {
   .mobile {
     display: block;
     padding: .25em;
-    color: #ff1493;
+    color: #f2f2f2;
 
     img {
       height: 4vh;
       border-radius: 50%;
-      background: #4341aa;
+      background: #f2f2f2;
       padding: .25em;
-      border: 2px solid #ff1493;
+      border: 2px solid #0e1726;
     }
 
 
@@ -148,21 +148,21 @@ nav {
 
 button:hover {
   h4 {
-    color: #ff1493 !important;
+    color: #f2f2f2 !important;
   }
 }
 
 
 button.active {
   h4 {
-    color: #ff1493 !important;
+    color: #f2f2f2 !important;
   }
 }
 
 .nav-profile-icon {
   height: 4vh !important;
   width: 4vh !important;
-  border: 1px solid #ff1493;
+  border: 1px solid #0e1726;
   border-radius: 50%
 }
 

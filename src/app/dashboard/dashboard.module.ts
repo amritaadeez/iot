@@ -18,7 +18,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AnalyticsComponent } from './analytics/analytics.component';
 
 import { NgxChartsModule } from '@swimlane/ngx-charts';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [
@@ -39,7 +39,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     MatMenuModule,
     NgxChartsModule,
     MatSidenavModule,
-    MatTooltipModule
+    MatTooltipModule,
+    Ng2SearchPipeModule
   ]
 })
 export class DashboardModule { }

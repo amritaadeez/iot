@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiserviceService } from 'src/app/apiservice.service';
 import * as moment from 'moment';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -12,7 +14,7 @@ export class MainDashboardComponent implements OnInit {
   checked = false;
   disabled = false;
   graphShown: any;
-
+term: any
   showXAxis = true;
   showYAxis = true;
   gradient = true;
@@ -107,14 +109,23 @@ export class MainDashboardComponent implements OnInit {
   insideIotData: any;
   insideIot: Array<any> = []
   loader: boolean;
-  constructor(private apiService: ApiserviceService) { }
+  iotdata: any;
+  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router) {
+
+   
+   }
 
   ngOnInit(): void {
     this.listIot()
+   
+    this.iotdata = setInterval(() => {
+      this.listIotTimer(); 
+      }, 10000);
   }
 
 
   listIot() {
+   
     this.loader = true
     console.log("dd")
     this.apiService.iot_datas().subscribe(
@@ -122,14 +133,52 @@ export class MainDashboardComponent implements OnInit {
         console.log(response)
         this.fullIotData = response.data
         console.log(this.fullIotData)
+        localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
 
       this.loader = false
        }, (error:any) => {
-        //  console.log(error.error.text)
+          console.log(error.error.text)
+          this._snackbar.open("Unauthorize access", "Login Again", {
+            duration: 3000
+          });
+          this.router.navigate(['/'])
+          localStorage.clear()
+   
+
         //  this.fullIotData = JSON.parse(error.error.text.data)
         // console.log(this.fullIotData)
        }
     );
+  }
+
+  listIotTimer() {
+   
+    console.log("dd")
+    this.apiService.iot_datas().subscribe(
+      (response:any) => {
+        console.log(response)
+        this.fullIotData = response.data
+        console.log(this.fullIotData)
+        localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
+
+      this.loader = false
+       }, (error:any) => {
+          console.log(error.error.text)
+          this._snackbar.open("Unauthorize access", "Login Again", {
+            duration: 3000
+          });
+          this.router.navigate(['/'])
+          localStorage.clear()
+   
+
+        //  this.fullIotData = JSON.parse(error.error.text.data)
+        // console.log(this.fullIotData)
+       }
+    );
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.iotdata);
   }
 
   showGraph(data:any) {

@@ -24,7 +24,7 @@
       li.active {
   
         span {
-          color: #444;
+          color: #0e1726;
           font-weight: 900 !important;
   
         }
@@ -32,7 +32,7 @@
   
       li:hover {
         span {
-          color: #fff;
+          color: #f2f2f2;
         }
   
   
@@ -40,7 +40,7 @@
   
       span {
         padding-left: 1em;
-        color: #444;
+        color: #0e1726;
         font-family: 'Muli', sans-serif;
         font-weight: 700;
       }
@@ -55,7 +55,7 @@
   
   
   .expand {
-    color: #fff;
+    color: #f2f2f2;
     transition: all .5s;
   }
   
@@ -63,7 +63,7 @@
     background-color: transparent;
     box-shadow: 20px 6px 16px 13px rgb(0 0 0 / 18%);
     border-radius: 0px 0 0 25px;
-    color: #000;
+    color: #0e1726;
     transition: all .5s;
   }
   
@@ -78,7 +78,7 @@
   }
   
   .rotate {
-    color: #fff;
+    color: #f2f2f2;
   }
   
   *:focus {
@@ -116,7 +116,7 @@
   
     #sidebar {
       // max-width: 516px;
-      color: #fff;
+      color: #f2f2f2;
       transition: all 0.3s;
   
     }
@@ -184,7 +184,7 @@
       box-shadow: none !important;
   
       .icon-bar {
-        background: #fff;
+        background: #f2f2f2;
         height: 3px;
         display: block;
         width: 22px;
@@ -205,11 +205,11 @@
   .mobile-sidebar {
     display: block;
     width: 100%;
-     background: #191e3a !important;
+     background: #0e1726 !important;
     display: inline-block;
     position: fixed;
     top: 8vh;
-    box-shadow: 0 5px 20px #000;
+    box-shadow: 0 5px 20px #0e1726;
     z-index: 100;
     transition: 5s;
     -webkit-transform: scale(1);
@@ -223,13 +223,13 @@
   
     li {
       span {
-        color: #444 !important;
+        color: #f2f2f2 !important;
       }
     }
   
     li:hover {
       span {
-        color: #fff !important;
+        color: #f2f2f2 !important;
       }
     }
   
@@ -237,7 +237,7 @@
    
   
       span {
-        color: #fff !important;
+        color: #f2f2f2 !important;
         font-weight: 900 !important;
       }
     }
@@ -253,7 +253,7 @@
   
   .collapse-expand.active {
     i {
-      color: #fff;
+      color: #f2f2f2;
     }
   }
   
@@ -265,12 +265,12 @@
   }
   
   .collapselist.active {
-    background-color: #fff;
+    background-color: #f2f2f2;
     box-shadow: 20px 6px 16px 13px rgba(0, 0, 0, 0.18);
     border-radius: 0px 0 0 25px;
   
     span {
-      color: #fff;
+      color: #f2f2f2;
     }
   }
   
@@ -279,8 +279,8 @@
   .collapselist:hover {
   
     span {
-      // color: #444;
-      color: #000 !important;
+      // color: #0e1726;
+      color: #0e1726 !important;
     }
   
   
@@ -296,18 +296,18 @@
   }
   
   .secondary-nav-item.active {
-   background-color: #444;
+   background-color: #0e1726;
     border-radius: 0px 0 0 25px;
   
     span {
-      color: #444 !important;
+      color: #f2f2f2 !important;
     }
   }
   
   .secondary-nav-item {
   
     span {
-      color: #000 !important;
+      color: #f2f2f2 !important;
       font-size: 1.8vh !important;
     }
   }

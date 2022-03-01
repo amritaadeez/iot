@@ -6,6 +6,7 @@
 
       .mat-drawer-container, .example-sidenav {
           background-color: transparent;
+          border: none !important;
       }
   }
   .example-container {
@@ -56,7 +57,7 @@
     top: 1.5vh;
     left: 1.5vw;
     background: border-box;
-    color: #888ea8;
+    color: #f2f2f2;
     animation: beat .25s infinite alternate; 
     svg {
       font-size: 2em;
@@ -88,7 +89,7 @@
   .sidebarmargin {
     margin-top: 1vh;
     border-radius: 1em;
-    background: #191e3a !important;
+    background: #0e1726 !important;
     width: 4vw;
     z-index: 666;
     transition: all .3s;
@@ -101,29 +102,29 @@
   
       li {
         font-size: 2vh !important;
-        color: #cabbbb;
+        color: #f2f2f2;
         padding: 1em 0em 1em 0;
         font-weight: 400;
         cursor: pointer;
       }
   
       li.active {
-        background-color: #060818;
-        color: #ff1493 !important;
+        background-color: #f2f2f2;
+        color: #0e1726 !important;
   
         i {
-          color: #ff1493 !important;
+          color: #0e1726 !important;
           font-weight: 900 !important;
   
         }
       }
   
       li:hover {
-        background-color: #060818;
-        color: white;
+        background-color: #f2f2f2;
+        color: #0e1726;
   
         i {
-          color: #444;
+          color: #f2f2f2;
           transform: rotate(360deg);
   
         }
@@ -152,7 +153,7 @@
     transition: all .3s;
   }
   
-  .list.active::before {
+  .list221ive::before {
     border-right: 2vh solid hsl(233, 60%, 6%);
     border-top: 2vh solid transparent;
     border-bottom: 2vh solid transparent;
@@ -184,7 +185,7 @@
     -o-transition: -o-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     transition: transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     position: fixed;
-    background: #191e3a !important;
+    background: #0e1726 !important;
     height: 90vh;
     transition: all .5s;
   
@@ -212,29 +213,30 @@
   
         li {
           font-size: 2.25vh !important;
-          color: rgb(104, 102, 102);
+        
           padding: 1em 0em .75em 0;
           font-weight: 400;
           cursor: pointer;
         }
   
         li.active {
-          background-color: #060818;
+          background-color: #f2f2f2;
           span {
-            color: #ff1493;
+            color: #0e1726;
             font-weight: 700 !important;
           }
         }
   
         li:hover {
+          background-color: #f2f2f2;
           span {
-            color: rgb(248, 237, 237);
+            color: #0e1726;
           }
         }
 
         span {
           padding-left: 1em;
-          color: rgb(202, 187, 187);
+          color: #f2f2f2;
           font-weight: 600;
         }
   
@@ -245,7 +247,7 @@
   
     .expand {
       background-color: transparent;
-      color: #888ea8 !important;
+      color: #0e1726 !important;
       transition: all .5s;
     }
   
@@ -253,12 +255,12 @@
       background: rgba(255, 255, 255, 0.8);
       box-shadow: 20px 6px 16px 13px rgb(0 0 0 / 18%);
       border-radius: 0px 0 0 25px;
-      color: #000 !important;
+      color: #0e1726 !important;
       transition: all .5s;
       border-bottom-left-radius:15px !important;
   
       span {
-        color: #000 !important;
+        color: #0e1726 !important;
       }
     }
   
@@ -270,7 +272,7 @@
     }
   
     .rotate {
-      color: #888ea8;
+      color: #0e1726;
     }
   
     *:focus {
@@ -308,9 +310,9 @@
     }
   
     .collapse-expand.active {
-      color: #ff1493 !important;
+      color: #0e1726 !important;
       i {
-        color: #ff1493;
+        color: #0e1726;
       }
     }
   
@@ -326,14 +328,14 @@
       border-radius: 0px 0 0 15px;
   
       span {
-        color: #888ea8 !important;
+        color: #0e1726 !important;
       }
     }
   
     .secondary-nav-item {
   
       span {
-        color: #000 !important;
+        color: #0e1726 !important;
         font-size: 1.5vh !important;
       }
     }
@@ -341,7 +343,7 @@
   
 
 .sidebar-theme {
-    background: #191e3a;
+    background: #0e1726;
 }
 
 

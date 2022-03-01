@@ -5,20 +5,21 @@
   width: 100%;
   min-height: 100%;
   justify-content: center;
+  background-color: #fff;
 
   h1 {
-    color: #bfc9d4;
+    color: #FF69B4;
     font-size: 2.5rem !important;
     font-family: "Nunito", sans-serif !important;
     font-weight: 600;
 
     .brand-name {
-      color: #ff1493;
+      color: #0e1726;
     }
   }
 
   input:focus {
-    border-bottom: 1px solid #ff1493;
+    border-bottom: 1px solid #0e1726;
     box-shadow: none;
   }
 
@@ -29,7 +30,7 @@
 
   a.forgot-pass-link {
     width: 100%;
-    color: #ff1493;
+    color: #0e1726;
     text-align: right;
     display: block;
     letter-spacing: 2px;
@@ -47,13 +48,13 @@
   }
 
   .register-link-color {
-    color: #ff1493;
+    color: #0e1726;
   }
 
   .terms-conditions {
     max-width: 480px;
     margin: 0 auto;
-    color: #888ea8;
+    color: #0e1726;
     margin-top: 90px;
   }
 
@@ -96,7 +97,7 @@
   svg {
     position: absolute;
     top: 13px;
-    color: #ff1493;
+    color: #0e1726;
     fill: rgba(33, 150, 243, 0.109804);
     font-size: 1.5em;
   }
@@ -132,9 +133,9 @@
   border: none;
   -ms-transition: all 0.2s ease-in-out 0s;
   transition: all 0.2s ease-in-out 0s;
-  color: #ff1493;
+  color: #0e1726;
   font-size: 16px;
-  border-bottom: 1px solid #191e3a;
+  border-bottom: 1px solid #0e1726;
   padding: 0px 0 10px 35px !important;
 }
 
@@ -142,8 +143,8 @@ select {
   padding-left: 30px;
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #191e3a;
-  color: #ff1493;
+  border-bottom: 1px solid #0e1726;
+  color: #0e1726;
 }
 
 .form-image {
@@ -151,6 +152,11 @@ select {
   height: 100%;
   align-items: center;
   justify-content: center;
+}
+.form-image {
+  img {
+    height: 15vh;
+  }
 }
 
 

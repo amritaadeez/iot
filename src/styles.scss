@@ -4,9 +4,10 @@
 html,
 body {
   height: 100%;
-  background: #060818;
-
-  color: #888ea8 !important;
+  // background: #060818;
+background-color: #f2f2f2;
+  // color: #0e1726 !important;
+  color: #0e1726 !important;
   font-size: 0.875rem !important;
   letter-spacing: 0.0312rem !important;
   font-family: 'Nunito', sans-serif !important;
@@ -29,8 +30,8 @@ body {
   width: 100%;
   background-color: transparent !important;
   transition: .5s all;
-  color: #ff1493 !important;
-  border: 1px solid #ff1493;
+  color: #0e1726 !important;
+  border: 1px solid #0e1726;
 }
 
 .field-wrapper {
@@ -39,23 +40,23 @@ body {
 }
 
 .login-button:hover {
-  background-color: #ff1493 !important;
+  background-color: #0e1726 !important;
   width: 100%;
   transition: .5s all;
   color: #bfc9d4 !important;
-  border: 1px solid #ff1493;
+  border: 1px solid #0e1726;
 }
 
 .login-button:active {
-  background-color: #ff1493 !important;
+  background-color: #0e1726 !important;
   // width: 95%;
   transition: .5s all;
   color: #bfc9d4 !important;
-  border: 1px solid #ff1493;
+  border: 1px solid #0e1726;
 }
 
 .mat-drawer-container {
-  color: #888ea8 !important;
+  color: #0e1726 !important;
 }
 
 
@@ -77,8 +78,8 @@ select {
 
 .mat-menu-content,
 .mat-menu-pannel {
-  border: 1px solid #191e3a;
-  background-color: #191e3a !important;
+  border: 1px solid #0e1726;
+  background-color: #0e1726 !important;
 }
 
 *:focus {
@@ -101,4 +102,9 @@ body {
   .form-image-col {
     display: none !important;
   }
+}
+
+
+a {
+  color: #FF69B4 !important;
 }

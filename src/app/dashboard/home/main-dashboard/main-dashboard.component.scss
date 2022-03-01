@@ -5,8 +5,8 @@
         padding: 6px 27px 6px 15px;
         border: none;
         width: 100% !important;
-        background-color: #191e3a;
-        color: #e0e6ed;
+        background-color: #fff;
+        color: #000;
     }
 
      form > div svg {
@@ -29,13 +29,20 @@
     }
 
     .component-card_9 {
-        background-color: #191e3a;
-        color: #e0e6ed;
+        background-color: #fff;
+        color: #000;
         margin: 1em 0;
+        box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
 
         .card-title {
-            color: #e0e6ed;
+            color: #000;
+            cursor: pointer;
             font-size: 1rem;
+            font-weight: 500 !important;
+        }
+
+        .card-title:hover {
+            font-weight: 600 !important;
         }
 
 
@@ -60,8 +67,8 @@
             justify-content: space-between;
             margin-top: 9px;
             padding-top: 8px;
-            background-color: #191e3a;
-            color: #e0e6ed;
+            background-color: #fff;
+            color: #000;
         }
         .meta-info:before {
             content: '';
@@ -93,7 +100,7 @@
                 width: 100%;
                 height: 100%;
                 background-color: #515365;
-                color: #e0e6ed;
+                color: #fff;
                 font-size: 14px;
             }
         }

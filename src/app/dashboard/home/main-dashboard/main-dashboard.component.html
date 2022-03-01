@@ -9,10 +9,12 @@
             stroke-linejoin="round" class="feather feather-search">
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg><input name="txtdevicesearch" type="text" id="input-search" placeholder="Search by meter name..."
+          </svg><input name="txtdevicesearch" type="text" id="input-search" [(ngModel)]="term" placeholder="Search by meter name..."
           class="form-control product-search ng-pristine ng-valid ng-touched">
         </div>
       </form>
+   
+     
 
     </div>
     <div class="col-xl-4 col-lg-4  col-md-4 col-12">
@@ -28,7 +30,7 @@
       </select>
     </div>
   </div>
-  <div class="row">
+  <!-- <div class="row">
     <div class="col-12" style="text-align: end;">
       <mat-slide-toggle   
       [color]="color"
@@ -36,16 +38,16 @@
           [disabled]="disabled"
           (change)="showGraph($event)">Show Graph</mat-slide-toggle>
     </div>
-  </div>
+  </div> -->
 
   <div class="row data-row" *ngIf="!graphShown && !loader">
-    <div class="col-xl-4 col-lg-4 col-md-6 col-12 " *ngFor="let iotData of fullIotData">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-12 " *ngFor="let iotData of fullIotData | filter:term">
       <div class="card component-card_9">
         <div class="card-body ">
           <div class="meta-info meta-info1">
             <div class="meta-user">
               <div class="user-name">
-                  <h5 class="card-title" style="color: #ff1493;" routerLink="/dashboard/home/analytics">{{iotData.DeviceName}}</h5>
+                  <h5 class="card-title" routerLink="/dashboard/home/analytics">{{iotData.DeviceName}}</h5>
                 </div>
             </div>
             <div class="meta-action">
@@ -69,38 +71,38 @@
           
             <div class="meta-info">
               <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">P1</div>
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">C</span></div>
+                <div class="user-name">CHP</div>
               </div>
               <div class="meta-action">
-                <div class="meta-likes"> {{iotData.iot_data.p1 || "-"}} </div>
+                <div class=""> {{iotData.iot_data.CHP || "-"}} </div>
               </div>
             </div>
             <div class="meta-info">
               <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">P2</div>
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">G</span></div>
+                <div class="user-name">GHP</div>
               </div>
               <div class="meta-action">
-                <div class="meta-likes"> {{iotData.iot_data.p2 || "-"}} </div>
+                <div class=""> {{iotData.iot_data.GHP || "-"}} </div>
               </div>
             </div>
             <div class="meta-info">
               <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">P3</div>
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">G</span></div>
+                <div class="user-name">GHP-1</div>
               </div>
               <div class="meta-action">
-                <div class="meta-likes"> {{iotData.iot_data.p3 || "-"}} </div>
+                <div class=""> {{iotData.iot_data.GHP-1 || "-"}} </div>
               </div>
             </div>
             <div class="meta-info">
               <div class="meta-user">
-                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">P</span></div>
-                <div class="user-name">P4</div>
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">T</span></div>
+                <div class="user-name">THP</div>
               </div>
               <div class="meta-action">
-                <div class="meta-likes"> {{iotData.iot_data.p4 || "-"}} </div>
+                <div class=""> {{iotData.iot_data.THP || "-"}} </div>
               </div>
             </div>
           </div>
@@ -111,7 +113,7 @@
               <div class="user-name">Last updated</div>
             </div>
             <div class="meta-action">
-              <div class="meta-likes"> {{iotData.timing_format }} </div>
+              <div class=""> {{iotData.timing_format | date:"medium"}} </div>
             </div>
           </div>
         </div>
@@ -177,20 +179,86 @@
 
   </div>
 
-  <div class="row data-row " *ngIf="loader ">
-    <div class="col-xl-12 col-lg-12 col-md-12 col-12 " >
-      <div class="card component-card_9" style="    display: flex;
-      align-items: center;
-      justify-content: center;">
+  <div class="row data-row " *ngIf="loader">
+    <div class="col-xl-4 col-lg-4 col-md-6 col-12 ">
+      <div class="card component-card_9">
         <div class="card-body ">
-          <div class="loader" >
-            <!-- <img src="../../../assets/profile/loader.gif" height="450"> -->
-            <i class="fas fa-spin fa-spinner" style="font-size: 30px;"></i>
-        </div>
+          <div class="meta-info meta-info1">
+            <div class="meta-user">
+              <div class="user-name">
+                  <h5 class="card-title" routerLink="/dashboard/home/analytics"> -- </h5>
+                </div>
+            </div>
+            <div class="meta-action">
+              <div class="meta-likes">
+                <div class="w-icon "><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    class="feather feather-wifi-off">
+                    <line x1="1" y1="1" x2="23" y2="23"></line>
+                    <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                    <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+                    <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+                    <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+                    <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                    <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                  </svg></div>
+
+              </div>
+            </div>
+          </div>
+          <div class="car">
+          
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">C</span></div>
+                <div class="user-name">CHP</div>
+              </div>
+              <div class="meta-action">
+                <div class=""> -- </div>
+              </div>
+            </div>
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">G</span></div>
+                <div class="user-name">GHP</div>
+              </div>
+              <div class="meta-action">
+                <div class=""> -- </div>
+              </div>
+            </div>
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">G</span></div>
+                <div class="user-name">GHP-1</div>
+              </div>
+              <div class="meta-action">
+                <div class=""> -- </div>
+              </div>
+            </div>
+            <div class="meta-info">
+              <div class="meta-user">
+                <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">T</span></div>
+                <div class="user-name">THP</div>
+              </div>
+              <div class="meta-action">
+                <div class=""> -- </div>
+              </div>
+            </div>
+          </div>
+          
+          
+          <div class="meta-info">
+            <div class="meta-user">
+              <div class="user-name">Last updated</div>
+            </div>
+            <div class="meta-action">
+              <div class=""> -- </div>
+            </div>
+          </div>
         </div>
         
       </div>
-    </div> 
+    </div>
   </div>
 
 </div>

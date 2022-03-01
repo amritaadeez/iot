@@ -39,16 +39,21 @@ export class LoginComponent implements OnInit {
     private formBuilder: FormBuilder,
     public router: Router, public dialog: MatDialog) {
 
+      localStorage.clear
+
+
     if (localStorage.getItem("authToken") !== null) {
       this.router.navigate(['/dashboard/home/main'])
-    }
+    } 
+
+  
 
     this.loginForm = this.formBuilder.group({
       emailId: ['',
         [Validators.required, Validators.pattern(/(^(.+@.+\..+)$)|(\d{10})/)]
       ],
       password: ['',
-        [Validators.required, ]
+        [Validators.required ]
       ],
     });
   }
