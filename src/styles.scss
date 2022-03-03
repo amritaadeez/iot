@@ -37,6 +37,7 @@ background-color: #f2f2f2;
   width: 100%;
   background-color: transparent !important;
   transition: .5s all;
+  padding: .75em 0 ;
   color: #0e1726 !important;
   border: 1px solid #0e1726;
 }
@@ -113,12 +114,12 @@ body {
 
 .form-image-col {
   box-shadow: 1px 12px 109px 10px rgb(114, 111, 111);
-  background: linear-gradient(#7869ff, white);
+  background: linear-gradient(#2e3192, white);
 }
 
 
 a {
-  color: #7869ff !important;
+  color: #2e3192 !important;
 }
 
  ngx-charts-legend-entry > span {

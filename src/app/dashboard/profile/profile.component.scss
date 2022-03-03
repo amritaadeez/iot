@@ -43,7 +43,7 @@
         background: #fff;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
-        border-radius: 5px;
+        border-radius: 30px;
         border: 0;
         box-shadow: 1px 2px 10px 4px rgba(0,0,0, 0.18);
         margin-bottom: 1rem;
@@ -51,6 +51,7 @@
     .form-control {
         border: none ;
         border-bottom: 1px solid #0e1726;
+        
         -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
         border-radius: 2px;
@@ -91,7 +92,7 @@
     }
 
     .user-name {
-        color: #7869ff !important;
+        color: #2e3192 !important;
 
     }
 
