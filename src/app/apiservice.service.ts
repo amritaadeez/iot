@@ -32,12 +32,24 @@ export class ApiserviceService {
    }
 
 
+  // public getAuthHeader() {
+  //   this.token = localStorage.getItem("authToken")
+  //   console.log(this.token)
+  //   let header: HttpHeaders;
+  //   header = new HttpHeaders({
+  //     'Content-Type': 'application/x-www-form-urlencoded',
+  //     'Authorization': 'Bearer' + ' ' + this.token,
+  //   });
+
+  //   return header;
+  // }
+
   public getAuthHeader() {
     this.token = localStorage.getItem("authToken")
     console.log(this.token)
     let header: HttpHeaders;
     header = new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded',
+      'Content-Type': 'application/json',
       'Authorization': 'Bearer' + ' ' + this.token,
     });
 
@@ -63,6 +75,20 @@ export class ApiserviceService {
     };
 
     return this.http.post(this.baseUrl + '/signin', body);
+  }
+
+
+  public chartList(data: any) {
+    console.log(data)
+    const body = {
+      chart_input: data.iot_data[0].iot_key,
+      device_name: data.DeviceName,
+      // time_interval: "1"
+     
+    };
+    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
+      headers: this.getAuthHeader()
+    });
   }
 
 
@@ -106,16 +132,7 @@ export class ApiserviceService {
     return this.http.get(this.baseUrl +  '/countrycode');
   }
 
-  public chartList() {
-    const body = {
-      chart_input : "GHP",
-      device_name:"OMNITEMP001",
-      time_interval:"1"
-    }
-    return this.http.post(this.baseUrl + '/chart_data' , body , {
-      headers: this.getAuthHeader()
-    });
-  }
+ 
 
 
   public getProfile() {
@@ -147,5 +164,18 @@ export class ApiserviceService {
       headers: this.getAuthHeader()
     });
   }
+
+
+  public changePassword(data: any) {
+    const body = {
+     old_password: data.password,
+     new_password: data.cpassword
+    }
+
+    return this.http.post(this.baseUrl + '/change_password', body ,  {
+      headers: this.getAuthHeader()
+    });
+  }
+
 
 }

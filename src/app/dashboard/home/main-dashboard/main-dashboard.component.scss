@@ -1,5 +1,6 @@
 
 .main-content {
+    overflow-x: hidden;
     padding: 2em ;
     input, select {
         padding: 6px 27px 6px 15px;
@@ -24,8 +25,9 @@
     
     .data-row {
         padding: 2.5vh 0 6vh 0;
-        height: 75vh !important;
+        height: 80vh !important;
         overflow-y: auto;
+        overflow-x: hidden !important;
     }
 
     .component-card_9 {
@@ -33,7 +35,7 @@
         color: #000;
         margin: 1em 0;
         box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-
+border-radius: 30px;
         .card-title {
             color: #000;
             cursor: pointer;
@@ -75,7 +77,6 @@
             position: absolute;
             height: 1px;
             width: 100%;
-            background: #1b2e4b;
             top: 0;
             right: 0;
             left: 0;
@@ -106,4 +107,29 @@
         }
     }
 
+}
+
+.placeholder-loader {
+    height: 2vh;
+    width: 5vw;
+    background-color: #e6e7ec;
+}
+
+.placeholder-loader-round {
+height: 3em;
+width: 3em;
+border-radius: 50%;
+margin-right: 1em;
+background-color: #e6e7ec !important;
+}
+
+
+.zindex:hover {
+    z-index: 222;
+    background-color: #e2e4eb !important;
+    cursor: pointer;
+    box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.38) !important;
+    .meta-info {
+        background-color: #e2e4eb !important;
+    }
 }

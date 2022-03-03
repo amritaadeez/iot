@@ -1,36 +1,63 @@
 <div class="main-content">
   <div class="row data-row" *ngIf=" !loader">
-
-    <div class="col-xl-12 col-lg-12 col-md-12 col-12 ">
-      <div class="card component-card_9" style="height: 70vh; overflow-x: scroll;">
-        <div class="card-body ">
-          <ngx-charts-bar-vertical style="    display: flex;
-          align-items: center; color: blanchedalmond !important;
-          justify-content: center;" [scheme]="colorScheme" [results]="graphData" [gradient]="gradient" [barPadding]="2"
+<div class="col-12">
+    <mat-tab-group>
+      <mat-tab label="Today Graph" > <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <div class="card component-card_9" style="height: 70vh;">
+          <div class="card-body ">
+            <ngx-charts-bar-vertical style="    display: flex;
+            align-items: center; color: blanchedalmond !important;
+            justify-content: center;" [scheme]="colorScheme" [results]="graphData" [gradient]="gradient" [barPadding]="2"
+              [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch"
+              (select)="onSelect($event)">
+            </ngx-charts-bar-vertical>
+          </div>
+  
+        </div>
+      </div> </mat-tab>
+      <mat-tab label="Yesterday Graph">     <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <div class="card component-card_9" style="height: 70vh;">
+          <div class="card-body ">
+       
+            <ngx-charts-area-chart
+            [view]="view"
+            [scheme]="colorScheme" [results]="graphDataYesterday" [gradient]="gradient" 
             [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
             [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch"
-            
             (select)="onSelect($event)">
-          </ngx-charts-bar-vertical>
+          </ngx-charts-area-chart>
+          </div>
+  
         </div>
-
-      </div>
-    </div>
-
-
-
-
+      </div> </mat-tab>
+      <mat-tab label="Week Graph" >  <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+        <div class="card component-card_9" style="height: 70vh;">
+          <div class="card-body ">
+            <ngx-charts-bar-vertical style="    display: flex;
+            align-items: center; color: blanchedalmond !important;
+            justify-content: center;" [scheme]="colorScheme" [results]="graphDataWeek" [gradient]="gradient" [barPadding]="2"
+              [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch"
+              (select)="onSelect($event)">
+            </ngx-charts-bar-vertical>
+          </div>
+  
+        </div>
+      </div> </mat-tab>
+    </mat-tab-group>
+  </div>
 
   </div>
 
-  <div class="row data-row " *ngIf="loader ">
+  <div class="row data-row " *ngIf="loader">
     <div class="col-xl-12 col-lg-12 col-md-12 col-12 ">
       <div class="card component-card_9" style=" height: 72vh;    display: flex;
       align-items: center;
       justify-content: center;">
         <div class="card-body ">
           <div class="loader">
-            <i class="fas fa-spin fa-spinner" style="font-size: 30px;"></i>
+          <img src="assets/giphy.gif" style="height: 70vh;">
           </div>
         </div>
 

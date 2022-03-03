@@ -36,6 +36,8 @@ export class ProfileComponent implements OnInit {
   cpassword: string;
   confirmType: boolean;
   loader: boolean;
+  showCP: boolean = false;
+  changePasswordForm: FormGroup;
 
 
   constructor(private apiService: ApiserviceService, private _snackBar: MatSnackBar,
@@ -61,11 +63,27 @@ export class ProfileComponent implements OnInit {
     ]
 
     });
+
+
+    this.changePasswordForm = this.formBuilder.group({
+    
+      password: ['',
+        [Validators.required, Validators.minLength(8), Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$")]
+      ],
+      cpassword: ['',
+        [Validators.required]
+      ]
+    });
+
   }
 
 
   get loginGetter() {
     return this.updateProfileForm.controls;
+  }
+
+  get changeCP() {
+    return this.changePasswordForm.controls;
   }
 
   ngOnInit(): void {
@@ -114,15 +132,63 @@ export class ProfileComponent implements OnInit {
       (res: any) => {
         console.log(res)
         this.profileData = res.data
-        this._snackBar.open(res.message, "Thanks");
+        this._snackBar.open(res.message, "Thanks", {
+          duration: 3000
+        });
         this.loader = false
       },
       (err: any) => {
-        this._snackBar.open(err.message, "Sorry");
+        this._snackBar.open(err.message, "Sorry", {
+          duration: 3000
+        });
         this.loader = false
 
       }
     );
+  }
+
+
+  change() {
+    this.showCP = !this.showCP
+    this.changePasswordForm.reset()
+    this.submitted = false
+  }
+
+
+  changePassword(data: any) {
+    this.spinner = true;
+    this.submitted =  true
+
+    if (this.changePasswordForm.invalid) {
+      this.spinner =  false
+      return
+    }
+
+    if(data.password === data.cpassword) {
+    this._snackBar.open("New password should not be same as old password", "Ok" , {
+      duration: 2000
+    });
+    this.changePasswordForm.controls.cpassword.reset()
+    this.spinner = false
+    return
+    }
+
+    this.apiService.changePassword(data).subscribe(
+      (response: any) => {
+        console.log(response)
+        this._snackBar.open(response.message, "Thanks", {
+          duration: 3000
+        });
+        this.spinner =  false
+        this.showCP = !this.showCP
+      }, (err: any) => {
+        this._snackBar.open(err.error.message, "Try Again", {
+          duration: 3000
+        });
+        this.spinner = false
+      }
+    );
+
   }
 
 }

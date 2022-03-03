@@ -1,14 +1,15 @@
-<div class="overview" >
-    <app-navbar ></app-navbar>
-    <button type="button" class="web " mat-icon-button (click)="draw.toggle()"
-      (click)="toggles()" >
-    <i class=" fas fa-bars"></i>
-    </button>
+<div class="overview" style="margin: 0;">
+   
+ 
     <div class="sidebarmargin web" *ngIf="!showFiller" [ngClass]="{
       'sidebarmargin': !showFiller
     }" style="
-    height: 90vw;
+    height: 100vh;
     position: fixed;">
+        <div class="bottom-logo">
+          <img src="assets/logo.png" style="height: 7vh; margin: 1em;
+          padding: 0.5em;">
+        </div>
       <div class=" column-first laptop animate__animated animate__fadeInLeft" style="height: 80vh; padding: 1em 0 0 0;">
         <ul id="myGroup">
           <li routerLinkActive="active"  routerLink="/dashboard/home/main" matTooltip="Home"
@@ -16,7 +17,11 @@
             <div routerLinkActive="active" class="collapse-expand"><i class="fas fa-home"></i>
             </div>
           </li>
-        
+          <li routerLinkActive="active"  routerLink="/dashboard/home/profile" matTooltip="Profile"
+            matTooltipClass="example-tooltip-red" class="list">
+            <div routerLinkActive="active" class="collapse-expand"><i class="fas fa-user"></i>
+            </div>
+          </li>
         </ul>
 
        
@@ -25,34 +30,47 @@
     </div>
     <mat-drawer-container class="example-container" autosize [ngClass]="{
         'padding-left': !showFiller}">
-  
+        <button type="button" class="web " mat-icon-button (click)="draw.toggle()"
+        (click)="toggles()" >
+      <i class=" fas fa-bars"></i>
+      </button>
       <mat-drawer #draw class="example-sidenav web" mode="side" opened>
         <aside class=" main-sidebar laptops" id="sidebar" [hidden]="hideMobileMenu" [ngClass]="{'hidden': hideSideNav }">
           <div class=" column-first laptop" >
-  
+            <div class="bottom-logo">
+              <img src="assets/iot_logo-1.png" style="height: 7vh; margin: 1em;
+              padding: 0.5em;">
+            </div>
             <ul id="myGroup">
               <li routerLinkActive="active" routerLink="/dashboard/home/main" class="list"
 >
                 <div routerLinkActive="active" class="collapse-expand"><span routerLinkActive="active"><i class="fas fa-home" style="margin-right: 1em;"></i> Dashboard </span>
                 </div>
               </li>
+
+              <li routerLinkActive="active" routerLink="/dashboard/home/profile" class="list"
+              >
+                              <div routerLinkActive="active" class="collapse-expand"><span routerLinkActive="active"><i class="fas fa-user" style="margin-right: 1em;"></i> Profile </span>
+                              </div>
+                            </li>
              
             </ul>
            
           </div>
           <div class="bottom-logo">
             <img src="assets/iot_logo-1.png" style="height: 7vh;
-            background: #fff;
             padding: 0.5em;">
           </div>
        
   
         </aside>
       </mat-drawer>
+      <app-navbar ></app-navbar>
   
       <router-outlet></router-outlet>
   
     </mat-drawer-container>
+
   
     <app-sidebar class="sidebar mobile"></app-sidebar>
   </div>

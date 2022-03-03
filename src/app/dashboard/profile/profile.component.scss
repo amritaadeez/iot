@@ -2,12 +2,15 @@
     height: 92vh;
     overflow: auto;
     overflow-x: hidden;
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    margin-top: 10vh;
+    // justify-content: center;
+    // align-items: center;
+    // display: flex;
 
    
 }
+
+
     .account-settings .user-profile {
         margin: 0 0 1rem 0;
         padding-bottom: 1rem;
@@ -88,7 +91,7 @@
     }
 
     .user-name {
-        color: #ff69b4 !important;
+        color: #7869ff !important;
 
     }
 
@@ -100,3 +103,20 @@
         justify-content: center;
         align-items: center;
     }
+
+
+
+    .placeholder-loader {
+        height: 2vh;
+        width: 5vw;
+        background-color: #e6e7ec;
+    }
+    
+    .placeholder-loader-round {
+    height: 3em;
+    width: 3em;
+    border-radius: 50%;
+    margin-right: 1em;
+    background-color: #e6e7ec !important;
+    }
+    

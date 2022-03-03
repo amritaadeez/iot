@@ -2,7 +2,7 @@
   .overview {
       overflow: hidden;
       height: 100vh;
-      font-family: 'Nunito', sans-serif !important;
+      // font-family: 'Nunito', sans-serif !important;
 
       .mat-drawer-container, .example-sidenav {
           background-color: transparent;
@@ -13,10 +13,12 @@
     width: 100%;
     height: 100%;
     z-index: 2;
+    box-shadow: 1px 2px 3px 4px rgb(0 0 0 / 18%);
+
   }
   
   .example-sidenav {
-    padding-left: 14vw;
+    padding-left: 15vw;
     // transition: all;
   }
   
@@ -54,13 +56,17 @@
   .mat-icon-button {
     z-index: 999;
     position: fixed;
-    top: 1.5vh;
-    left: 1.5vw;
+    top: 2.25vh;
+    margin-left: 1vw;
     background: border-box;
     color: #f2f2f2;
     animation: beat .25s infinite alternate; 
     svg {
       font-size: 2em;
+    }
+
+    .fa-bars {
+      font-size: 2em !important;
     }
   
   }
@@ -81,18 +87,18 @@
     }
   
     .padding-left {
-      padding-left: 4vw;
+      padding-left: 5vw;
       transition: all .4s;
     }
   }
   
   .sidebarmargin {
-    margin-top: 1vh;
     border-radius: 1em;
-    background: #0e1726 !important;
-    width: 4vw;
+    background: #d9d9d9 !important;
+    width: 5vw;
     z-index: 666;
     transition: all .3s;
+    box-shadow: 1px 2px 3px 4px rgb(0 0 0 / 18%);
   
     ul {
       list-style: none;
@@ -102,7 +108,7 @@
   
       li {
         font-size: 2vh !important;
-        color: #f2f2f2;
+        color: #0e1726;
         padding: 1em 0em 1em 0;
         font-weight: 400;
         cursor: pointer;
@@ -124,7 +130,7 @@
         color: #0e1726;
   
         i {
-          color: #f2f2f2;
+          color: #0e1726;
           transform: rotate(360deg);
   
         }
@@ -174,19 +180,20 @@
   }
   
   .main-sidebar {
-    left: 0vw;
-    margin-top: 1vh;
+    left: 0;
+    margin-top: 0;
     border-radius: 1em;
     overflow: auto;
     overflow-x: hidden;
-    width: 14vw !important;
+    width: 15vw !important;
+    box-shadow: 1px 2px 3px 4px rgb(0 0 0 / 18%);
     -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     -moz-transition: -moz-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     -o-transition: -o-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     transition: transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     position: fixed;
-    background: #0e1726 !important;
-    height: 90vh;
+    background: #d9d9d9 !important;
+    height: 100vh;
     transition: all .5s;
   
   
@@ -195,7 +202,7 @@
     }
   
     .laptop {
-      height: 85vh;
+      height: 90vh;
     }
   
   
@@ -204,7 +211,7 @@
       -moz-user-select: none;
       -ms-user-select: none;
       user-select: none;
-      height: 85%;
+      height:90%;
       padding-top: 1em;
   
       ul {
@@ -236,7 +243,7 @@
 
         span {
           padding-left: 1em;
-          color: #f2f2f2;
+          color: #0e1726;
           font-weight: 600;
         }
   

@@ -25,7 +25,7 @@
     .data-row {
         padding: 2.5vh 0 6vh 0;
         height: 90vh !important;
-        overflow-y: auto;
+        // overflow-y: auto;
     }
 
     .component-card_9 {
@@ -33,7 +33,7 @@
         color: #e0e6ed;
         margin: 1em 0;
         box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-
+border-radius: 30px;
         .card-title {
             color: #e0e6ed;
             font-size: 1rem;

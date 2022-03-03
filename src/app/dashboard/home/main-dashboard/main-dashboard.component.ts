@@ -3,6 +3,7 @@ import { ApiserviceService } from 'src/app/apiservice.service';
 import * as moment from 'moment';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -15,6 +16,8 @@ export class MainDashboardComponent implements OnInit {
   disabled = false;
   graphShown: any;
 term: any
+legend: boolean = true;
+  legendPosition: string = 'below';
   showXAxis = true;
   showYAxis = true;
   gradient = true;
@@ -28,6 +31,8 @@ term: any
   colorScheme = {
     domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
   };
+
+
 
   Object = Object;
   
@@ -96,14 +101,10 @@ term: any
   
   ];
   
-
   saleDataPie = [
-    { name: "Mobiles", value: 105000 },
-    { name: "Laptop", value: 55000 },
-    { name: "AC", value: 15000 },
-    { name: "Headset", value: 150000 },
-    { name: "Fridge", value: 20000 }
+    
   ];
+
   label: any;
   chartDataYAxis: any;
   saleDataObj: any;
@@ -113,7 +114,10 @@ term: any
   insideIot: Array<any> = []
   loader: boolean;
   iotdata: any;
-  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router) {
+  nameList: any;
+
+  view=[400, 350]
+  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService ) {
 
    
    }
@@ -121,9 +125,9 @@ term: any
   ngOnInit(): void {
     this.listIot()
    
-    this.iotdata = setInterval(() => {
-      this.listIotTimer(); 
-      }, 10000);
+    // this.iotdata = setInterval(() => {
+    //   this.listIotTimer(); 
+    //   }, 10000);
   }
 
 
@@ -134,11 +138,29 @@ term: any
     this.apiService.iot_datas().subscribe(
       (response:any) => {
         console.log(response)
-        this.fullIotData = response.data
+        this.fullIotData = response
+        this.nameList = response.iot_data
         console.log(this.fullIotData)
         localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
 
       this.loader = false
+      let responseAllData : any = []
+      for(let i = 0; i < response.length ; i++ ) {
+
+        // for (let j=0; j < 4 ; j++) {
+
+        responseAllData.push({
+         "name": response[i].DeviceName,
+         "value": response[i].iot_data[0].iot_value,
+        })
+        console.log(responseAllData)
+     
+        this.saleDataPie = responseAllData
+        console.log(this.saleDataPie)
+       }
+
+
+
        }, (error:any) => {
           console.log(error.error.text)
           this._snackbar.open("Unauthorize access", "Login Again", {
@@ -160,11 +182,29 @@ term: any
     this.apiService.iot_datas().subscribe(
       (response:any) => {
         console.log(response)
-        this.fullIotData = response.data
+        this.fullIotData = response
+        this.nameList = response.iot_data
         console.log(this.fullIotData)
         localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
 
       this.loader = false
+      let responseAllData : any = []
+      for(let i = 0; i < response.length ; i++ ) {
+
+        // for (let j=0; j < 4 ; j++) {
+
+        responseAllData.push({
+         "name": response[i].DeviceName,
+         "value": response[i].iot_data[0].iot_value,
+        })
+        console.log(responseAllData)
+     
+        this.saleDataPie = responseAllData
+        console.log(this.saleDataPie)
+       }
+
+
+
        }, (error:any) => {
           console.log(error.error.text)
           this._snackbar.open("Unauthorize access", "Login Again", {
@@ -184,45 +224,10 @@ term: any
     clearInterval(this.iotdata);
   }
 
-  showGraph(data:any) {
-    this.loader = true
-    this.apiService.chartList().subscribe(
-      (response:any) => {
-        console.log(response)
-        this.label = response.chartLabel
-        this.chartDataYAxis = response.chartdata
-        this.chartDataXAxis = response.labels
+  routeChange(iotData: any) {
+    this.authService.iotDataGraph.next(iotData)
+    this.router.navigate(['/dashboard/home/analytics'])
 
-        let responseAllData : any = []
-        let test = response
-        let array = []
-        array.push(response)        
-
-
-        this.loader =  false
-       
-        for(let i = 0; i < response.chartdata.length ; i++ ) {
-
-         responseAllData.push({
-          "name": this.chartDataXAxis[i],
-          "value": this.chartDataYAxis[i],
-         })
-         console.log(responseAllData)
-         this.saleDataObj =  {
-           "name": "Germany",
-           "series": responseAllData
-         }  
-         this.saleData = responseAllData
-        //  this.showLine = this.saleDataObj
-         console.log(this.showLine)
-        }
-      }
-    );
-      
-      
-
-    this.graphShown = data.checked
   }
-
  
 }

@@ -1,6 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
 // @import '~ngx-toastr/toastr';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+
 html,
 body {
   height: 100%;
@@ -10,7 +16,8 @@ background-color: #f2f2f2;
   color: #0e1726 !important;
   font-size: 0.875rem !important;
   letter-spacing: 0.0312rem !important;
-  font-family: 'Nunito', sans-serif !important;
+  // font-family: 'Nunito', sans-serif !important;
+  font-family: 'Raleway', sans-serif !important;
 }
 
 *::-webkit-scrollbar {
@@ -104,7 +111,19 @@ body {
   }
 }
 
+.form-image-col {
+  box-shadow: 1px 12px 109px 10px rgb(114, 111, 111);
+  background: linear-gradient(#7869ff, white);
+}
+
 
 a {
-  color: #FF69B4 !important;
+  color: #7869ff !important;
+}
+
+ ngx-charts-legend-entry > span {
+   color: #0e1726 !important;
+ }
+ngx-charts-legend > div > div > ul {
+  background: transparent !important;
 }

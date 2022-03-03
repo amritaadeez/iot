@@ -7,6 +7,7 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
   redirectUrl: string;
   resetUrl = new BehaviorSubject < any > ('');
+  iotDataGraph = new BehaviorSubject < any > ('');
   
   constructor() { 
 
