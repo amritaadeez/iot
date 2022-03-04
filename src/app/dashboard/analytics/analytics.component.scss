@@ -1,5 +1,7 @@
 
 .main-content {
+    height: 92VH;
+    overflow-y: auto;
     padding: 2em ;
     input, select {
         padding: 6px 27px 6px 15px;
@@ -33,7 +35,7 @@
         color: #e0e6ed;
         margin: 1em 0;
         box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-border-radius: 30px;
+border-radius: 20px;
         .card-title {
             color: #e0e6ed;
             font-size: 1rem;
@@ -100,4 +102,197 @@ border-radius: 30px;
         }
     }
 
+}
+
+
+// profile
+
+.layout-spacing {
+    margin-top: 1em;
+}
+.widget-account-invoice-three {
+    padding: 0;
+    border-top-right-radius: 25px;
+    border-top-left-radius: 25px;
+    background: #fff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
+    color: #000 !important;
+
+}
+
+.card-body {
+    padding: 0 !important;
+}
+
+
+.widget-account-invoice-three .widget-heading {
+    padding: 24px 30px 63px 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    background-image: linear-gradient(-255deg, #aebecc 30%, #6b74cc 120%);
+    height: 100%;
+}
+
+.widget-account-invoice-three .widget-heading .wallet-usr-info {
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-account-invoice-three .widget-heading .wallet-usr-info span {
+    display: inline-block;
+    color: #fff;
+    background: rgb(0 0 0 / 40%);
+    padding: 5px 12px 5px 6px;
+    border-radius: 21px;
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.widget-account-invoice-three .widget-heading .add {
+    align-self: center;
+}
+
+.widget-account-invoice-three .widget-heading .add span {
+    padding: 6px;
+    border-radius: 12px;
+}
+
+.btn-group .dropdown-menu {
+    border: 1px solid #1b2e4b;
+    padding: 10px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    background: #1b2e4b;
+}
+
+.widget-account-invoice-three .widget-heading .wallet-balance {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 37px;
+}
+
+.widget-account-invoice-three .widget-heading .wallet-balance p {
+    margin-bottom: 0;
+    align-self: center;
+    font-size: 19px;
+    color: #fff;
+}
+
+
+.widget-account-invoice-three .widget-heading h5 {
+    font-size: 28px;
+    color: #fff;
+    margin-top: 0;
+    font-weight: 500;
+}
+
+.widget-account-invoice-three .widget-heading h5 .w-currency {
+    color: #bfc9d4;
+    display: inline-block;
+}
+
+.widget-account-invoice-three .widget-amount {
+    text-align: center;
+    margin-top: -48px;
+}
+
+.widget-account-invoice-three .widget-amount .w-a-info.funds-received {
+    margin-right: 15px;
+}
+
+.widget-account-invoice-three .widget-amount .w-a-info {
+    display: inline-block;
+    padding: 12px 23px;
+    background: #060818;
+    text-align: left;
+    border-radius: 6px;
+    width: 40%;
+    box-shadow: 0px 8px 20px rgb(0 0 0 / 6%);
+}
+
+.widget-account-invoice-three .widget-amount span {
+    font-weight: 500;
+    color: #fff;
+}
+
+.widget-account-invoice-three .widget-content {
+    padding: 20px;
+    margin-top: 0;
+}
+
+.widget-account-invoice-three .widget-content .bills-stats {
+    margin-bottom: 24px;
+}
+
+.blink_me {
+    animation: blinker 2s linear infinite;
+}
+
+.widget-account-invoice-three .widget-content .bills-stats span {
+    display: inline-block;
+    color: #fff;
+    background: rgb(0 0 0 / 40%);
+    padding: 4px 12px 4px 20px;
+    border-radius: 21px;
+    position: relative;
+    font-size: 12px;
+    letter-spacing: 1px;
+    background-color: #1b2e4b;
+}
+
+.widget-account-invoice-three .widget-content .bills-stats span:before {
+    content: '';
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    background: white;
+    border-radius: 50%;
+    left: 9px;
+    top: 9.5px;
+}
+
+.widget-account-invoice-three .invoice-list .inv-detail {
+    margin-bottom: 24px;
+}
+
+.widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) {
+    display: flex;
+    justify-content: space-between;
+}
+
+.widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) p {
+    margin-bottom: 0;
+    font-weight: 500;
+    font-size: 13px;
+    align-self: center;
+}
+
+.widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) p span.w-currency {
+    font-size: 16px;
+    color: #fff;
+    font-weight: 500;
+}
+
+.widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) {
+    display: flex;
+    justify-content: space-between;
+}
+p {
+    color: #fff;
+}
+
+span, .span {
+    color: #000;
+}
+
+
+h5 {
+    padding-left: 5vh !important;
+    color: #000 !important;
 }

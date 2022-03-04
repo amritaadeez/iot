@@ -125,9 +125,9 @@ legend: boolean = true;
   ngOnInit(): void {
     this.listIot()
    
-    // this.iotdata = setInterval(() => {
-    //   this.listIotTimer(); 
-    //   }, 10000);
+    this.iotdata = setInterval(() => {
+      this.listIotTimer(); 
+      }, 10000);
   }
 
 

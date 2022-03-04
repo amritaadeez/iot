@@ -91,6 +91,45 @@ export class ApiserviceService {
     });
   }
 
+  public chartList2(data: any) {
+    console.log(data)
+    const body = {
+      chart_input: data.iot_data[1].iot_key,
+      device_name: data.DeviceName,
+      // time_interval: "1"
+     
+    };
+    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
+      headers: this.getAuthHeader()
+    });
+  }
+
+  public chartList3(data: any) {
+    console.log(data)
+    const body = {
+      chart_input: data.iot_data[2].iot_key,
+      device_name: data.DeviceName,
+      // time_interval: "1"
+     
+    };
+    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
+      headers: this.getAuthHeader()
+    });
+  }
+
+  public chartList4(data: any) {
+    console.log(data)
+    const body = {
+      chart_input: data.iot_data[3].iot_key,
+      device_name: data.DeviceName,
+      // time_interval: "1"
+     
+    };
+    return this.http.post(this.baseUrl + '/chart_data' , body ,  { 
+      headers: this.getAuthHeader()
+    });
+  }
+
 
   public register(data: any) {
     const body = {

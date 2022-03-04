@@ -35,7 +35,7 @@
         color: #000;
         margin: 1em 0;
         box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-border-radius: 30px;
+border-radius: 20px;
         .card-title {
             color: #000;
             cursor: pointer;
@@ -44,7 +44,7 @@ border-radius: 30px;
         }
 
         .card-title:hover {
-            font-weight: 600 !important;
+            font-weight: 500 !important;
         }
 
 
@@ -132,4 +132,12 @@ background-color: #e6e7ec !important;
     .meta-info {
         background-color: #e2e4eb !important;
     }
+}
+
+
+.search-form-input {
+    position: absolute;
+    top: 2.5vh;
+    z-index: 12;
+    right: 5vw;
 }
