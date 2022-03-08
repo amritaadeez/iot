@@ -70,7 +70,6 @@ export class AnalyticsComponent implements OnInit {
   graphDataFour: any;
   graphComapreData: any;
 
-
   todayLength: any
   yesterdayLength: any
   weekLength: any
@@ -133,7 +132,6 @@ export class AnalyticsComponent implements OnInit {
           this.todayLength = this.selectedTime
           this.yesterdayLength = this.selectedTime
           this.weekLength = this.selectedTime
-
         }
 
         this.chartDataYAxisYesterday = response.Yesterday_Data.IOTData
@@ -214,6 +212,14 @@ export class AnalyticsComponent implements OnInit {
         console.log(error.error.text.Today_Data)
       }
     );
+   
+    this.chart2()
+    this.chart3()
+    this.chart4()
+
+  }
+
+  chart2() {
     this.apiService.chartList2(this.infoGraph).subscribe(
       (response: any) => {
         console.log(JSON.parse(JSON.stringify(response)))
@@ -263,6 +269,10 @@ export class AnalyticsComponent implements OnInit {
         console.log(error.error.text.Today_Data)
       }
     );
+  
+  }
+
+  chart3() {
     this.apiService.chartList3(this.infoGraph).subscribe(
       (response: any) => {
         console.log(JSON.parse(JSON.stringify(response)))
@@ -271,8 +281,6 @@ export class AnalyticsComponent implements OnInit {
         console.log(this.label)
         this.chartDataYAxis = response.Today_Data.IOTData
         this.chartDataXAxis = response.Today_Data.Timing
-
-
 
         this.chartDataYAxisYesterday = response.Yesterday_Data.IOTData
         this.chartDataXAxisYesterday = response.Yesterday_Data.Timing
@@ -317,6 +325,9 @@ export class AnalyticsComponent implements OnInit {
         console.log(error.error.text.Today_Data)
       }
     );
+  }
+
+  chart4() {
     this.apiService.chartList4(this.infoGraph).subscribe(
       (response: any) => {
         console.log(JSON.parse(JSON.stringify(response)))
@@ -485,176 +496,9 @@ console.log(this.selectedTime, this.yesterdayLength ,"rrrrr")
         console.log(error.error.text.Today_Data)
       }
     );
-    this.apiService.chartList2(this.infoGraph).subscribe(
-      (response: any) => {
-        console.log(JSON.parse(JSON.stringify(response)))
-        this.responseGraph = response
-        this.label = response.Today_Data
-        console.log(this.label)
-        this.chartDataYAxis = response.Today_Data.IOTData
-        this.chartDataXAxis = response.Today_Data.Timing
-        this.chartDataYAxisYesterday = response.Yesterday_Data.IOTData
-        this.chartDataXAxisYesterday = response.Yesterday_Data.Timing
-
-        this.chartDataYAxisWeek = response.LastWeek_Data.IOTData
-        this.chartDataXAxisWeek = response.LastWeek_Data.Timing
-
-        let responseAllData: any = []
-        let test = response
-        let array = []
-        array.push(response.Today_Data)
-
-
-        this.loader = false
-
-        for (let i = 0; i < this.todayLength; i++) {
-          console.log(response.Today_Data.Timing)
-          let transactionDate = moment(response.Today_Data.Timing[i]).utcOffset("+05:30").format("HH:mm:ss")
-
-          console.log(transactionDate)
-          responseAllData.push({
-            "name": transactionDate,
-            "value": this.chartDataYAxis[i],
-          })
-          console.log(responseAllData)
-
-          this.graphDataTwo = responseAllData
-          //  this.showLine = this.graphDataObj
-          console.log(this.graphDataTwo)
-        }
-
-
-      }, (error: any) => {
-        let responseAllData: any = []
-        responseAllData.push({
-          "name": "No Data Found",
-          "value": "10",
-        })
-
-
-        this.graphDataTwo = responseAllData
-        console.log(error.error.text.Today_Data)
-      }
-    );
-    this.apiService.chartList3(this.infoGraph).subscribe(
-      (response: any) => {
-        console.log(JSON.parse(JSON.stringify(response)))
-        this.responseGraph = response
-        this.label = response.Today_Data
-        console.log(this.label)
-        this.chartDataYAxis = response.Today_Data.IOTData
-        this.chartDataXAxis = response.Today_Data.Timing
-
-
-
-        this.chartDataYAxisYesterday = response.Yesterday_Data.IOTData
-        this.chartDataXAxisYesterday = response.Yesterday_Data.Timing
-
-        this.chartDataYAxisWeek = response.LastWeek_Data.IOTData
-        this.chartDataXAxisWeek = response.LastWeek_Data.Timing
-
-        let responseAllData: any = []
-        let responseAllDataYesterday: any = []
-        let responseAllDataWeek: any = []
-        let test = response
-        let array = []
-        array.push(response.Today_Data)
-
-
-        this.loader = false
-
-        for (let i = 0; i < this.todayLength; i++) {
-          console.log(response.Today_Data.Timing)
-          let transactionDate = moment(response.Today_Data.Timing[i]).utcOffset("+05:30").format("HH:mm:ss")
-
-          console.log(transactionDate)
-          responseAllData.push({
-            "name": transactionDate,
-            "value": this.chartDataYAxis[i],
-          })
-          console.log(responseAllData)
-
-          this.graphDataThree = responseAllData
-          //  this.showLine = this.graphDataObj
-          console.log(this.graphDataThree)
-        }
-
-
-      }, (error: any) => {
-        let responseAllData: any = []
-        responseAllData.push({
-          "name": "No Data Found",
-          "value": "10",
-        })
-        this.graphDataThree = responseAllData
-        console.log(error.error.text.Today_Data)
-      }
-    );
-    this.apiService.chartList4(this.infoGraph).subscribe(
-      (response: any) => {
-        console.log(JSON.parse(JSON.stringify(response)))
-        this.responseGraph = response
-        this.label = response.Today_Data
-        console.log(this.label)
-        this.chartDataYAxis = response.Today_Data.IOTData
-        this.chartDataXAxis = response.Today_Data.Timing
-        this.chartDataYAxisYesterday = response.Yesterday_Data.IOTData
-        this.chartDataXAxisYesterday = response.Yesterday_Data.Timing
-
-        this.chartDataYAxisWeek = response.LastWeek_Data.IOTData
-        this.chartDataXAxisWeek = response.LastWeek_Data.Timing
-
-        let responseAllData: any = []
-        let responseAllDataYesterday: any = []
-        let responseAllDataWeek: any = []
-        let test = response
-        let array = []
-        array.push(response.Today_Data)
-
-        this.loader = false
-
-        for (let i = 0; i < this.todayLength; i++) {
-          console.log(response.Today_Data.Timing)
-          let transactionDate = moment(response.Today_Data.Timing[i]).utcOffset("+05:30").format("HH:mm:ss")
-
-          console.log(transactionDate)
-          responseAllData.push({
-            "name": transactionDate,
-            "value": this.chartDataYAxis[i],
-          })
-          console.log(responseAllData)
-
-          this.graphDataFour = responseAllData
-          //  this.showLine = this.graphDataObj
-          console.log(this.graphDataFour)
-
-          let arr = []
-          arr.push(responseAllData)
-          this.graphDataObj = {
-            "name": "Values",
-            "series": responseAllData
-          }
-          console.log(this.graphDataObj)
-          console.log(JSON.parse(JSON.stringify(this.graphDataObj).replace(/^\{(.*)\}$/, "[ { $1 }]")))
-          this.graphDataFour = JSON.parse(JSON.stringify(this.graphDataObj).replace(/^\{(.*)\}$/, "[ { $1 }]"))
-          //  this.showLine = this.graphDataObj
-          console.log(this.graphDataFour)
-
-        }
-        this.overlapLoader = false
-
-
-      }, (error: any) => {
-        let responseAllData: any = []
-        responseAllData.push({
-          "name": "No Data Found",
-          "value": "10",
-        })
-        this.graphDataFour = responseAllData
-        console.log(error.error.text.Today_Data)
-        this.overlapLoader = false
-      }
-    );
+    this.chart2()
+    this.chart3()
+    this.chart4()
 
 
   }

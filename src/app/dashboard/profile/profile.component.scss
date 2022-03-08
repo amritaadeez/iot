@@ -121,3 +121,49 @@
     background-color: #e6e7ec !important;
     }
     
+
+
+    @media (min-width:1080px) {
+
+        .loading-area {
+          position: fixed;
+          height: 92vh !important;
+          width: 86vw !important;
+          top: 8vh;
+          opacity: 0.6;
+          background: rgb(241, 236, 236);
+          z-index: 3;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      
+          .fa-spinner,
+          svg {
+            font-size: 30px;
+          }
+      
+        }
+      }
+      
+      @media (max-width:1080px) {
+      
+          .loading-area {
+            position: fixed;
+            height: 92vh !important;
+            width: 100vw !important;
+            top: 8vh;
+            opacity: 0.6;
+            background: rgb(241, 236, 236);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        
+            .fa-spinner,
+            svg {
+              font-size: 30px;
+            }
+        
+          }
+        }
+      
