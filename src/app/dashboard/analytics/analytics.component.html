@@ -1,10 +1,17 @@
 <div class="main-content">
   <div class="row data-row" *ngIf=" !loader">
+    <div class="col-12" style="text-align:end">
+      <select (change)="setTime($event)" style="width: 30vh !important; border-radius: 10px;">
+      <option value="">Select Time</option>
+      <option value="10">10 minutes</option>
+      <option value="15">15 minutes</option>
+      <option value="30">30 minutes</option>
+    </select></div>
     <div class="col-12">
+
+
       <mat-tab-group>
         <mat-tab label="Today Graph">
-
-
           <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-4 col-12 layout-spacing">
               <!-- <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
@@ -51,8 +58,8 @@
             </div>
 
             <div class="col-xl-6 col-lg-6 col-md-6 col-6">
-              <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
-                <div class="card-body ">
+              <div class=" " style="height: 50vh; overflow-x:hidden;">
+                <div class=" ">
                   <ngx-charts-pie-chart
                   [view]="pieChartView"
                   [results]="graphComapreData"
@@ -69,7 +76,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-6">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5>{{infoGraph.iot_data[0].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[0].iot_key}}</h5>
                   <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
             justify-content: center;" [scheme]="colorScheme" [results]="graphData" [gradient]="gradient"
@@ -85,7 +92,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-6">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5>{{infoGraph.iot_data[1].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[1].iot_key}}</h5>
                     
                   <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
@@ -102,7 +109,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-6">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5>{{infoGraph.iot_data[2].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[2].iot_key}}</h5>
 
                   <ngx-charts-bar-horizontal style="    display: flex;
             align-items: center; color: blanchedalmond !important;
@@ -119,7 +126,7 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-6">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5>{{infoGraph.iot_data[3].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[3].iot_key}}</h5>
 
                   <ngx-charts-area-chart [scheme]="colorScheme" [results]="graphDataFour" [gradient]="gradient"
                     [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
@@ -134,17 +141,12 @@
         </mat-tab>
         <mat-tab label="Yesterday Graph">
           <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-            <div class="card component-card_9" style="height: 70vh;">
-              <div class="card-body ">
-
-                <ngx-charts-area-chart [view]="view" [scheme]="colorScheme" [results]="graphDataYesterday"
+            <ngx-charts-area-chart [view]="view" [scheme]="colorScheme" [results]="graphDataYesterday"
                   [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
                   [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
                   [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
                 </ngx-charts-area-chart>
-              </div>
-
-            </div>
+        
           </div>
         </mat-tab>
         <mat-tab label="Week Graph">
@@ -163,13 +165,19 @@
             </div>
           </div>
         </mat-tab>
+       
       </mat-tab-group>
+      
     </div>
 
   </div>
 
-  <div class="row " *ngIf="loader">
+  <div class="loading-area" *ngIf="overlapLoader">
+    <i class="fas fa-spin fa-spinner"></i>
+  </div>
 
+
+  <div class="row " *ngIf="loader">
 
     <div class="col-xl-6 col-lg-6 col-md-6 col-6 ">
       <div class="card component-card_9" style=" height: 50vh; overflow-x:hidden; display: flex;

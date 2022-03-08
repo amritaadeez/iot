@@ -1,7 +1,7 @@
 
 .main-content {
     overflow-x: hidden;
-    padding: 2em ;
+    padding: 0em ;
     input, select {
         padding: 6px 27px 6px 15px;
         border: none;
@@ -24,8 +24,8 @@
     }
     
     .data-row {
-        padding: 2.5vh 0 6vh 0;
-        height: 80vh !important;
+        // padding: 0vh 0 6vh 0;
+        height: 92vh !important;
         overflow-y: auto;
         overflow-x: hidden !important;
     }
@@ -141,3 +141,14 @@ background-color: #e6e7ec !important;
     z-index: 12;
     right: 5vw;
 }
+
+.blink{
+    font-size: 20px;
+    font-family: cursive;
+    animation: blink 1s linear infinite;
+}
+@keyframes blink{
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+    }

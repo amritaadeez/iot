@@ -1,106 +1,113 @@
-
 .main-content {
-    height: 92VH;
-    overflow-y: auto;
-    padding: 2em ;
-    input, select {
-        padding: 6px 27px 6px 15px;
-        border: none;
-        width: 100% !important;
-        background-color: #0e1726;
+  height: 92VH;
+  overflow-y: auto;
+  padding: 0em 1em 2em 1em;
+
+  input,
+  select {
+    padding: 6px 27px 6px 15px;
+    border: none;
+    width: 100% !important;
+    background-color: #0e1726;
+    color: #e0e6ed;
+  }
+
+  form>div svg {
+    position: absolute;
+    right: 11px;
+    color: #acb0c3;
+    height: 36px;
+    width: 19px;
+    top: 0px;
+  }
+
+  mat-slide-toggle {
+    padding: 2.5vh 0;
+  }
+
+  .data-row {
+    padding: 2.5vh 0 6vh 0;
+    height: 90vh !important;
+    // overflow-y: auto;
+  }
+
+  .component-card_9 {
+    background-color: #FFF;
+    color: #e0e6ed;
+    margin: 1em 0;
+    box-shadow: 1px 2px 13px 4px rgba(0, 0, 0, 0.18);
+    border-radius: 20px;
+    overflow: hidden !important;
+    padding: 1em 0;
+
+    .card-title {
+      color: #e0e6ed;
+      font-size: 1rem;
+    }
+
+
+
+    .meta-user {
+      display: flex;
+
+      .user-name {
+        align-items: center;
+        display: flex;
+
+      }
+    }
+
+    .meta-info1 {
+      position: inherit !important;
+    }
+
+    .meta-info {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 9px;
+      padding-top: 8px;
+      background-color: #0e1726;
+      color: #e0e6ed;
+    }
+
+    .meta-info:before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      background: #1b2e4b;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .meta-likes {
+      color: #515365;
+    }
+
+    .avatar {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      font-size: 1rem;
+      margin-right: 10px;
+
+      .avatar-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: #515365;
         color: #e0e6ed;
+        font-size: 14px;
+      }
     }
-
-     form > div svg {
-        position: absolute;
-        right: 11px;
-        color: #acb0c3;
-        height: 36px;
-        width: 19px;
-        top: 0px;
-    }
-
-    mat-slide-toggle {
-        padding: 2.5vh  0;
-    }
-    
-    .data-row {
-        padding: 2.5vh 0 6vh 0;
-        height: 90vh !important;
-        // overflow-y: auto;
-    }
-
-    .component-card_9 {
-        background-color: #FFF;
-        color: #e0e6ed;
-        margin: 1em 0;
-        box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-border-radius: 20px;
-        .card-title {
-            color: #e0e6ed;
-            font-size: 1rem;
-        }
-
-
-
-        .meta-user{
-            display: flex;
-
-            .user-name {
-                align-items: center;
-                display: flex;
-
-            }
-        }
-
-        .meta-info1 {
-            position: inherit !important;
-        }
-
-        .meta-info {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 9px;
-            padding-top: 8px;
-            background-color: #0e1726;
-            color: #e0e6ed;
-        }
-        .meta-info:before {
-            content: '';
-            position: absolute;
-            height: 1px;
-            width: 100%;
-            background: #1b2e4b;
-            top: 0;
-            right: 0;
-            left: 0;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        .meta-likes {
-            color: #515365;
-        }
-
-        .avatar {
-            position: relative;
-            display: inline-block;
-            width: 34px;
-            height: 34px;
-            font-size: 1rem;
-            margin-right: 10px;
-            .avatar-title {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                background-color: #515365;
-                color: #e0e6ed;
-                font-size: 14px;
-            }
-        }
-    }
+  }
 
 }
 
@@ -108,191 +115,244 @@ border-radius: 20px;
 // profile
 
 .layout-spacing {
-    margin-top: 1em;
+  margin-top: 1em;
 }
+
 .widget-account-invoice-three {
-    padding: 0;
-    border-top-right-radius: 25px;
-    border-top-left-radius: 25px;
-    background: #fff;
-    border: none;
-    border-radius: 20px;
-    box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-    color: #000 !important;
+  padding: 0;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+  background: #fff;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 1px 2px 13px 4px rgba(0, 0, 0, 0.18);
+  color: #000 !important;
 
 }
 
 .card-body {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 
 .widget-account-invoice-three .widget-heading {
-    padding: 24px 30px 63px 30px;
-    border-radius: 15px;
-    background-color: #fff;
-    background-image: linear-gradient(-255deg, #aebecc 30%, #6b74cc 120%);
-    height: 100%;
+  padding: 24px 30px 63px 30px;
+  border-radius: 15px;
+  background-color: #fff;
+  background-image: linear-gradient(-255deg, #aebecc 30%, #6b74cc 120%);
+  height: 100%;
 }
 
 .widget-account-invoice-three .widget-heading .wallet-usr-info {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .widget-account-invoice-three .widget-heading .wallet-usr-info span {
-    display: inline-block;
-    color: #fff;
-    background: rgb(0 0 0 / 40%);
-    padding: 5px 12px 5px 6px;
-    border-radius: 21px;
-    position: relative;
-    font-size: 13px;
-    letter-spacing: 1px;
-    cursor: pointer;
+  display: inline-block;
+  color: #fff;
+  background: rgb(0 0 0 / 40%);
+  padding: 5px 12px 5px 6px;
+  border-radius: 21px;
+  position: relative;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
 }
 
 .widget-account-invoice-three .widget-heading .add {
-    align-self: center;
+  align-self: center;
 }
 
 .widget-account-invoice-three .widget-heading .add span {
-    padding: 6px;
-    border-radius: 12px;
+  padding: 6px;
+  border-radius: 12px;
 }
 
 .btn-group .dropdown-menu {
-    border: 1px solid #1b2e4b;
-    padding: 10px;
-    border-width: initial;
-    border-style: none;
-    border-color: initial;
-    border-image: initial;
-    background: #1b2e4b;
+  border: 1px solid #1b2e4b;
+  padding: 10px;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+  background: #1b2e4b;
 }
 
 .widget-account-invoice-three .widget-heading .wallet-balance {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 37px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 37px;
 }
 
 .widget-account-invoice-three .widget-heading .wallet-balance p {
-    margin-bottom: 0;
-    align-self: center;
-    font-size: 19px;
-    color: #fff;
+  margin-bottom: 0;
+  align-self: center;
+  font-size: 19px;
+  color: #fff;
 }
 
 
 .widget-account-invoice-three .widget-heading h5 {
-    font-size: 28px;
-    color: #fff;
-    margin-top: 0;
-    font-weight: 500;
+  font-size: 28px;
+  color: #fff;
+  margin-top: 0;
+  font-weight: 500;
 }
 
 .widget-account-invoice-three .widget-heading h5 .w-currency {
-    color: #bfc9d4;
-    display: inline-block;
+  color: #bfc9d4;
+  display: inline-block;
 }
 
 .widget-account-invoice-three .widget-amount {
-    text-align: center;
-    margin-top: -48px;
+  text-align: center;
+  margin-top: -48px;
 }
 
 .widget-account-invoice-three .widget-amount .w-a-info.funds-received {
-    margin-right: 15px;
+  margin-right: 15px;
 }
 
 .widget-account-invoice-three .widget-amount .w-a-info {
-    display: inline-block;
-    padding: 12px 23px;
-    background: #060818;
-    text-align: left;
-    border-radius: 6px;
-    width: 40%;
-    box-shadow: 0px 8px 20px rgb(0 0 0 / 6%);
+  display: inline-block;
+  padding: 12px 23px;
+  background: #060818;
+  text-align: left;
+  border-radius: 6px;
+  width: 40%;
+  box-shadow: 0px 8px 20px rgb(0 0 0 / 6%);
 }
 
 .widget-account-invoice-three .widget-amount span {
-    font-weight: 500;
-    color: #fff;
+  font-weight: 500;
+  color: #fff;
 }
 
 .widget-account-invoice-three .widget-content {
-    padding: 20px;
-    margin-top: 0;
+  padding: 20px;
+  margin-top: 0;
 }
 
 .widget-account-invoice-three .widget-content .bills-stats {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .blink_me {
-    animation: blinker 2s linear infinite;
+  animation: blinker 2s linear infinite;
 }
 
 .widget-account-invoice-three .widget-content .bills-stats span {
-    display: inline-block;
-    color: #fff;
-    background: rgb(0 0 0 / 40%);
-    padding: 4px 12px 4px 20px;
-    border-radius: 21px;
-    position: relative;
-    font-size: 12px;
-    letter-spacing: 1px;
-    background-color: #1b2e4b;
+  display: inline-block;
+  color: #fff;
+  background: rgb(0 0 0 / 40%);
+  padding: 4px 12px 4px 20px;
+  border-radius: 21px;
+  position: relative;
+  font-size: 12px;
+  letter-spacing: 1px;
+  background-color: #1b2e4b;
 }
 
 .widget-account-invoice-three .widget-content .bills-stats span:before {
-    content: '';
-    position: absolute;
-    height: 6px;
-    width: 6px;
-    background: white;
-    border-radius: 50%;
-    left: 9px;
-    top: 9.5px;
+  content: '';
+  position: absolute;
+  height: 6px;
+  width: 6px;
+  background: white;
+  border-radius: 50%;
+  left: 9px;
+  top: 9.5px;
 }
 
 .widget-account-invoice-three .invoice-list .inv-detail {
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 }
 
 .widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) p {
-    margin-bottom: 0;
-    font-weight: 500;
-    font-size: 13px;
-    align-self: center;
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 13px;
+  align-self: center;
 }
 
 .widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) p span.w-currency {
-    font-size: 16px;
-    color: #fff;
-    font-weight: 500;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 500;
 }
 
 .widget-account-invoice-three .invoice-list [class*="info-detail-"]:not(.info-sub) {
-    display: flex;
-    justify-content: space-between;
-}
-p {
-    color: #fff;
+  display: flex;
+  justify-content: space-between;
 }
 
-span, .span {
-    color: #000;
+p {
+  color: #fff;
+}
+
+span,
+.span {
+  color: #000;
 }
 
 
 h5 {
-    padding-left: 5vh !important;
-    color: #000 !important;
+  padding-left: 5vh !important;
+  color: #000 !important;
 }
+
+@media (min-width:1080px) {
+
+  .loading-area {
+    position: fixed;
+    height: 92vh !important;
+    width: 86vw !important;
+    top: 8vh;
+    opacity: 0.6;
+    background: rgb(241, 236, 236);
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .fa-spinner,
+    svg {
+      font-size: 30px;
+    }
+
+  }
+}
+
+@media (max-width:1080px) {
+
+    .loading-area {
+      position: fixed;
+      height: 92vh !important;
+      width: 100vw !important;
+      top: 8vh;
+      opacity: 0.6;
+      background: rgb(241, 236, 236);
+      z-index: 3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  
+      .fa-spinner,
+      svg {
+        font-size: 30px;
+      }
+  
+    }
+  }
+
+
+  .heading {
+      font-size: 16px;
+      color: #6b74cc !important;
+  }
