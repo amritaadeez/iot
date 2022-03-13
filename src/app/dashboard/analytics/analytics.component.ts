@@ -75,6 +75,9 @@ export class AnalyticsComponent implements OnInit {
   weekLength: any
   selectedTime: any
   overlapLoader: boolean = false;
+  graphDataFourYesterday: any;
+  graphDataThreeYesterday: any;
+  graphDataTwoYesterday: any;
 
   constructor(private apiService: ApiserviceService, private authService: AuthService, private router: Router) {
     this.view = [innerWidth / 1.35, 520];
@@ -95,7 +98,7 @@ export class AnalyticsComponent implements OnInit {
           this.router.navigate(['/dashboard/home/main'])
         } else {
           this.infoGraph = data
-
+          console.log(this.infoGraph)
         }
       }
     )
@@ -103,7 +106,7 @@ export class AnalyticsComponent implements OnInit {
 
     this.graphLoader = setInterval(() => {
       this.showGraphLoader();
-    }, 5000);
+    }, 25000);
   }
 
 
@@ -235,6 +238,7 @@ export class AnalyticsComponent implements OnInit {
         this.chartDataXAxisWeek = response.LastWeek_Data.Timing
 
         let responseAllData: any = []
+        let responseAllDataYesterday: any = []
         let test = response
         let array = []
         array.push(response.Today_Data)
@@ -257,6 +261,22 @@ export class AnalyticsComponent implements OnInit {
           //  this.showLine = this.graphDataObj
           console.log(this.graphDataTwo)
         }
+        for (let i = 0; i < this.yesterdayLength; i++) {
+          console.log(response.Yesterday_Data.Timing)
+          let transactionDate = moment(response.Yesterday_Data.Timing[i]).utcOffset("+05:30").format("HH:mm:ss")
+
+          console.log(transactionDate)
+          responseAllData.push({
+            "name": transactionDate,
+            "value": this.chartDataYAxis[i],
+          })
+          console.log(responseAllData)
+
+          this.graphDataTwoYesterday = responseAllDataYesterday
+
+          //  this.showLine = this.graphDataObj
+          console.log(this.graphDataTwo)
+        }
 
 
       }, (error: any) => {
@@ -265,7 +285,13 @@ export class AnalyticsComponent implements OnInit {
           "name": "No Data Found",
           "value": "10",
         })
+        let responseAllDataYesterday: any = []
+        responseAllDataYesterday.push({
+          "name": "No Data Found",
+          "value": "10",
+        })
         this.graphDataTwo = responseAllData
+        this.graphDataThreeYesterday = responseAllDataYesterday
         console.log(error.error.text.Today_Data)
       }
     );
@@ -313,6 +339,21 @@ export class AnalyticsComponent implements OnInit {
           //  this.showLine = this.graphDataObj
           console.log(this.graphDataThree)
         }
+        for (let i = 0; i < this.yesterdayLength; i++) {
+          console.log(response.Yesterday_Data.Timing)
+          let transactionDate = moment(response.Yesterday_Data.Timing[i]).utcOffset("+05:30").format("HH:mm:ss")
+
+          console.log(transactionDate)
+          responseAllDataYesterday.push({
+            "name": transactionDate,
+            "value": this.chartDataYAxis[i],
+          })
+          console.log(responseAllDataYesterday)
+
+          this.graphDataThreeYesterday = responseAllDataYesterday
+          //  this.showLine = this.graphDataObj
+          console.log(this.graphDataThreeYesterday)
+        }
 
 
       }, (error: any) => {
@@ -321,7 +362,13 @@ export class AnalyticsComponent implements OnInit {
           "name": "No Data Found",
           "value": "10",
         })
+        let responseAllDataYesterday: any = []
+        responseAllDataYesterday.push({
+          "name": "No Data Found",
+          "value": "10",
+        })
         this.graphDataThree = responseAllData
+        this.graphDataThreeYesterday = responseAllDataYesterday
         console.log(error.error.text.Today_Data)
       }
     );
@@ -382,6 +429,36 @@ export class AnalyticsComponent implements OnInit {
 
 
         }
+        for (let i = 0; i < this.yesterdayLength; i++) {
+          console.log(response.Yesterday_Data.Timing)
+          let transactionDate = moment(response.Yesterday_Data.Timing[i]).utcOffset("+05:30").format("HH:mm:ss")
+
+          console.log(transactionDate)
+          responseAllDataYesterday.push({
+            "name": transactionDate,
+            "value": this.chartDataYAxis[i],
+          })
+          console.log(responseAllDataYesterday)
+
+          this.graphDataFourYesterday = responseAllDataYesterday
+          //  this.showLine = this.graphDataObj
+          console.log(this.graphDataFourYesterday)
+
+          let arr = []
+          arr.push(responseAllDataYesterday)
+          this.graphDataObj = {
+            "name": "Values",
+            "series": responseAllDataYesterday
+          }
+          console.log(this.graphDataObj)
+          console.log(JSON.parse(JSON.stringify(this.graphDataObj).replace(/^\{(.*)\}$/, "[ { $1 }]")))
+          this.graphDataFourYesterday = JSON.parse(JSON.stringify(this.graphDataObj).replace(/^\{(.*)\}$/, "[ { $1 }]"))
+          //  this.showLine = this.graphDataObj
+          console.log(this.graphDataFourYesterday)
+
+
+
+        }
         this.overlapLoader = false
 
       }, (error: any) => {
@@ -390,12 +467,22 @@ export class AnalyticsComponent implements OnInit {
           "name": "No Data Found",
           "value": "10",
         })
+        let responseAllDataYesterday: any = []
+        responseAllDataYesterday.push({
+          "name": "No Data Found",
+          "value": "10",
+        })
         this.overlapLoader = false
         this.graphDataFour = responseAllData
+        this.graphDataFourYesterday = responseAllDataYesterday
         console.log(error.error.text.Today_Data)
+        console.log(error.error.text.Today_Data)
+
       }
     );
   }
+
+  
 
   showGraphLoader() {
 

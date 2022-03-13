@@ -209,9 +209,9 @@ this.loader = false
   }
 
   listIotTimer() {
-    console.log(moment(this.currentDate).utcOffset("+05:30").format("DD-MM-yyyy HH:mm:ss"))
+    console.log(moment(this.currentDate).format('x'))
 
-    this.dateFilter = moment(this.currentDate).utcOffset("+05:30").format("DD-mm-yyyy HH:mm:ss")
+    this.dateFilter = moment(this.currentDate).format('x')
     console.log("dd")
     this.apiService.iot_datas().subscribe(
       (response:any) => {
@@ -229,9 +229,19 @@ this.loader = false
       for(let i = 0; i < response.length ; i++ ) {
 
         // for (let j=0; j < 4 ; j++) {
-          console.log(moment(response[i].Timing_format).utcOffset("+05:30").format("DD-MM-yyyy HH:mm"))
-          this.responseDate = moment(response[i].Timing_format).utcOffset("+05:30").format("DD-MM-yyyy HH:mm")
-          if (this.dateFilter === this.responseDate ) {
+          console.log(moment(response[i].Timing_format).format('x'))
+          this.responseDate = moment(response[i].Timing_format).format('x')
+          console.log('this is', this.responseDate);
+          var dt:any = new Date();
+          var minutesToAdd = 2;
+          var minutesToSub = 2;
+          var previousDate = new Date(dt - minutesToSub*60000).valueOf();
+          console.log(previousDate)
+          var nextDate = 1647088027000;
+          console.log(nextDate)
+          console.log(this.responseDate, this.dateFilter)
+          if (nextDate >= this.responseDate || previousDate < this.responseDate
+             ) {
             this.wifi = true
           } else {
             this.wifi = false
