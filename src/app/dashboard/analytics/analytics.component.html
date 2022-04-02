@@ -29,7 +29,7 @@
                       </div>
                     </div>
                     <div class="widget-amount">
-                      <div *ngFor="let value of infoGraph.iot_data" class="w-a-info funds-received"
+                      <div *ngFor="let value of infoGraph.iot_data | slice:0:4; let i=index"  class="w-a-info funds-received"
                         style="margin: .25em;"><span>{{value.iot_key}}
                         </span>
                         <p>{{value.iot_value}}</p>
@@ -61,7 +61,6 @@
               <div class=" " style="height: 62vh; overflow-x:hidden;">
                 <div class=" ">
                   <ngx-charts-pie-chart
-                  [view]="pieChartView"
                   [results]="graphComapreData"
                   [scheme]="colorScheme"
                  
@@ -145,7 +144,7 @@
               <!-- <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body "> -->
                   <div class="widget widget-account-invoice-three">
-                    <div class="widget-heading">
+                    <div class="widget-heading yes-heading">
                       <div class="wallet-usr-info">
                         <div class="usr-name"><span><i class="fas fa-users" class="img-fluid"> </i>
                             {{infoGraph.DeviceName}}</span></div>
@@ -157,7 +156,7 @@
                       </div>
                     </div>
                     <div class="widget-amount">
-                      <div *ngFor="let value of infoGraph.iot_data" class="w-a-info funds-received"
+                      <div *ngFor="let value of infoGraph.iot_data | slice:0:4" class="w-a-info funds-received"
                         style="margin: .25em;"><span>{{value.iot_key}}
                         </span>
                         <p>{{value.iot_value}}</p>
@@ -279,7 +278,7 @@
               <div class="card-body ">
                 <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
-            justify-content: center;" [scheme]="colorScheme" [results]="graphDataWeek" [gradient]="gradient"
+            justify-content: center;" [scheme]="colorScheme" [results]="weekGraph" [gradient]="gradient"
                   [barPadding]="2" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
                   [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
                   [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">

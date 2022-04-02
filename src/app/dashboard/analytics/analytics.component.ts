@@ -78,6 +78,7 @@ export class AnalyticsComponent implements OnInit {
   graphDataFourYesterday: any;
   graphDataThreeYesterday: any;
   graphDataTwoYesterday: any;
+  weekGraph: any;
 
   constructor(private apiService: ApiserviceService, private authService: AuthService, private router: Router) {
     this.view = [innerWidth / 1.35, 520];
@@ -103,6 +104,7 @@ export class AnalyticsComponent implements OnInit {
       }
     )
     this.showGraph()
+    this.showGraphData()
 
     this.graphLoader = setInterval(() => {
       this.showGraphLoader();
@@ -116,6 +118,7 @@ export class AnalyticsComponent implements OnInit {
     } else {
       this.overlapLoader = false
     }
+
 
     this.apiService.chartList(this.infoGraph).subscribe(
       (response: any) => {
@@ -220,6 +223,39 @@ export class AnalyticsComponent implements OnInit {
     this.chart3()
     this.chart4()
 
+  }
+
+
+  showGraphData() {
+    this.apiService.wholeGraph(this.infoGraph).subscribe(
+      (response: any) => {
+        this.responseGraph = response.week_response.data.Iot_data
+        this.chartDataYAxis = response.week_response.data.Time_interval
+        console.log(response.week_response.data, "dataOS")
+        for (let i = 0; i < 10; i++) {
+          console.log(this.responseGraph, this.chartDataYAxis, response ,"dataOS")
+          let transactionDate = moment(this.chartDataYAxis[i]).utcOffset("+05:30").format("HH:mm:ss")
+
+          let responseAllData: any = []
+        
+          let array = []
+          array.push(response.week_response.data)
+
+          console.log(transactionDate, "tdate dataOS")
+          responseAllData.push({
+            "name": transactionDate,
+            "value": this.responseGraph.B_Current[i],
+          })
+          console.log(responseAllData, "dataOS")
+
+          this.weekGraph = responseAllData
+          //  this.showLine = this.graphDataObj
+          console.log(this.weekGraph, "caaaaa")
+        }
+      }, (error: any) => {
+        console.log(error)
+      }
+    );
   }
 
   chart2() {
@@ -585,10 +621,28 @@ console.log(this.selectedTime, this.yesterdayLength ,"rrrrr")
     );
     this.chart2()
     this.chart3()
-    this.chart4()
-
+    this.chart4() 
 
   }
+
+  // listIot() {
+    
+  //   this.apiService.iot_datas().subscribe(
+  //     (response: any) => {
+  //       console.log(response)
+  //       this.fullIotData = response
+  //       this.infoGraph = response.iot_data
+  //       console.log(this.fullIotData)
+  //       localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
+
+  //     }, (error: any) => {
+  //       console.log(error.error.text)
+       
+  //       this.router.navigate(['/'])
+  //       localStorage.clear()
+  //     }
+  //   );
+  // }
 
 
   ngOnDestroy() {

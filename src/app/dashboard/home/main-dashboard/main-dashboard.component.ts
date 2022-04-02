@@ -1,9 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiserviceService } from 'src/app/apiservice.service';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import {
+  ApiserviceService
+} from 'src/app/apiservice.service';
 import * as moment from 'moment';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/auth.service';
+import {
+  MatSnackBar
+} from '@angular/material/snack-bar';
+import {
+  Router
+} from '@angular/router';
+import {
+  AuthService
+} from 'src/app/auth.service';
 
 @Component({
   selector: 'app-main-dashboard',
@@ -15,8 +26,8 @@ export class MainDashboardComponent implements OnInit {
   checked = false;
   disabled = false;
   graphShown: any;
-term: any
-legend: boolean = true;
+  term: any
+  legend: boolean = true;
   legendPosition: string = 'below';
   showXAxis = true;
   showYAxis = true;
@@ -32,22 +43,22 @@ legend: boolean = true;
     domain: ['#9370DB', '#87CEFA', '#FA8072', '#FF7F50', '#90EE90', '#9370DB']
   };
 
-currentDate = new Date()
+  wifiarray: Array < any > = []
+
+  currentDate = new Date()
 
   Object = Object;
-  
+
   //pie
   showLabels = true;
-// showLine : any[]
+  // showLine : any[]
 
 
-  saleData : any[]
+  saleData: any[]
 
-  showLine = [
-    {
+  showLine = [{
       "name": "Line Chart",
-      "series": [
-        {
+      "series": [{
           "name": "1",
           "value": 120
         },
@@ -97,12 +108,12 @@ currentDate = new Date()
         }
       ]
     },
-  
-  
+
+
   ];
-  
+
   saleDataPie = [
-    
+
   ];
 
   label: any;
@@ -111,165 +122,190 @@ currentDate = new Date()
   chartDataXAxis: any;
   fullIotData: any;
   insideIotData: any;
-  insideIot: Array<any> = []
+  insideIot: Array < any > = []
   loader: boolean;
   iotdata: any;
   nameList: any;
 
-  view=[400, 350]
+  view = [400, 350]
   checkLength: any;
   dateFilter: any;
   responseDate: any;
-  wifi: boolean = false;
-  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService ) {
-   }
+  wifi: any;
+  nextDate: number;
+  previousDate: number;
+  wifi1: boolean = true;
+  constructor(private apiService: ApiserviceService, private _snackbar: MatSnackBar, private router: Router, private authService: AuthService) {}
 
   ngOnInit(): void {
- 
-    
-if (localStorage.getItem("fulldata")) {
-    this.checkLength  = localStorage.getItem("fulldata") 
-    
-console.log(this.checkLength.length)
-console.log(JSON.parse(this.checkLength))
-    this.fullIotData = JSON.parse(this.checkLength)
-} else {
-  
-}
+
+
+    if (localStorage.getItem("fulldata")) {
+      this.checkLength = localStorage.getItem("fulldata")
+
+      console.log(this.checkLength.length)
+      console.log(JSON.parse(this.checkLength))
+      this.fullIotData = JSON.parse(this.checkLength)
+    } else {
+
+    }
     this.listIot()
     this.iotdata = setInterval(() => {
-      this.listIotTimer(); 
-      }, 10000);
+      this.listIotTimer();
+    }, 25000);
   }
 
 
   listIot() {
-   console.log(this.checkLength)
+    console.log(this.checkLength)
     if (!this.checkLength) {
       this.loader = true
 
     } else {
-    
+
       this.fullIotData = JSON.parse(this.checkLength)
-      let responseAllData : any = []
-      for(let i = 0; i < this.fullIotData.length ; i++ ) {
+      let responseAllData: any = []
+      for (let i = 0; i < this.fullIotData.length; i++) {
 
         // for (let j=0; j < 4 ; j++) {
 
         responseAllData.push({
-         "name": this.fullIotData[i].DeviceName,
-         "value": this.fullIotData[i].iot_data[0].iot_value,
+          "name": this.fullIotData[i].DeviceName,
+          "value": this.fullIotData[i].iot_data[0].iot_value,
         })
         console.log(responseAllData)
-     
+
         this.saleDataPie = responseAllData
         console.log(this.saleDataPie)
-       }
-this.loader = false
+      }
+      this.loader = false
     }
     console.log("dd")
     this.apiService.iot_datas().subscribe(
-      (response:any) => {
+      (response: any) => {
         console.log(response)
         this.fullIotData = response
         this.nameList = response.iot_data
         console.log(this.fullIotData)
         localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
+        
+        this.loader = false
+        let responseAllData: any = []
+        for (let i = 0; i < response.length; i++) {
 
-      this.loader = false
-      let responseAllData : any = []
-      for(let i = 0; i < response.length ; i++ ) {
+          // for (let j=0; j < 4 ; j++) {
+          console.log(moment(response[i].Timing_format).format('x'))
+          this.responseDate = moment(response[i].Timing_format).format('x')
+          console.log('this is', this.responseDate);
+          var dt: any = new Date();
+          var minutesToAdd = 2;
+          var minutesToSub = 2;
+          this.previousDate = new Date(dt - minutesToSub * 60000).valueOf();
+          this.nextDate = new Date(dt + minutesToSub * 60000).valueOf();
+          // this.previousDate = 1647091667000
+          // this.nextDate = 1647091787000;
+          console.log(this.nextDate, "next dated")
+          console.log(this.previousDate, "previous dated")
+          console.log(this.responseDate, "response dated")
+          if (this.responseDate <= this.nextDate && this.responseDate > this.previousDate) {
+            this.wifi = "1"
+          } else {
+            this.wifi = "2"
+          }
+          this.fullIotData[i].iot_data.push({
+            wifi: this.wifi
+          })
+          responseAllData.push({
+            "name": response[i].DeviceName,
+            "value": response[i].iot_data[0].iot_value,
+          })
+          console.log(responseAllData)
 
-        // for (let j=0; j < 4 ; j++) {
-
-        responseAllData.push({
-         "name": response[i].DeviceName,
-         "value": response[i].iot_data[0].iot_value,
-        })
-        console.log(responseAllData)
-     
-        this.saleDataPie = responseAllData
-        console.log(this.saleDataPie)
-       }
+          this.saleDataPie = responseAllData
+          console.log(this.saleDataPie)
+        }
 
 
 
-       }, (error:any) => {
-          console.log(error.error.text)
-          this._snackbar.open("Unauthorize access", "Login Again", {
-            duration: 3000
-          });
-          this.router.navigate(['/'])
-          localStorage.clear()
-   
+      }, (error: any) => {
+        console.log(error.error.text)
+        this._snackbar.open("Unauthorize access", "Login Again", {
+          duration: 3000
+        });
+        this.router.navigate(['/'])
+        localStorage.clear()
+
         //  this.fullIotData = JSON.parse(error.error.text.data)
         // console.log(this.fullIotData)
-       }
+      }
     );
   }
 
   listIotTimer() {
+    this.wifiarray = []
     console.log(moment(this.currentDate).format('x'))
 
     this.dateFilter = moment(this.currentDate).format('x')
     console.log("dd")
     this.apiService.iot_datas().subscribe(
-      (response:any) => {
+      (response: any) => {
         console.log(response)
         this.fullIotData = response
         this.nameList = response.iot_data
         console.log(this.fullIotData)
-        localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
+      
 
-        
-       
+        this.listIotTimer();
 
-      this.loader = false
-      let responseAllData : any = []
-      for(let i = 0; i < response.length ; i++ ) {
 
-        // for (let j=0; j < 4 ; j++) {
+        this.loader = false
+        let responseAllData: any = []
+        for (let i = 0; i < response.length; i++) {
+
+          // for (let j=0; j < 4 ; j++) {
           console.log(moment(response[i].Timing_format).format('x'))
           this.responseDate = moment(response[i].Timing_format).format('x')
           console.log('this is', this.responseDate);
-          var dt:any = new Date();
+          var dt: any = new Date();
           var minutesToAdd = 2;
           var minutesToSub = 2;
-          var previousDate = new Date(dt - minutesToSub*60000).valueOf();
-          console.log(previousDate)
-          var nextDate = 1647088027000;
-          console.log(nextDate)
-          console.log(this.responseDate, this.dateFilter)
-          if (nextDate >= this.responseDate || previousDate < this.responseDate
-             ) {
-            this.wifi = true
+          this.previousDate = new Date(dt - minutesToSub * 60000).valueOf();
+          this.nextDate = new Date(dt + minutesToSub * 60000).valueOf();
+          // this.previousDate = 1647091667000
+          // this.nextDate = 1647091787000;
+          console.log(this.nextDate, "next dated")
+          console.log(this.previousDate, "previous dated")
+          console.log(this.responseDate, "response dated")
+          if (this.responseDate <= this.nextDate && this.responseDate > this.previousDate) {
+            this.wifi = "1"
           } else {
-            this.wifi = false
+            this.wifi = "2"
           }
-        responseAllData.push({
-         "name": response[i].DeviceName,
-         "value": response[i].iot_data[0].iot_value,
-        })
-        console.log(responseAllData)
-     
-        this.saleDataPie = responseAllData
-        console.log(this.saleDataPie)
-       }
+          this.fullIotData[i].iot_data.push({
+            wifi: this.wifi
+          })
+          responseAllData.push({
+            "name": response[i].DeviceName,
+            "value": response[i].iot_data[0].iot_value,
+          })
+          console.log(responseAllData)
 
+          this.saleDataPie = responseAllData
+          console.log(this.saleDataPie)
+        }
+        localStorage.setItem("fulldata", JSON.stringify(this.fullIotData))
+      }, (error: any) => {
+        console.log(error.error.text)
+        this._snackbar.open("Unauthorize access", "Login Again", {
+          duration: 3000
+        });
+        this.router.navigate(['/'])
+        localStorage.clear()
 
-
-       }, (error:any) => {
-          console.log(error.error.text)
-          this._snackbar.open("Unauthorize access", "Login Again", {
-            duration: 3000
-          });
-          this.router.navigate(['/'])
-          localStorage.clear()
-   
 
         //  this.fullIotData = JSON.parse(error.error.text.data)
         // console.log(this.fullIotData)
-       }
+      }
     );
   }
 
@@ -282,5 +318,5 @@ this.loader = false
     this.router.navigate(['/dashboard/home/analytics'])
 
   }
- 
+
 }

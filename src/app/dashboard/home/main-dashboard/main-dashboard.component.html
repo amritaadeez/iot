@@ -22,9 +22,9 @@
   </div>
 
 
-  <div class="row data-row" *ngIf="!graphShown && !loader && (fullIotData | filter: term).length !== 0">
+  <div class="row data-row" *ngIf="!graphShown && !loader && (fullIotData | filter: term).length !== 0 ; let index = i">
     <div class="col-12 cl-lg-8 col-xl-8 col-md-12" style="height: 88vh; overflow: auto;">
-      <div class="row">
+      <div class="row" >
         <div class="col-xl-6 col-lg-6 col-md-6 col-12 " *ngFor="let iotData of fullIotData | filter:term">
           <div class="card component-card_9 zindex" (click)="routeChange(iotData)">
             <div class="card-body ">
@@ -34,11 +34,12 @@
                     <h5 class="card-title">{{iotData.DeviceName}}</h5>
                   </div>
                 </div>
-                <div class="meta-action">
+                <div class="meta-action" *ngFor="let iot of iotData.iot_data ">
                   <div class="meta-likes">
-                    <div class="w-icon ">
-                      <i class="fas fa-wifi blink" *ngIf="wifi" style=" color: blue;"></i>
-                      <i class="fa fa-wifi" *ngIf="!wifi" style="opacity: .6; font-size: 20px;"></i>
+                    <div class="w-icon" >
+                     
+                      <i class="fas fa-wifi blink" *ngIf="iot.wifi == '1'"  style=" color: blue;"></i>
+                      <i class="fa fa-wifi" *ngIf="iot.wifi == '2'" style="opacity: .6; font-size: 20px;"></i>
                     </div>
 
                   </div>
@@ -46,7 +47,7 @@
               </div>
               <div class="car">
 
-                <div class="meta-info" *ngFor="let iot of iotData.iot_data ">
+                <div class="meta-info" *ngFor="let iot of iotData.iot_data | slice:0:4 ">
                   <div class="meta-user">
                     <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">{{iot.iot_key.charAt(0)||
                         "-"}}</span></div>

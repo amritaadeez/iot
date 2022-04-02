@@ -131,6 +131,20 @@ export class ApiserviceService {
   }
 
 
+  public wholeGraph(data: any) {
+    console.log(data)
+    const body = {
+    devicename : "SHRIJITEMP001",
+    day_value : "weekend",
+    time_interval : "1 minutes"
+     
+    };
+    return this.http.post(this.baseUrl + '/list_iot_data' , body ,  { 
+      headers: this.getAuthHeader()
+    });
+  }
+
+
   public register(data: any) {
     const body = {
       first_name: data.firstName,
