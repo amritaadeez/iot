@@ -34,7 +34,6 @@ export class ApiserviceService {
 
   // public getAuthHeader() {
   //   this.token = localStorage.getItem("authToken")
-  //   console.log(this.token)
   //   let header: HttpHeaders;
   //   header = new HttpHeaders({
   //     'Content-Type': 'application/x-www-form-urlencoded',
@@ -46,7 +45,6 @@ export class ApiserviceService {
 
   public getAuthHeader() {
     this.token = localStorage.getItem("authToken")
-    console.log(this.token)
     let header: HttpHeaders;
     header = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -79,7 +77,6 @@ export class ApiserviceService {
 
 
   public chartList(data: any) {
-    console.log(data)
     const body = {
       chart_input: data.iot_data[0].iot_key,
       device_name: data.DeviceName,
@@ -92,7 +89,6 @@ export class ApiserviceService {
   }
 
   public chartList2(data: any) {
-    console.log(data)
     const body = {
       chart_input: data.iot_data[1].iot_key,
       device_name: data.DeviceName,
@@ -105,7 +101,6 @@ export class ApiserviceService {
   }
 
   public chartList3(data: any) {
-    console.log(data)
     const body = {
       chart_input: data.iot_data[2].iot_key,
       device_name: data.DeviceName,
@@ -118,7 +113,6 @@ export class ApiserviceService {
   }
 
   public chartList4(data: any) {
-    console.log(data)
     const body = {
       chart_input: data.iot_data[3].iot_key,
       device_name: data.DeviceName,
@@ -131,12 +125,12 @@ export class ApiserviceService {
   }
 
 
-  public wholeGraph(data: any) {
-    console.log(data)
+  public wholeGraph(selectedTime: any, day: any ,device_name: any) {
+   
     const body = {
-    devicename : "SHRIJITEMP001",
-    day_value : "weekend",
-    time_interval : "1 minutes"
+    devicename : device_name.DeviceName,
+    day_value : day,
+    time_interval : selectedTime
      
     };
     return this.http.post(this.baseUrl + '/list_iot_data' , body ,  { 

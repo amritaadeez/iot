@@ -152,7 +152,7 @@ export class MainDashboardComponent implements OnInit {
     this.listIot()
     this.iotdata = setInterval(() => {
       this.listIotTimer();
-    }, 25000);
+    }, 15000);
   }
 
 
@@ -253,10 +253,6 @@ export class MainDashboardComponent implements OnInit {
         this.fullIotData = response
         this.nameList = response.iot_data
         console.log(this.fullIotData)
-      
-
-        this.listIotTimer();
-
 
         this.loader = false
         let responseAllData: any = []

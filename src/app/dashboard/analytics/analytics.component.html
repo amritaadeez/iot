@@ -1,22 +1,25 @@
 <div class="main-content">
   <div class="row data-row" *ngIf=" !loader">
     <div class="col-12" style="text-align:end">
-      <select (change)="setTime($event)" style="width: 30vh !important; border-radius: 10px;">
-      <option value="">No Interval</option>
-      <option value="5">1 minutes</option>
-      <option value="10">5 minutes</option>
-      <!-- <option value="30">30 minutes</option> -->
+      <select  (change)="selectDeviceOutput($event)" style="width: 30vh !important;  border-radius: 5px;">
+        <option value="">All Datas</option>
+        <option *ngFor="let key of infoGraph.iot_data | slice:0:4; let i = index" value="{{i}}">{{key.iot_key}}</option>
+      </select>
+      <select (change)="setTime($event)" style="width: 30vh !important; margin-left: 2em; border-radius: 5px;" *ngIf="tabClicked == 'today'"> 
+      <option value="No Interval">no interval</option>
+      <option value="1 minutes">1 minutes</option>
+      <option value="3 minutes">3 minutes</option>
+      <option value="5 minutes">5 minutes</option>
     </select></div>
     <div class="col-12">
 
-
-      <mat-tab-group>
+      <mat-tab-group (selectedTabChange)="tabClick($event)">
         <mat-tab label="Today Graph">
           <div class="row">
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-4 col-12 layout-spacing">
               <!-- <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body "> -->
-                  <div class="widget widget-account-invoice-three">
+                  <div class="widget widget-account-invoice-three" style="height: 40%;"> 
                     <div class="widget-heading">
                       <div class="wallet-usr-info">
                         <div class="usr-name"><span><i class="fas fa-users" class="img-fluid"> </i>
@@ -57,7 +60,7 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-6">
               <div class=" " style="height: 62vh; overflow-x:hidden;">
                 <div class=" ">
                   <ngx-charts-pie-chart
@@ -70,12 +73,12 @@
                 </div>
 
               </div>
-            </div>
+            </div> -->
            
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6" *ngIf="selectedOutput == '3' || selectedOutput == ''" >
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[0].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[3].iot_key}}</h5>
                   <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
             justify-content: center;" [scheme]="colorScheme" [results]="graphData" [gradient]="gradient"
@@ -88,10 +91,10 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '2' || selectedOutput == ''">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[1].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[2].iot_key}}</h5>
                     
                   <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
@@ -105,10 +108,10 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '1' || selectedOutput == ''">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[2].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[1].iot_key}}</h5>
 
                   <ngx-charts-bar-horizontal style="    display: flex;
             align-items: center; color: blanchedalmond !important;
@@ -122,10 +125,10 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '0' || selectedOutput == ''">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[3].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[0].iot_key}}</h5>
 
                   <ngx-charts-area-chart [scheme]="colorScheme" [results]="graphDataFour" [gradient]="gradient"
                     [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
@@ -143,8 +146,8 @@
             <div class="col-xl-6 col-lg-6 col-md-6 col-sm-4 col-12 layout-spacing">
               <!-- <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body "> -->
-                  <div class="widget widget-account-invoice-three">
-                    <div class="widget-heading yes-heading">
+                  <div class="widget widget-account-invoice-three" style="height: 40%;"> 
+                    <div class="widget-heading">
                       <div class="wallet-usr-info">
                         <div class="usr-name"><span><i class="fas fa-users" class="img-fluid"> </i>
                             {{infoGraph.DeviceName}}</span></div>
@@ -156,7 +159,7 @@
                       </div>
                     </div>
                     <div class="widget-amount">
-                      <div *ngFor="let value of infoGraph.iot_data | slice:0:4" class="w-a-info funds-received"
+                      <div *ngFor="let value of infoGraph.iot_data | slice:0:4; let i=index"  class="w-a-info funds-received"
                         style="margin: .25em;"><span>{{value.iot_key}}
                         </span>
                         <p>{{value.iot_value}}</p>
@@ -184,11 +187,10 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-6">
               <div class=" " style="height: 62vh; overflow-x:hidden;">
                 <div class=" ">
                   <ngx-charts-pie-chart
-                  [view]="pieChartView"
                   [results]="graphComapreData"
                   [scheme]="colorScheme"
                  
@@ -198,26 +200,28 @@
                 </div>
 
               </div>
-            </div>
+            </div> -->
            
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6" *ngIf="selectedOutput == '3' || selectedOutput == ''" >
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[0].iot_key}}</h5>
-                  <ngx-charts-area-chart [scheme]="colorScheme" [results]="graphDataYesterday"
-                  [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
-                  [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                  [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
-                </ngx-charts-area-chart>
+                  <h5 class="heading">{{infoGraph.iot_data[3].iot_key}}</h5>
+                  <ngx-charts-bar-vertical style="    display: flex;
+            align-items: center; color: blanchedalmond !important;
+            justify-content: center;" [scheme]="colorScheme" [results]="graphDataYesterday" [gradient]="gradient"
+                    [barPadding]="2" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
+                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
+                  </ngx-charts-bar-vertical>
                 </div>
 
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '2' || selectedOutput == ''">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[1].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[2].iot_key}}</h5>
                     
                   <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
@@ -231,10 +235,10 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '1' || selectedOutput == ''">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[2].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[1].iot_key}}</h5>
 
                   <ngx-charts-bar-horizontal style="    display: flex;
             align-items: center; color: blanchedalmond !important;
@@ -248,10 +252,10 @@
               </div>
             </div>
 
-            <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '0' || selectedOutput == ''">
               <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
                 <div class="card-body ">
-                  <h5 class="heading">{{infoGraph.iot_data[3].iot_key}}</h5>
+                  <h5 class="heading">{{infoGraph.iot_data[0].iot_key}}</h5>
 
                   <ngx-charts-area-chart [scheme]="colorScheme" [results]="graphDataFourYesterday" [gradient]="gradient"
                     [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
@@ -263,28 +267,131 @@
               </div>
             </div>
           </div>
-          <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-            <ngx-charts-area-chart [view]="view" [scheme]="colorScheme" [results]="graphDataYesterday"
-                  [gradient]="gradient" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
-                  [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                  [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
-                </ngx-charts-area-chart>
-        
-          </div> -->
         </mat-tab>
         <mat-tab label="Week Graph">
-          <div class="col-xl-12 col-lg-12 col-md-12 col-12">
-            <div class="card component-card_9" style="height: 70vh;">
-              <div class="card-body ">
-                <ngx-charts-bar-vertical style="    display: flex;
+          <div class="row">
+            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-4 col-12 layout-spacing">
+              <!-- <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
+                <div class="card-body "> -->
+                  <div class="widget widget-account-invoice-three" style="height: 40%;"> 
+                    <div class="widget-heading">
+                      <div class="wallet-usr-info">
+                        <div class="usr-name"><span><i class="fas fa-users" class="img-fluid"> </i>
+                            {{infoGraph.DeviceName}}</span></div>
+
+                      </div>
+                      <div class="wallet-balance">
+                        <p>Energy Consumed</p>
+
+                      </div>
+                    </div>
+                    <div class="widget-amount">
+                      <div *ngFor="let value of infoGraph.iot_data | slice:0:4; let i=index"  class="w-a-info funds-received"
+                        style="margin: .25em;"><span>{{value.iot_key}}
+                        </span>
+                        <p>{{value.iot_value}}</p>
+                      </div>
+
+                    </div>
+                    <div class="widget-content">
+
+                      <div class="invoice-list">
+                        <div class="inv-detail">
+                          <div class="info-detail-1">
+                            <p class="span">Interval : </p>
+                            <p><span class="w-currency"></span><span class="bill-amount">10 secs</span></p>
+                          </div>
+                          <div class="info-detail-2">
+                            <p class="span">Last Updated :</p>
+                            <p><span class="w-currency"></span><span
+                                class="bill-amount">{{infoGraph.Timing_format | date:"medium"}}</span></p>
+                          </div>
+                        </div>
+                      <!-- </div>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-6">
+              <div class=" " style="height: 62vh; overflow-x:hidden;">
+                <div class=" ">
+                  <ngx-charts-pie-chart
+                  [results]="graphComapreData"
+                  [scheme]="colorScheme"
+                 
+                  labels="true"
+                  doughnut="true"
+              ></ngx-charts-pie-chart>
+                </div>
+
+              </div>
+            </div> -->
+           
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6" *ngIf="selectedOutput == '3' || selectedOutput == ''" >
+              <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
+                <div class="card-body ">
+                  <h5 class="heading">{{infoGraph.iot_data[3].iot_key}}</h5>
+                  <ngx-charts-bar-vertical style="    display: flex;
             align-items: center; color: blanchedalmond !important;
             justify-content: center;" [scheme]="colorScheme" [results]="weekGraph" [gradient]="gradient"
-                  [barPadding]="2" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
-                  [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
-                  [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
-                </ngx-charts-bar-vertical>
-              </div>
+                    [barPadding]="2" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
+                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
+                  </ngx-charts-bar-vertical>
+                </div>
 
+              </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '2' || selectedOutput == ''">
+              <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
+                <div class="card-body ">
+                  <h5 class="heading">{{infoGraph.iot_data[2].iot_key}}</h5>
+                    
+                  <ngx-charts-bar-vertical style="    display: flex;
+            align-items: center; color: blanchedalmond !important;
+            justify-content: center;" [scheme]="colorScheme" [results]="weekGraphOne" [gradient]="gradient"
+                    [barPadding]="2" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
+                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
+                  </ngx-charts-bar-vertical>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '1' || selectedOutput == ''">
+              <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
+                <div class="card-body ">
+                  <h5 class="heading">{{infoGraph.iot_data[1].iot_key}}</h5>
+
+                  <ngx-charts-bar-horizontal style="    display: flex;
+            align-items: center; color: blanchedalmond !important;
+            justify-content: center;" [scheme]="colorScheme" [results]="weekGraphTwo" [gradient]="gradient"
+                    [barPadding]="2" [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false"
+                    [showXAxisLabel]="showXAxisLabel" [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel"
+                    [yAxisLabel]="yAxisLabel" [xAxisType]="dateEpoch" (select)="onSelect($event)">
+                  </ngx-charts-bar-horizontal>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-6 col-6"  *ngIf="selectedOutput == '0' || selectedOutput == ''">
+              <div class="card component-card_9" style="height: 50vh; overflow-x:hidden;">
+                <div class="card-body ">
+                  <h5 class="heading">{{infoGraph.iot_data[0].iot_key}}</h5>
+
+                  <ngx-charts-area-chart [scheme]="colorScheme" [results]="weekGraphThree" [gradient]="gradient"
+                    [xAxis]="showXAxis" [yAxis]="showYAxis" [showGridLines]="false" [showXAxisLabel]="showXAxisLabel"
+                    [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+                    [xAxisType]="dateEpoch" (select)="onSelect($event)">
+                  </ngx-charts-area-chart>
+                </div>
+
+              </div>
             </div>
           </div>
         </mat-tab>

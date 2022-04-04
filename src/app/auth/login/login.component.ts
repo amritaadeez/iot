@@ -91,7 +91,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/dashboard/home/main'])
         }, (error: any) => {
           this.spinner = false
-          console.log(typeof  error.status)
           if (error.status == 0) {
           this._snackBar.open("Internet Connection Issue", "Cancel");
           } else {

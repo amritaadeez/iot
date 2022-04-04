@@ -99,7 +99,7 @@
               <div class="meta-info meta-info1">
                 <div class="meta-user">
                   <div class="user-name">
-                    <h5 class="card-title" routerLink="/dashboard/home/analytics">
+                    <h5 class="card-title" >
                       <div class="placeholder-loader"> </div>
                     </h5>
                   </div>
@@ -190,7 +190,7 @@
               <div class="meta-info meta-info1">
                 <div class="meta-user">
                   <div class="user-name">
-                    <h5 class="card-title" routerLink="/dashboard/home/analytics">
+                    <h5 class="card-title">
                       <div class="placeholder-loader"> </div>
                     </h5>
                   </div>
@@ -278,39 +278,29 @@
        
       </div>
     </div>
-    <div class="col-4">
+    <div class="col-4" style="margin-top: 4em;">
      
-        <div class="card component-card_9">
-          <div class="card-body ">
+            <div class="placeholder-loader" style="width: 100%;"></div>
+            <div class="placeholder-loader" style="width: 100%;"></div>
+            <div class="placeholder-loader" style="width: 100%;"></div>
+           
+            <div class="placeholder-loader" style="width: 100%;"></div>
+            <div class="placeholder-loader" style="width: 100%;"></div>
+           
             <div class="placeholder-loader" style="width: 100%;"></div>
             <div class="placeholder-loader" style="width: 100%;"></div>
             <div class="placeholder-loader" style="width: 100%;"></div>
             <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-
-            <div class="placeholder-loader" style="width: 100%;"></div>
+         
             <div class="placeholder-loader" style="width: 100%;"></div>
             <div class="placeholder-loader" style="width: 100%;"></div>
             <div class="placeholder-loader" style="width: 100%;"></div>
-
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-          </div>
-          <div class="card-body ">
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-          </div>
-        </div>
-  
-    </div>
+         
+       
 
   </div>
 
-  <div class="row data-row" *ngIf="fullIotData && (fullIotData | filter: term).length === 0 && !loader ">
+  <div class="row "  *ngIf="fullIotData && (fullIotData | filter: term).length === 0 && !loader ">
     <div class="col-12 card component-card_9" style="display: flex; align-items: center; justify-content: center;">
       <div style=" text-align: center; padding: 2em; ">
         <i class="fa fa-frown" style="color: grey; margin: 1em; font-size: 40px;"></i>

@@ -1,154 +1,188 @@
-
 .main-content {
-    overflow-x: hidden;
-    padding: 0em ;
-    input, select {
-        padding: 6px 27px 6px 15px;
-        border: none;
-        width: 100% !important;
-        background-color: #fff;
-        color: #000;
+  overflow-x: hidden;
+  padding: 0em;
+  height: 92vh;
+  overflow: scroll;
+
+  input,
+  select {
+    padding: 6px 27px 6px 15px;
+    border: none;
+    width: 100% !important;
+    background-color: #fff;
+    color: #000;
+  }
+
+  form>div svg {
+    position: absolute;
+    right: 11px;
+    color: #acb0c3;
+    height: 36px;
+    width: 19px;
+    top: 0px;
+  }
+
+  mat-slide-toggle {
+    padding: 2.5vh 0;
+  }
+
+  .data-row {
+    // padding: 0vh 0 6vh 0;
+    height: 92vh !important;
+    overflow-y: auto;
+    overflow-x: hidden !important;
+  }
+
+  .component-card_9 {
+    background-color: #fff;
+    color: #000;
+    margin: 1em 0;
+    box-shadow: 1px 2px 13px 4px rgba(0, 0, 0, 0.18);
+    border-radius: 20px;
+
+    .card-title {
+      color: #000;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500 !important;
     }
 
-     form > div svg {
-        position: absolute;
-        right: 11px;
-        color: #acb0c3;
-        height: 36px;
-        width: 19px;
-        top: 0px;
+    .card-title:hover {
+      font-weight: 500 !important;
     }
 
-    mat-slide-toggle {
-        padding: 2.5vh  0;
+
+
+    .meta-user {
+      display: flex;
+
+      .user-name {
+        align-items: center;
+        display: flex;
+
+      }
     }
-    
-    .data-row {
-        // padding: 0vh 0 6vh 0;
-        height: 92vh !important;
-        overflow-y: auto;
-        overflow-x: hidden !important;
+
+    .meta-info1 {
+      position: inherit !important;
     }
 
-    .component-card_9 {
-        background-color: #fff;
-        color: #000;
-        margin: 1em 0;
-        box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.18);
-border-radius: 20px;
-        .card-title {
-            color: #000;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500 !important;
-        }
-
-        .card-title:hover {
-            font-weight: 500 !important;
-        }
-
-
-
-        .meta-user{
-            display: flex;
-
-            .user-name {
-                align-items: center;
-                display: flex;
-
-            }
-        }
-
-        .meta-info1 {
-            position: inherit !important;
-        }
-
-        .meta-info {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 9px;
-            padding-top: 8px;
-            background-color: #fff;
-            color: #000;
-        }
-        .meta-info:before {
-            content: '';
-            position: absolute;
-            height: 1px;
-            width: 100%;
-            top: 0;
-            right: 0;
-            left: 0;
-            margin-right: auto;
-            margin-left: auto;
-        }
-        .meta-likes {
-            color: #515365;
-        }
-
-        .avatar {
-            position: relative;
-            display: inline-block;
-            width: 34px;
-            height: 34px;
-            font-size: 1rem;
-            margin-right: 10px;
-            .avatar-title {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                width: 100%;
-                height: 100%;
-                background-color: #515365;
-                color: #fff;
-                font-size: 14px;
-            }
-        }
+    .meta-info {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 9px;
+      align-items: center;
+      padding-top: 8px;
+      background-color: #fff;
+      color: #000;
     }
+
+    .meta-info:before {
+      content: '';
+      position: absolute;
+      height: 1px;
+      width: 100%;
+      top: 0;
+      right: 0;
+      left: 0;
+      margin-right: auto;
+      margin-left: auto;
+    }
+
+    .meta-likes {
+      color: #515365;
+    }
+
+    .avatar {
+      position: relative;
+      display: inline-block;
+      width: 34px;
+      height: 34px;
+      font-size: 1rem;
+      margin-right: 10px;
+
+      .avatar-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        background-color: #515365;
+        color: #fff;
+        font-size: 14px;
+      }
+    }
+  }
 
 }
 
+
+
+.search-form-input {
+  position: absolute;
+  top: 2.5vh;
+  z-index: 12;
+  right: 5vw;
+}
+
+.blink {
+  font-size: 20px;
+  font-family: cursive;
+  animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: .5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
 .placeholder-loader {
-    height: 2vh;
-    width: 5vw;
-    background-color: #e6e7ec;
+  height: 2vh;
+  width: 8vw;
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  border-radius: 5px;
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
 }
 
 .placeholder-loader-round {
-height: 3em;
-width: 3em;
-border-radius: 50%;
-margin-right: 1em;
-background-color: #e6e7ec !important;
+  height: 3em;
+  width: 3em;
+  border-radius: 50%;
+  margin-right: 1em;
+  background-color: #e6e7ec !important;
 }
 
 
 .zindex:hover {
-    z-index: 222;
+  z-index: 222;
+  background-color: #e2e4eb !important;
+  cursor: pointer;
+  box-shadow: 1px 2px 13px 4px rgba(0, 0, 0, 0.38) !important;
+
+  .meta-info {
     background-color: #e2e4eb !important;
-    cursor: pointer;
-    box-shadow: 1px 2px 13px 4px rgba(0,0,0,0.38) !important;
-    .meta-info {
-        background-color: #e2e4eb !important;
-    }
+  }
 }
 
 
-.search-form-input {
-    position: absolute;
-    top: 2.5vh;
-    z-index: 12;
-    right: 5vw;
-}
 
-.blink{
-    font-size: 20px;
-    font-family: cursive;
-    animation: blink 1s linear infinite;
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
 }
-@keyframes blink{
-    0%{opacity: 0;}
-    50%{opacity: .5;}
-    100%{opacity: 1;}
-    }

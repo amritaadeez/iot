@@ -127,7 +127,7 @@ export class ProfileComponent implements OnInit {
     this.submitted = true
     this.loader = true
 
-    console.log(data)
+    
     this.apiService.updateProfile(data).subscribe(
       (res: any) => {
         console.log(res)
