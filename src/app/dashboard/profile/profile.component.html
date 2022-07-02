@@ -1,19 +1,19 @@
 <div class="container-fluid main-content">
-  <div class="row gutters" *ngIf="profileData">
+  <div class="row gutters" >
     <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
       <div class="card h-100">
         <div class="card-body">
           <div class="account-settings">
             <div class="user-profile">
               <div class="user-avatar">
-                <img src="assets/profile/male.png" alt="{{profileData.first_name}}">
+                <img src="assets/profile/male.png" alt="profileData.first_name">
               </div>
-              <h3 class="user-name">{{profileData.first_name}} {{profileData.last_name}}</h3>
-              <h4 class="user-email">{{profileData.email_address}}</h4>
+              <h3 class="user-name">00</h3>
+              <h4 class="user-email">00 00 00 00</h4>
             </div>
             <div class="about">
               <h2 class="mb-2 ">About</h2>
-              <p>I'm {{profileData.first_name}}. Profile Created on {{profileData.created_DT | date}}</p>
+              <p>I'm 00000. Profile Created on profileData.created_DT </p>
             </div>
           
             <div class="about">
@@ -75,11 +75,9 @@
                   <label for="phone">Country code</label>
                   <select class="form-control" formControlName="countryCoded">
 
-                    <option *ngFor="let code of countryCode" value="+{{code.country_code}}">+{{code.country_code}}
+                    <option selected value="">+91
                     </option>
-                    <option  value="{{profileData.country_code}}">{{profileData.country_code}}
-                    </option>
-                    <option value="+91" *ngIf="!countryCode"> loading ..</option>
+                  
                   </select>
                  
                 </div>
@@ -134,7 +132,7 @@
               <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="text-right">
                   <!-- <button type="submit" id="submit" name="submit" class="btn btn-secondary">Cancel</button> -->
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary" [disabled]="loader"><span *ngIf="!loader"> Update </span> <span *ngIf="loader"> Updating <i class=" fas fa-spin fa-spinner"></i> </span> </button>
+                  <button type="submit" id="submit" name="submit" class="btn btn-primary" ><span > Update </span> </button>
                 </div>
               </div>
             </div>
@@ -154,7 +152,7 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="firstName">Old Password</label>
-                  <input type="text"  id="firstName" class="form-control" value="{{profileData.first_name}}"
+                  <input type="text"  id="firstName" class="form-control" value="8888"
                     placeholder="Enter Old Password" formControlName="password" class="form-control" 
                     [ngClass]="{ 'is-invalid': submitted && changeCP.password.errors }" />
                   <div *ngIf="submitted && changeCP.password.errors" class="invalid-feedback">
@@ -198,118 +196,6 @@
   </div>
 
 
-  <div class="loading-area" *ngIf="!profileData">
-    <i class="fas fa-spin fa-spinner"></i>
-  </div>
 
-
-  <div class="row gutters loader-profile" *ngIf="!profileData">
-    <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 col-12">
-      <div class="card h-100">
-        <div class="card-body">
-          <div class="account-settings">
-            <div class="user-profile">
-              <div class="user-avatar">
-                <img src="assets/profile/male.png" alt="--">
-              </div>
-              <h3 class="user-name"> XXXXXX XXXXXX </h3>
-              <h4 class="user-email">XXXXXX@XXXX.XX</h4>
-            </div>
-            <div class="about">
-              <h2 class="mb-2 ">About</h2>
-              <p>I'm XXXXXX. Profile Created on XX/XX/XXXX</p>
-            </div>
-            <div class="about">
-      
-              <button type="button" id="submit" name="submit" class="btn btn-primary" style="opacity: .5;" [disabled]="loader"> Change Password</button>
-            
-         </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-12">
-      <div class="card h-100">
-        <form class="text-left ng-untouched ng-pristine ng-invalid" role="form" [formGroup]="updateProfileForm"
-          (ngSubmit)="updateProfile(updateProfileForm.value)">
-          <div class="card-body">
-            <div class="row gutters">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <h2 class="mb-3">Personal Details</h2>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="firstName">First Name</label>
-                  <input type="text"  id="firstName" class="form-control" 
-                    placeholder="Enter First name" formControlName="firstName" class="form-control" 
-                    [ngClass]="{ 'is-invalid': submitted && loginGetter.firstName.errors }" />
-                  <div *ngIf="submitted && loginGetter.firstName.errors" class="invalid-feedback">
-                    <div *ngIf="loginGetter.firstName.errors.pattern"> Invalid FirstName (only letters) </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="lastName">Last Name</label>
-                  <input type="text" id="lastName" class="form-control" 
-                    placeholder="Enter Last name" formControlName="lastName" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && loginGetter.lastName.errors }" />
-                  <div *ngIf="submitted && loginGetter.lastName.errors" class="invalid-feedback">
-                    <div *ngIf="loginGetter.lastName.errors.pattern"> Invalid lastName (only letters) </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input type="email" class="form-control"  id="email"
-                    placeholder="Enter email ID" formControlName="emailId" 
-                    [ngClass]="{ 'is-invalid': submitted && loginGetter.emailId.errors }" />
-                  <div *ngIf="submitted && loginGetter.emailId.errors" class="invalid-feedback">
-                    <div *ngIf="loginGetter.emailId.errors.pattern"> Invalid Email </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-xl-2 col-lg-2 col-md-12 col-sm-2 col-12">
-                <div class="form-group">
-                  <label for="phone">Country code</label>
-                  <select class="form-control">
-
-                    <option value="+91" *ngIf="!countryCode"> loading ..</option>
-                  </select>
-                 
-                </div>
-              </div>
-
-              <div class="col-xl-4 col-lg-4 col-md-12 col-sm-4 col-12">
-                <div class="form-group">
-                  <label for="phone">Phone</label>
-                  <input type="text" class="form-control" id="phone"
-                     placeholder="Enter phone number"
-                    maxlength="10" minlength="10" class="form-control"
-                    [ngClass]="{ 'is-invalid': submitted && loginGetter.phone.errors }" />
-
-                  <div *ngIf="submitted && loginGetter.phone.errors" class="invalid-feedback">
-                    <div *ngIf="loginGetter.phone.errors.pattern"> Invalid Phone Number </div>
-
-                  </div>
-                </div>
-              </div>
-
-            </div>
-           
-            <div class="row gutters">
-              <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="text-right">
-                  <!-- <button type="submit" id="submit" name="submit" class="btn btn-secondary">Cancel</button> -->
-                  <button type="submit" id="submit" name="submit" class="btn btn-primary" [disabled]="loader" style="opacity: .5;"><span *ngIf="!loader"> Update </span> <span *ngIf="loader"> Updating <i class=" fas fa-spin fa-spinner"></i> </span> </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+ 
 </div>

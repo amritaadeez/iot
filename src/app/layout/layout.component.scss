@@ -18,7 +18,7 @@
   }
   
   .example-sidenav {
-    padding-left: 15vw;
+    padding-left: 220px;
     // transition: all;
   }
   
@@ -108,30 +108,30 @@
   
       li {
         font-size: 2vh !important;
-        color: #0e1726;
+        color: #000;
         padding: 1em 0em 1em 0;
         font-weight: 400;
         cursor: pointer;
       }
   
       li.active {
-        background-color: #c5c5c3;
-        color: #0e1726 !important;
-        border-left: 4px solid #2e3192;
+        color: #0d87d1 !important;
+        border-left: 4px solid #0d87d1;
   
         i {
-          color: #0e1726 !important;
+          color: #0d87d1 !important;
           font-weight: 900 !important;
+          font-size: 20px;
   
         }
       }
   
       li:hover {
         background-color: #f2f2f2;
-        color: #0e1726;
+        color: #000;
   
         i {
-          color: #0e1726;
+          color: #000;
           transform: rotate(360deg);
   
         }
@@ -183,17 +183,17 @@
   .main-sidebar {
     left: 0;
     margin-top: 0;
-    border-radius: 1em;
+    // border-radius: 1em;
     overflow: auto;
     overflow-x: hidden;
-    width: 15vw !important;
-    box-shadow: 1px 2px 3px 4px rgb(0 0 0 / 18%);
+    width: 220px !important;
+    // box-shadow: 1px 2px 3px 4px rgb(0 0 0 / 18%);
     -webkit-transition: -webkit-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     -moz-transition: -moz-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     -o-transition: -o-transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     transition: transform 0.3s cubic-bezier(0.32, 1.25, 0.375, 1.15);
     position: fixed;
-    background: #d9d9d9 !important;
+    background: #fff !important;
     height: 100vh;
     transition: all .5s;
   
@@ -221,17 +221,17 @@
   
         li {
           font-size: 2.25vh !important;
-        
+        color: #000;
           padding: 1em 0em .75em 0;
           font-weight: 400;
           cursor: pointer;
         }
   
         li.active {
-          background-color: #c5c5c3;
-          border-left: 4px solid  #2e3192 ;
+          color: #0d87d1;
+          border-left: 4px solid  #0d87d1 ;
           span {
-            color: #0e1726;
+            color: #0d87d1;
             font-weight: 500 !important;
           }
         }
@@ -239,13 +239,13 @@
         li:hover {
           background-color: #f2f2f2;
           span {
-            color: #0e1726;
+            color: #000;
           }
         }
 
         span {
           padding-left: 1em;
-          color: #0e1726;
+          color: #000;
           font-weight: 500;
         }
   
@@ -256,7 +256,7 @@
   
     .expand {
       background-color: transparent;
-      color: #0e1726 !important;
+      color: #0d87d1 !important;
       transition: all .5s;
     }
   
@@ -264,12 +264,12 @@
       background: rgba(255, 255, 255, 0.8);
       box-shadow: 20px 6px 16px 13px rgb(0 0 0 / 18%);
       border-radius: 0px 0 0 25px;
-      color: #0e1726 !important;
+      color: #0d87d1 !important;
       transition: all .5s;
       border-bottom-left-radius:15px !important;
   
       span {
-        color: #0e1726 !important;
+        color: #0d87d1 !important;
       }
     }
   
@@ -281,7 +281,7 @@
     }
   
     .rotate {
-      color: #0e1726;
+      color: #0d87d1;
     }
   
     *:focus {
@@ -319,9 +319,9 @@
     }
   
     .collapse-expand.active {
-      color: #0e1726 !important;
+      color: #0d87d1 !important;
       i {
-        color: #0e1726;
+        color: #0d87d1;
       }
     }
   
@@ -333,18 +333,18 @@
     }
   
     .secondary-nav-item.active {
-      background-color: #43328e !important;
+      color: #0d87d1 !important;
       border-radius: 0px 0 0 15px;
   
       span {
-        color: #0e1726 !important;
+        color: #0d87d1 !important;
       }
     }
   
     .secondary-nav-item {
   
       span {
-        color: #0e1726 !important;
+        color: #0d87d1 !important;
         font-size: 1.5vh !important;
       }
     }
@@ -352,7 +352,7 @@
   
 
 .sidebar-theme {
-    background: #0e1726;
+    background: #0d87d1;
 }
 
 

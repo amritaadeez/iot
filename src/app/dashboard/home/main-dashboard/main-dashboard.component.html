@@ -1,313 +1,39 @@
 <div class="main-content">
 
-  <div class="row">
-    <div class="col-xl-4 col-lg-4  col-md-4 col-12"></div>
-    <div class="col-xl-4 col-lg-4  col-md-4 col-12"></div>
-    <div class="col-xl-4 col-lg-4  col-md-4 col-10 search-form-input">
 
 
-      <form class="form-inline my-2 my-lg-0 ng-pristine ng-valid ng-touched">
-        <div style="width: 100%; position: relative;"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" class="feather feather-search">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg><input name="txtdevicesearch" type="text" id="input-search" [(ngModel)]="term"
-            placeholder="Search by meter name..." class="form-control product-search ng-pristine ng-valid ng-touched">
-        </div>
-      </form>
 
-    </div>
-
-  </div>
-
-
-  <div class="row data-row" *ngIf="!graphShown && !loader && (fullIotData | filter: term).length !== 0 ; let index = i">
+  <div class="row data-row">
     <div class="col-12 cl-lg-8 col-xl-8 col-md-12" style="height: 88vh; overflow: auto;">
-      <div class="row" >
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 " *ngFor="let iotData of fullIotData | filter:term">
-          <div class="card component-card_9 zindex" (click)="routeChange(iotData)">
-            <div class="card-body ">
-              <div class="meta-info meta-info1">
-                <div class="meta-user">
-                  <div class="user-name">
-                    <h5 class="card-title">{{iotData.DeviceName}}</h5>
-                  </div>
-                </div>
-                <div class="meta-action" *ngFor="let iot of iotData.iot_data ">
-                  <div class="meta-likes">
-                    <div class="w-icon" >
-                     
-                      <i class="fas fa-wifi blink" *ngIf="iot.wifi == '1'"  style=" color: blue;"></i>
-                      <i class="fa fa-wifi" *ngIf="iot.wifi == '2'" style="opacity: .6; font-size: 20px;"></i>
-                    </div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="car">
-
-                <div class="meta-info" *ngFor="let iot of iotData.iot_data | slice:0:4 ">
-                  <div class="meta-user">
-                    <div class="avatar avatar-sm"><span class="avatar-title rounded-circle">{{iot.iot_key.charAt(0)||
-                        "-"}}</span></div>
-                    <div class="user-name">{{iot.iot_key|| "-"}}</div>
-                  </div>
-                  <div class="meta-action">
-                    <div class=""> {{iot.iot_value || "-"}} </div>
-                  </div>
-                </div>
-
-              </div>
-
-
-              <div class="meta-info">
-                <div class="meta-user">
-                  <div class="user-name">Last updated</div>
-                </div>
-                <div class="meta-action">
-                  <div class=""> {{iotData.Timing_format | date:"medium"}} </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 colmd-12 cl-lg-4 col-xl-4">
-     <!-- <div class="card component-card_9"> -->
-       <!-- <h2 style="padding: 2em;"> All Devices Comparision</h2> -->
-          <ngx-charts-gauge  [scheme]="colorScheme" [legend]="legend"
-          [legendPosition]="legendPosition" [view]="view" [results]="saleDataPie">
-          </ngx-charts-gauge>
-         
-        <!-- </div> -->
-        
-    </div>
-
-
-  </div>
-
-
-  <div class="row data-row " *ngIf="loader">
-    <div class="col-8">
       <div class="row">
         <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
-          <div class="card component-card_9">
+          <div class="card component-card_9 zindex" >
             <div class="card-body ">
               <div class="meta-info meta-info1">
                 <div class="meta-user">
                   <div class="user-name">
-                    <h5 class="card-title" >
-                      <div class="placeholder-loader"> </div>
-                    </h5>
+                    <h5 class="card-title">dd</h5>
                   </div>
                 </div>
-                <div class="meta-action">
-                  <div class="meta-likes">
-                    <div class="w-icon placeholder-loader-round"></div>
-
-                  </div>
+                <div class="meta-action" >
+                
                 </div>
               </div>
-              <div class="car">
+             
 
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="meta-info">
-                <div class="meta-user">
-                  <div class="user-name">
-                    <div class="placeholder-loader"> </div>
-                  </div>
-                </div>
-                <div class="meta-action">
-                  <div class="">
-                    <div class="placeholder-loader"> </div>
-                  </div>
-                </div>
-              </div>
+             
             </div>
 
           </div>
         </div>
-        <div class="col-xl-6 col-lg-6 col-md-6 col-12 ">
-          <div class="card component-card_9">
-            <div class="card-body ">
-              <div class="meta-info meta-info1">
-                <div class="meta-user">
-                  <div class="user-name">
-                    <h5 class="card-title">
-                      <div class="placeholder-loader"> </div>
-                    </h5>
-                  </div>
-                </div>
-                <div class="meta-action">
-                  <div class="meta-likes">
-                    <div class="w-icon placeholder-loader-round"></div>
-
-                  </div>
-                </div>
-              </div>
-              <div class="car">
-
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="meta-info">
-                  <div class="meta-user">
-                    <div class="w-icon placeholder-loader-round"></div>
-                    <div class="user-name">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                  <div class="meta-action">
-                    <div class="">
-                      <div class="placeholder-loader"> </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="meta-info">
-                <div class="meta-user">
-                  <div class="user-name">
-                    <div class="placeholder-loader"> </div>
-                  </div>
-                </div>
-                <div class="meta-action">
-                  <div class="">
-                    <div class="placeholder-loader"> </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-       
       </div>
     </div>
-    <div class="col-4" style="margin-top: 4em;">
-     
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-           
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-           
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-         
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-            <div class="placeholder-loader" style="width: 100%;"></div>
-         
-       
+  
 
   </div>
 
-  <div class="row "  *ngIf="fullIotData && (fullIotData | filter: term).length === 0 && !loader ">
-    <div class="col-12 card component-card_9" style="display: flex; align-items: center; justify-content: center;">
-      <div style=" text-align: center; padding: 2em; ">
-        <i class="fa fa-frown" style="color: grey; margin: 1em; font-size: 40px;"></i>
-        <h1 style="color: grey;"> No Search Data Exits </h1>
-      </div>
 
-    </div>
-  </div>
+
+
 
 </div>

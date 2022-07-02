@@ -8,19 +8,18 @@ import { MainDashboardComponent } from './main-dashboard/main-dashboard.componen
 const routes: Routes = [
   {
     path: "main",
-    canActivate: [AuthGuard],
     component: MainDashboardComponent,
   },
 
   {
     path: "profile",
-    canActivate: [AuthGuard],
+   
     component: ProfileComponent,
   },
 
   {
     path: "analytics",
-    canActivate: [AuthGuard],
+   
     component: AnalyticsComponent,
   },
 ];
