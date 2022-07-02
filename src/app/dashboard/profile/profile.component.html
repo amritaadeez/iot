@@ -38,7 +38,7 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="firstName">First Name</label>
-                  <input type="text"  id="firstName" class="form-control" value="{{profileData.first_name}}"
+                  <input type="text"  id="firstName" class="form-control" value="first_name"
                     placeholder="Enter First name" formControlName="firstName" class="form-control" 
                     [ngClass]="{ 'is-invalid': submitted && loginGetter.firstName.errors }" />
                   <div *ngIf="submitted && loginGetter.firstName.errors" class="invalid-feedback">

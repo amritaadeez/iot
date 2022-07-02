@@ -56,65 +56,144 @@ export class MainDashboardComponent implements OnInit {
 
   saleData: any[]
 
-  showLine = [{
-      "name": "Line Chart",
-      "series": [{
-          "name": "1",
-          "value": 120
-        },
-        {
-          "name": "2",
-          "value": 333
-        },
-        {
-          "name": "4",
-          "value": 474
-        },
-        {
-          "name": "5",
-          "value": 174
-        },
-        {
-          "name": "6",
-          "value": 374
-        },
-        {
-          "name": "7",
-          "value": 674
-        },
-        {
-          "name": "8",
-          "value": 974
-        },
-        {
-          "name": "43",
-          "value": 74
-        },
-        {
-          "name": "14",
-          "value": 1074
-        },
-        {
-          "name": "22",
-          "value": 44
-        },
-        {
-          "name": "422",
-          "value": 411
-        },
-        {
-          "name": "42",
-          "value": 1474
-        }
-      ]
-    },
+  collection = [{
+      
+      
+          "firstName": "Vikas",
+          "lastName": "Pandey",
+          "userName": "vikaPaney",
+          "email": "vikapandey@eroute.in"
 
+  },
+  {
+      
+      
+    "firstName": "Vikas",
+    "lastName": "Pandey",
+    "userName": "vikaPaney",
+    "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+},{
+      
+      
+  "firstName": "Vikas",
+  "lastName": "Pandey",
+  "userName": "vikaPaney",
+  "email": "vikapandey@eroute.in"
+
+}
 
   ];
 
   saleDataPie = [
 
   ];
+
+  p: number = 1;
 
   label: any;
   chartDataYAxis: any;
@@ -141,7 +220,6 @@ export class MainDashboardComponent implements OnInit {
 
 
   }
-
 
 
 }

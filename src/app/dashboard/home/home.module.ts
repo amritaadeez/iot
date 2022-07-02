@@ -4,8 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { HomeRoutingModule } from './home-routing.module';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import {MatTableModule} from '@angular/material/table';
+import {MatButtonModule} from '@angular/material/button';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -15,9 +19,12 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     CommonModule,
     HomeRoutingModule,
     MatSlideToggleModule,
-    NgxChartsModule,
+    NgxPaginationModule,
     FormsModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    MatTableModule,
+    MatButtonModule,
+    MatPaginatorModule
   ]
 })
 export class HomeModule { }
